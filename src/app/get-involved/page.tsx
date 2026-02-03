@@ -1,0 +1,211 @@
+import { Metadata } from "next";
+import { MapPin, Mail, Phone, Users, Heart, Building } from "lucide-react";
+import { client } from "@/lib/sanity";
+import { staffByCategoryQuery } from "@/lib/sanity/queries";
+import { StaffCard, Button } from "@/components/ui";
+import type { StaffMember } from "@/types";
+
+export const metadata: Metadata = {
+  title: "Get Involved",
+  description:
+    "Join Bollington Town FC as a player, volunteer, or sponsor. Find out how you can be part of our community football club.",
+};
+
+async function getBoardMembers() {
+  return client.fetch<StaffMember[]>(staffByCategoryQuery, { category: "board" });
+}
+
+export default async function GetInvolvedPage() {
+  const boardMembers = await getBoardMembers();
+
+  return (
+    <div className="pt-24 pb-16">
+      {/* Page Header */}
+      <div className="bg-btfc-navy py-16 mb-12">
+        <div className="container">
+          <h1 className="font-display text-4xl md:text-5xl text-white uppercase tracking-wider">
+            Get Involved
+          </h1>
+          <p className="text-white/70 mt-4 max-w-xl">
+            There are many ways to be part of Bollington Town FC. Whether you want to
+            play, volunteer, or support the club, we&apos;d love to hear from you.
+          </p>
+        </div>
+      </div>
+
+      <div className="container">
+        {/* Ways to Get Involved */}
+        <section className="mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Play */}
+            <div id="play" className="bg-white rounded-xl p-8 shadow-md border-t-4 border-btfc-gold">
+              <div className="w-14 h-14 bg-btfc-gold/10 rounded-full flex items-center justify-center mb-6">
+                <Users className="w-7 h-7 text-btfc-gold" />
+              </div>
+              <h2 className="font-display text-xl text-btfc-navy uppercase tracking-wider mb-4">
+                Play For Us
+              </h2>
+              <p className="text-neutral-600 mb-6">
+                Looking to play competitive football? We&apos;re always looking for talented
+                players to join our first team. All skill levels welcome for training.
+              </p>
+              <ul className="text-sm text-neutral-600 space-y-2 mb-6">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-btfc-gold rounded-full" />
+                  First Team - Cheshire League
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-btfc-gold rounded-full" />
+                  Regular training sessions
+                </li>
+              </ul>
+              <a
+                href="mailto:players@bollingtontownfc.co.uk"
+                className="text-btfc-blue hover:text-btfc-gold transition-colors font-medium"
+              >
+                Contact us to join →
+              </a>
+            </div>
+
+            {/* Volunteer */}
+            <div id="volunteer" className="bg-white rounded-xl p-8 shadow-md border-t-4 border-btfc-blue">
+              <div className="w-14 h-14 bg-btfc-blue/10 rounded-full flex items-center justify-center mb-6">
+                <Heart className="w-7 h-7 text-btfc-blue" />
+              </div>
+              <h2 className="font-display text-xl text-btfc-navy uppercase tracking-wider mb-4">
+                Volunteer
+              </h2>
+              <p className="text-neutral-600 mb-6">
+                Help us run the club! We need volunteers for matchdays, events, and
+                general club operations. No football experience necessary.
+              </p>
+              <ul className="text-sm text-neutral-600 space-y-2 mb-6">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-btfc-blue rounded-full" />
+                  Matchday assistance
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-btfc-blue rounded-full" />
+                  Social media & content
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-btfc-blue rounded-full" />
+                  Committee roles
+                </li>
+              </ul>
+              <a
+                href="mailto:volunteers@bollingtontownfc.co.uk"
+                className="text-btfc-blue hover:text-btfc-gold transition-colors font-medium"
+              >
+                Get in touch →
+              </a>
+            </div>
+
+            {/* Sponsor */}
+            <div id="sponsor" className="bg-white rounded-xl p-8 shadow-md border-t-4 border-btfc-navy">
+              <div className="w-14 h-14 bg-btfc-navy/10 rounded-full flex items-center justify-center mb-6">
+                <Building className="w-7 h-7 text-btfc-navy" />
+              </div>
+              <h2 className="font-display text-xl text-btfc-navy uppercase tracking-wider mb-4">
+                Become a Sponsor
+              </h2>
+              <p className="text-neutral-600 mb-6">
+                Support local football while promoting your business. We offer various
+                sponsorship packages to suit different budgets.
+              </p>
+              <ul className="text-sm text-neutral-600 space-y-2 mb-6">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-btfc-navy rounded-full" />
+                  Kit sponsorship
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-btfc-navy rounded-full" />
+                  Match ball sponsorship
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-btfc-navy rounded-full" />
+                  Pitchside advertising
+                </li>
+              </ul>
+              <a
+                href="mailto:sponsors@bollingtontownfc.co.uk"
+                className="text-btfc-blue hover:text-btfc-gold transition-colors font-medium"
+              >
+                Sponsorship enquiries →
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Board Members */}
+        {boardMembers && boardMembers.length > 0 && (
+          <section id="contact" className="mb-16">
+            <h2 className="font-display text-2xl text-btfc-navy uppercase tracking-wider mb-6">
+              Club Contacts
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {boardMembers.map((member) => (
+                <StaffCard
+                  key={member._id}
+                  name={member.name}
+                  role={member.role}
+                  email={member.email}
+                  imageUrl={member.image ? `https://cdn.sanity.io/images/m8shvxfm/production/${member.image.asset._ref.replace("image-", "").replace("-jpg", ".jpg").replace("-png", ".png")}` : undefined}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Location */}
+        <section className="mb-16">
+          <h2 className="font-display text-2xl text-btfc-navy uppercase tracking-wider mb-6">
+            Find Us
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <div className="bg-white rounded-xl p-6 shadow-md">
+                <div className="flex items-start gap-4 mb-6">
+                  <MapPin className="w-6 h-6 text-btfc-gold shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-display text-lg text-btfc-navy uppercase tracking-wider mb-2">
+                      All Hallows Catholic College
+                    </h3>
+                    <p className="text-neutral-600">
+                      Macclesfield<br />
+                      Cheshire
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 mb-4">
+                  <Mail className="w-5 h-5 text-btfc-gold" />
+                  <a
+                    href="mailto:info@bollingtontownfc.co.uk"
+                    className="text-btfc-blue hover:text-btfc-gold transition-colors"
+                  >
+                    info@bollingtontownfc.co.uk
+                  </a>
+                </div>
+                <p className="text-sm text-neutral-500">
+                  Home matches are played at All Hallows Catholic College. Check the
+                  fixtures page for upcoming matches.
+                </p>
+              </div>
+            </div>
+            <div className="h-80 lg:h-auto rounded-xl overflow-hidden bg-neutral-200">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2380.8!2d-2.1!3d53.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBollington!5e0!3m2!1sen!2suk!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
