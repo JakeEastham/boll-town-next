@@ -85,11 +85,11 @@ export function Footer() {
                 <span>All Hallows Catholic College, Macclesfield, Cheshire</span>
               </div>
               <a
-                href="mailto:info@bollingtontownfc.co.uk"
+                href="mailto:secretary@bollingtontownfc.co.uk"
                 className="flex items-center gap-3 text-white/70 hover:text-btfc-gold transition-colors"
               >
                 <Mail className="w-5 h-5" />
-                <span>info@bollingtontownfc.co.uk</span>
+                <span>secretary@bollingtontownfc.co.uk</span>
               </a>
             </div>
 

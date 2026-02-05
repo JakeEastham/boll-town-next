@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { client } from "@/lib/sanity";
-import { latestNewsQuery } from "@/lib/sanity/queries";
-import { NewsListing } from "@/components/sections";
-import type { NewsArticle } from "@/types";
+import { latestNewsQuery, sponsorsQuery } from "@/lib/sanity/queries";
+import { NewsListing, SponsorBanner } from "@/components/sections";
+import type { NewsArticle, Sponsor } from "@/types";
 
 export const metadata: Metadata = {
   title: "News",
@@ -14,12 +14,16 @@ interface NewsPageProps {
   searchParams: Promise<{ category?: string }>;
 }
 
-async function getNews() {
-  return client.fetch<NewsArticle[]>(latestNewsQuery, { limit: 50 });
+async function getNewsPageData() {
+  const [articles, sponsors] = await Promise.all([
+    client.fetch<NewsArticle[]>(latestNewsQuery, { limit: 50 }),
+    client.fetch<Sponsor[]>(sponsorsQuery),
+  ]);
+  return { articles, sponsors };
 }
 
 export default async function NewsPage({ searchParams }: NewsPageProps) {
-  const [articles, params] = await Promise.all([getNews(), searchParams]);
+  const [{ articles, sponsors }, params] = await Promise.all([getNewsPageData(), searchParams]);
   const currentCategory = params.category || "all";
 
   return (
@@ -40,6 +44,11 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
       {/* News Listing */}
       <div className="container">
         <NewsListing articles={articles || []} currentCategory={currentCategory} />
+      </div>
+
+      {/* Sponsor Banner */}
+      <div className="mt-16">
+        <SponsorBanner sponsors={sponsors || []} />
       </div>
     </div>
   );

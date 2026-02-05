@@ -47,7 +47,7 @@ export default async function GetInvolvedPage() {
               </h2>
               <p className="text-neutral-600 mb-6">
                 Looking to play competitive football? We&apos;re always looking for talented
-                players to join our first team. All skill levels welcome for training.
+                players to join our first team.
               </p>
               <ul className="text-sm text-neutral-600 space-y-2 mb-6">
                 <li className="flex items-center gap-2">
@@ -60,7 +60,7 @@ export default async function GetInvolvedPage() {
                 </li>
               </ul>
               <a
-                href="mailto:players@bollingtontownfc.co.uk"
+                href="mailto:secretary@bollingtontownfc.co.uk"
                 className="text-btfc-blue hover:text-btfc-gold transition-colors font-medium"
               >
                 Contact us to join →
@@ -94,7 +94,7 @@ export default async function GetInvolvedPage() {
                 </li>
               </ul>
               <a
-                href="mailto:volunteers@bollingtontownfc.co.uk"
+                href="mailto:secretary@bollingtontownfc.co.uk"
                 className="text-btfc-blue hover:text-btfc-gold transition-colors font-medium"
               >
                 Get in touch →
@@ -120,7 +120,7 @@ export default async function GetInvolvedPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-btfc-navy rounded-full" />
-                  Match ball sponsorship
+                  Player sponsorship
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-btfc-navy rounded-full" />
@@ -128,7 +128,7 @@ export default async function GetInvolvedPage() {
                 </li>
               </ul>
               <a
-                href="mailto:sponsors@bollingtontownfc.co.uk"
+                href="mailto:secretary@bollingtontownfc.co.uk"
                 className="text-btfc-blue hover:text-btfc-gold transition-colors font-medium"
               >
                 Sponsorship enquiries →
@@ -180,10 +180,10 @@ export default async function GetInvolvedPage() {
                 <div className="flex items-center gap-4 mb-4">
                   <Mail className="w-5 h-5 text-btfc-gold" />
                   <a
-                    href="mailto:info@bollingtontownfc.co.uk"
+                    href="mailto:secretary@bollingtontownfc.co.uk"
                     className="text-btfc-blue hover:text-btfc-gold transition-colors"
                   >
-                    info@bollingtontownfc.co.uk
+                    secretary@bollingtontownfc.co.uk
                   </a>
                 </div>
                 <p className="text-sm text-neutral-500">
@@ -194,7 +194,7 @@ export default async function GetInvolvedPage() {
             </div>
             <div className="h-80 lg:h-auto rounded-xl overflow-hidden bg-neutral-200">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2380.8!2d-2.1!3d53.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBollington!5e0!3m2!1sen!2suk!4v1"
+                src="https://www.google.com/maps?q=All+Hallows+Catholic+College,+Macclesfield,+Cheshire&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

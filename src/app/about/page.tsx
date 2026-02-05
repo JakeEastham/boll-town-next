@@ -1,6 +1,8 @@
 import { Metadata } from "next";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { client } from "@/lib/sanity";
+import { sponsorsQuery } from "@/lib/sanity/queries";
+import { SponsorBanner } from "@/components/sections";
+import type { Sponsor } from "@/types";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -35,7 +37,12 @@ const timelineEvents = [
   },
 ];
 
-export default function AboutPage() {
+async function getSponsors() {
+  return client.fetch<Sponsor[]>(sponsorsQuery);
+}
+
+export default async function AboutPage() {
+  const sponsors = await getSponsors();
   return (
     <div className="pt-24 pb-16">
       {/* Page Header */}
@@ -162,6 +169,11 @@ export default function AboutPage() {
             and are dedicated to providing a safe and enjoyable environment for all.
           </p>
         </section>
+      </div>
+
+      {/* Sponsor Banner */}
+      <div className="mt-16">
+        <SponsorBanner sponsors={sponsors || []} />
       </div>
     </div>
   );

@@ -58,6 +58,13 @@ const fallbackDocuments: ClubDocument[] = [
     fileUrl: "/pdfs/drug-alcohol-policy.pdf",
     category: "policy",
   },
+  {
+    _id: "6",
+    title: "Club Constitution",
+    description: "Our official club constitution document",
+    fileUrl: "/pdfs/constitution.pdf",
+    category: "constitution",
+  },
 ];
 
 export default async function ClubDocumentsPage() {

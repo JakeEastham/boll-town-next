@@ -26,7 +26,7 @@ const navItems: NavItem[] = [
       { label: "Fixtures & Results", href: "/matches" },
       {
         label: "First Team (FA Full-Time)",
-        href: "https://fulltime.thefa.com/displayTeam.html?divisionseason=80570566&teamID=312011849",
+        href: "https://fulltime.thefa.com/displayTeam.html?divisionseason=793240729&teamID=312011849",
         external: true,
       },
     ],

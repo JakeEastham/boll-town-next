@@ -136,3 +136,76 @@ export function SponsorStrip({ sponsors }: SponsorStripProps) {
     </div>
   );
 }
+
+// Banner version for subpages
+interface SponsorBannerProps {
+  sponsors: Sponsor[];
+}
+
+export function SponsorBanner({ sponsors }: SponsorBannerProps) {
+  // Get main sponsors first, then others
+  const mainSponsors = (sponsors || []).filter((s) => s.tier === "main" || s.tier === "kit");
+  const otherSponsors = (sponsors || []).filter((s) => s.tier !== "main" && s.tier !== "kit");
+  const displaySponsors = [...mainSponsors, ...otherSponsors].slice(0, 6);
+
+  return (
+    <section className="py-10 bg-neutral-100 border-y border-neutral-200">
+      <div className="container">
+        <div className="text-center mb-6">
+          <h3 className="font-display text-lg text-btfc-navy uppercase tracking-wider">
+            Proudly Supported By
+          </h3>
+        </div>
+        {displaySponsors.length > 0 ? (
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            {displaySponsors.map((sponsor) => {
+              const logoContent = (
+                <div className="grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src={urlFor(sponsor.logo).width(240).height(100).url()}
+                    alt={sponsor.name}
+                    width={120}
+                    height={50}
+                    className="object-contain"
+                  />
+                </div>
+              );
+
+              if (sponsor.website) {
+                return (
+                  <a
+                    key={sponsor._id}
+                    href={sponsor.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={sponsor.name}
+                  >
+                    {logoContent}
+                  </a>
+                );
+              }
+
+              return (
+                <div key={sponsor._id}>
+                  {logoContent}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <p className="text-center text-neutral-500">
+            Interested in sponsoring Bollington Town FC?
+          </p>
+        )}
+        <div className="text-center mt-6">
+          <a
+            href="/get-involved#sponsor"
+            className="text-btfc-blue hover:text-btfc-gold transition-colors text-sm"
+          >
+            Become a sponsor →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
