@@ -10,3 +10,6 @@ export {
   ClubFixtures,
   ClubResults,
 } from "./FAFullTimeWidget/FAFullTimeWidget";
+export { MatchReport } from "./MatchReport/MatchReport";
+export type { MatchReportData } from "./MatchReport/MatchReport";
+export { LatestMatchReport } from "./LatestMatchReport/LatestMatchReport";

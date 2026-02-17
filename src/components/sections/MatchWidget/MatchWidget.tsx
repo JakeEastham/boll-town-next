@@ -287,16 +287,23 @@ function ResultCard({ match }: { match: Match }) {
         <span className="text-xs text-neutral-500 uppercase tracking-wider">
           {match.competition?.shortName || match.competition?.name}
         </span>
-        <span
-          className={cn(
-            "text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded",
-            isWin && "bg-green-100 text-green-800",
-            isDraw && "bg-yellow-100 text-yellow-800",
-            isLoss && "bg-red-100 text-red-800"
+        <div className="flex items-center gap-2">
+          {match.hasReport && (
+            <span className="text-xs font-medium text-btfc-blue px-2 py-0.5 rounded bg-btfc-blue/10">
+              Report
+            </span>
           )}
-        >
-          {isWin ? "W" : isDraw ? "D" : "L"}
-        </span>
+          <span
+            className={cn(
+              "text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded",
+              isWin && "bg-green-100 text-green-800",
+              isDraw && "bg-yellow-100 text-yellow-800",
+              isLoss && "bg-red-100 text-red-800"
+            )}
+          >
+            {isWin ? "W" : isDraw ? "D" : "L"}
+          </span>
+        </div>
       </div>
 
       <div className="flex items-center gap-3">
@@ -317,9 +324,16 @@ function ResultCard({ match }: { match: Match }) {
         </div>
       </div>
 
-      <p className="text-xs text-neutral-500 mt-3">
-        {format(new Date(match.date), "MMM d, yyyy")}
-      </p>
+      <div className="flex items-center justify-between mt-3">
+        <p className="text-xs text-neutral-500">
+          {format(new Date(match.date), "MMM d, yyyy")}
+        </p>
+        {match.hasReport && (
+          <span className="text-xs text-btfc-gold font-medium group-hover:translate-x-1 transition-transform inline-flex items-center">
+            Read Report →
+          </span>
+        )}
+      </div>
     </Link>
   );
 }

@@ -152,7 +152,38 @@ export const recentResultsQuery = groq`
     isHome,
     homeScore,
     awayScore,
-    status
+    status,
+    "hasReport": defined(reportHeadline)
+  }
+`;
+
+// Latest Match Report
+export const latestMatchReportQuery = groq`
+  *[_type == "match" && status == "fulltime" && defined(reportHeadline)] | order(date desc) [0] {
+    _id,
+    date,
+    opponent,
+    isHome,
+    homeScore,
+    awayScore,
+    reportHeadline,
+    reportHeadlineEmphasis,
+    reportIntro
+  }
+`;
+
+// All Match Reports
+export const allMatchReportsQuery = groq`
+  *[_type == "match" && status == "fulltime" && defined(reportHeadline)] | order(date desc) {
+    _id,
+    date,
+    opponent,
+    isHome,
+    homeScore,
+    awayScore,
+    reportHeadline,
+    reportHeadlineEmphasis,
+    reportIntro
   }
 `;
 

@@ -2,38 +2,38 @@ import { client } from "@/lib/sanity";
 import {
   siteSettingsQuery,
   nextMatchQuery,
-  recentResultsQuery,
   latestNewsQuery,
+  latestMatchReportQuery,
   playersQuery,
   sponsorsQuery,
 } from "@/lib/sanity/queries";
 import {
   HeroSlider,
   NextMatchWidget,
-  RecentResultsWidget,
   NewsGrid,
   PlayerPreviewGrid,
   SponsorBanner,
+  LatestMatchReport,
 } from "@/components/sections";
 import { Button } from "@/components/ui";
-import type { SiteSettings, Match, NewsArticle, Player, Sponsor } from "@/types";
+import type { SiteSettings, Match, NewsArticle, Player, Sponsor, MatchReportPreview } from "@/types";
 
 async function getHomePageData() {
-  const [siteSettings, nextMatch, recentResults, latestNews, players, sponsors] =
+  const [siteSettings, nextMatch, latestNews, latestMatchReport, players, sponsors] =
     await Promise.all([
       client.fetch<SiteSettings>(siteSettingsQuery),
       client.fetch<Match>(nextMatchQuery),
-      client.fetch<Match[]>(recentResultsQuery),
       client.fetch<NewsArticle[]>(latestNewsQuery, { limit: 5 }),
+      client.fetch<MatchReportPreview>(latestMatchReportQuery),
       client.fetch<Player[]>(playersQuery),
       client.fetch<Sponsor[]>(sponsorsQuery),
     ]);
 
-  return { siteSettings, nextMatch, recentResults, latestNews, players, sponsors };
+  return { siteSettings, nextMatch, latestNews, latestMatchReport, players, sponsors };
 }
 
 export default async function HomePage() {
-  const { siteSettings, nextMatch, recentResults, latestNews, players, sponsors } =
+  const { siteSettings, nextMatch, latestNews, latestMatchReport, players, sponsors } =
     await getHomePageData();
 
   return (
@@ -44,11 +44,11 @@ export default async function HomePage() {
       {/* Next Match */}
       <NextMatchWidget match={nextMatch} />
 
+      {/* Latest Match Report */}
+      <LatestMatchReport report={latestMatchReport} />
+
       {/* Latest News */}
       <NewsGrid articles={latestNews || []} />
-
-      {/* Recent Results */}
-      <RecentResultsWidget matches={recentResults || []} />
 
       {/* Squad Preview */}
       {players && players.length > 0 && (

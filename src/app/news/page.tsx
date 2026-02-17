@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { client } from "@/lib/sanity";
-import { latestNewsQuery, sponsorsQuery } from "@/lib/sanity/queries";
+import { latestNewsQuery, allMatchReportsQuery, sponsorsQuery } from "@/lib/sanity/queries";
 import { NewsListing, SponsorBanner } from "@/components/sections";
-import type { NewsArticle, Sponsor } from "@/types";
+import type { NewsArticle, Sponsor, MatchReportPreview } from "@/types";
 
 export const metadata: Metadata = {
   title: "News",
@@ -15,15 +15,16 @@ interface NewsPageProps {
 }
 
 async function getNewsPageData() {
-  const [articles, sponsors] = await Promise.all([
+  const [articles, matchReports, sponsors] = await Promise.all([
     client.fetch<NewsArticle[]>(latestNewsQuery, { limit: 50 }),
+    client.fetch<MatchReportPreview[]>(allMatchReportsQuery),
     client.fetch<Sponsor[]>(sponsorsQuery),
   ]);
-  return { articles, sponsors };
+  return { articles, matchReports, sponsors };
 }
 
 export default async function NewsPage({ searchParams }: NewsPageProps) {
-  const [{ articles, sponsors }, params] = await Promise.all([getNewsPageData(), searchParams]);
+  const [{ articles, matchReports, sponsors }, params] = await Promise.all([getNewsPageData(), searchParams]);
   const currentCategory = params.category || "all";
 
   return (
@@ -43,7 +44,11 @@ export default async function NewsPage({ searchParams }: NewsPageProps) {
 
       {/* News Listing */}
       <div className="container">
-        <NewsListing articles={articles || []} currentCategory={currentCategory} />
+        <NewsListing
+          articles={articles || []}
+          matchReports={matchReports || []}
+          currentCategory={currentCategory}
+        />
       </div>
 
       {/* Sponsor Banner */}

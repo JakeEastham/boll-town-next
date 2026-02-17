@@ -13,6 +13,9 @@ import siteSettings from "./documents/siteSettings";
 import blockContent from "./objects/blockContent";
 import heroSlide from "./objects/heroSlide";
 import matchEvent from "./objects/matchEvent";
+import matchReportEvent from "./objects/matchReportEvent";
+import matchStat from "./objects/matchStat";
+import lineupPlayer from "./objects/lineupPlayer";
 import socialLink from "./objects/socialLink";
 import seo from "./objects/seo";
 
@@ -31,6 +34,9 @@ export const schemaTypes = [
   blockContent,
   heroSlide,
   matchEvent,
+  matchReportEvent,
+  matchStat,
+  lineupPlayer,
   socialLink,
   seo,
 ];

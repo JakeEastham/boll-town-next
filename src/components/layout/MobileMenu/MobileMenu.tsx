@@ -33,14 +33,7 @@ const navItems: NavItem[] = [
   },
   { label: "News", href: "/news" },
   { label: "Get Involved", href: "/get-involved" },
-  {
-    label: "Club",
-    href: "/about",
-    children: [
-      { label: "About Us", href: "/about" },
-      { label: "Club Documents", href: "/club-documents" },
-    ],
-  },
+  { label: "Club Documents", href: "/club-documents" },
 ];
 
 interface MobileMenuProps {

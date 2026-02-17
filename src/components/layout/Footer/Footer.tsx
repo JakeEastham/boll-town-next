@@ -3,15 +3,10 @@ import Image from "next/image";
 import { MapPin, Mail, Phone } from "lucide-react";
 
 const footerLinks = {
-  club: [
-    { label: "About Us", href: "/about" },
-    { label: "Our Journey", href: "/about#journey" },
-    { label: "Club Documents", href: "/club-documents" },
-  ],
-  football: [
-    { label: "First Team", href: "/squad" },
+  quickLinks: [
     { label: "Fixtures & Results", href: "/matches" },
     { label: "News", href: "/news" },
+    { label: "Club Documents", href: "/club-documents" },
   ],
   getInvolved: [
     { label: "Play For Us", href: "/get-involved#play" },
@@ -56,7 +51,7 @@ export function Footer() {
     <footer className="bg-btfc-navy-dark text-white">
       {/* Main Footer */}
       <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Logo & Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
@@ -109,32 +104,13 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Club Links */}
+          {/* Quick Links */}
           <div>
             <h3 className="font-display text-lg uppercase tracking-wider mb-4">
-              Club
+              Quick Links
             </h3>
             <ul className="space-y-2">
-              {footerLinks.club.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-btfc-gold transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Football Links */}
-          <div>
-            <h3 className="font-display text-lg uppercase tracking-wider mb-4">
-              Football
-            </h3>
-            <ul className="space-y-2">
-              {footerLinks.football.map((link) => (
+              {footerLinks.quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

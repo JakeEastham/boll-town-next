@@ -107,6 +107,19 @@ export interface Match extends SanityDocument {
   matchReport?: BlockContent;
   gallery?: SanityImage[];
   faFullTimeId?: string;
+  hasReport?: boolean;
+}
+
+export interface MatchReportPreview {
+  _id: string;
+  date: string;
+  opponent: string;
+  isHome: boolean;
+  homeScore: number;
+  awayScore: number;
+  reportHeadline: string;
+  reportHeadlineEmphasis?: string;
+  reportIntro: string;
 }
 
 // News Types

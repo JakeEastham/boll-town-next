@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { format } from "date-fns";
 import { motion } from "framer-motion";
 import { NewsCard } from "@/components/ui";
-import type { NewsArticle } from "@/types";
+import type { NewsArticle, MatchReportPreview } from "@/types";
 
 interface NewsGridProps {
   articles: NewsArticle[];
@@ -87,6 +88,7 @@ export function NewsGrid({ articles, title = "Latest News", showViewAll = true }
 // News listing with filters
 interface NewsListingProps {
   articles: NewsArticle[];
+  matchReports?: MatchReportPreview[];
   currentCategory?: string;
 }
 
@@ -98,7 +100,7 @@ const categories = [
   { value: "announcements", label: "Announcements" },
 ];
 
-export function NewsListing({ articles, currentCategory = "all" }: NewsListingProps) {
+export function NewsListing({ articles, matchReports = [], currentCategory = "all" }: NewsListingProps) {
   const filteredArticles =
     currentCategory === "all"
       ? articles
@@ -123,25 +125,149 @@ export function NewsListing({ articles, currentCategory = "all" }: NewsListingPr
         ))}
       </div>
 
-      {/* Articles Grid */}
-      {filteredArticles.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredArticles.map((article, index) => (
-            <motion.div
-              key={article._id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-            >
-              <NewsCard article={article} />
-            </motion.div>
-          ))}
-        </div>
+      {/* Content Grid */}
+      {currentCategory === "match-report" ? (
+        // Match Reports only
+        matchReports.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {matchReports.map((report, index) => (
+              <motion.div
+                key={report._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <MatchReportCard report={report} />
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-neutral-500 text-center py-12">
+            No match reports available yet
+          </p>
+        )
+      ) : currentCategory === "all" ? (
+        // All: Show both articles and match reports
+        filteredArticles.length > 0 || matchReports.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {matchReports.map((report, index) => (
+              <motion.div
+                key={report._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <MatchReportCard report={report} />
+              </motion.div>
+            ))}
+            {filteredArticles.map((article, index) => (
+              <motion.div
+                key={article._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: (matchReports.length + index) * 0.05 }}
+              >
+                <NewsCard article={article} />
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-neutral-500 text-center py-12">
+            No content available yet
+          </p>
+        )
       ) : (
-        <p className="text-neutral-500 text-center py-12">
-          No articles found in this category
-        </p>
+        // Other categories: Articles only
+        filteredArticles.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredArticles.map((article, index) => (
+              <motion.div
+                key={article._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <NewsCard article={article} />
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-neutral-500 text-center py-12">
+            No articles found in this category
+          </p>
+        )
       )}
     </div>
+  );
+}
+
+// Match Report Card Component
+function MatchReportCard({ report }: { report: MatchReportPreview }) {
+  const btfcScore = report.isHome ? report.homeScore : report.awayScore;
+  const opponentScore = report.isHome ? report.awayScore : report.homeScore;
+  const resultType =
+    btfcScore > opponentScore ? "win" : btfcScore < opponentScore ? "loss" : "draw";
+
+  const resultColors = {
+    win: "bg-green-500",
+    loss: "bg-red-500",
+    draw: "bg-yellow-500",
+  };
+
+  const resultLabels = {
+    win: "W",
+    loss: "L",
+    draw: "D",
+  };
+
+  return (
+    <Link
+      href={`/matches/${report._id}`}
+      className="block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all group"
+    >
+      {/* Score Header */}
+      <div className="bg-btfc-navy p-4">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-white/60 text-xs uppercase tracking-wider">
+            {format(new Date(report.date), "dd MMM yyyy")}
+          </span>
+          <span
+            className={`${resultColors[resultType]} text-white text-xs font-bold px-2 py-0.5 rounded`}
+          >
+            {resultLabels[resultType]}
+          </span>
+        </div>
+        <div className="flex items-center justify-between">
+          <div className="text-white">
+            <p className="font-medium">Bollington Town</p>
+            <p className="text-white/70 text-sm">vs {report.opponent}</p>
+          </div>
+          <div className="text-right">
+            <span className="font-display text-3xl text-white">
+              {report.isHome
+                ? `${report.homeScore}-${report.awayScore}`
+                : `${report.awayScore}-${report.homeScore}`}
+            </span>
+            <p className="text-white/60 text-xs uppercase">
+              {report.isHome ? "Home" : "Away"}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-4">
+        <h3 className="font-display text-lg text-btfc-navy mb-2 group-hover:text-btfc-blue transition-colors line-clamp-2">
+          {report.reportHeadline}{" "}
+          {report.reportHeadlineEmphasis && (
+            <span className="text-btfc-gold">{report.reportHeadlineEmphasis}</span>
+          )}
+        </h3>
+        <p className="text-neutral-600 text-sm line-clamp-2">{report.reportIntro}</p>
+        <span className="inline-flex items-center text-btfc-gold text-sm font-medium mt-3 group-hover:translate-x-1 transition-transform">
+          Read Full Report →
+        </span>
+      </div>
+    </Link>
   );
 }
