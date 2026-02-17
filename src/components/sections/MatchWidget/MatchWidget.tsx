@@ -8,13 +8,16 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui";
 import { urlFor } from "@/lib/sanity";
+import { ClubFixtures } from "@/components/sections/FAFullTimeWidget/FAFullTimeWidget";
 import type { Match } from "@/types";
 
 interface NextMatchWidgetProps {
   match: Match | null;
+  /** Show FA Full-Time widget as fallback when no Sanity match exists */
+  showFallback?: boolean;
 }
 
-export function NextMatchWidget({ match }: NextMatchWidgetProps) {
+export function NextMatchWidget({ match, showFallback = true }: NextMatchWidgetProps) {
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -47,7 +50,35 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
     return () => clearInterval(interval);
   }, [match]);
 
+  // No Sanity match - show FA Full-Time fallback or empty state
   if (!match) {
+    if (showFallback) {
+      return (
+        <section className="py-16 bg-gradient-to-b from-btfc-navy to-btfc-navy-dark">
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-8"
+            >
+              <h2 className="font-display text-3xl md:text-4xl text-white uppercase tracking-wider">
+                Upcoming Fixtures
+              </h2>
+            </motion.div>
+            <div className="max-w-2xl mx-auto">
+              <ClubFixtures title={false} />
+            </div>
+            <div className="text-center mt-6">
+              <Button href="/matches" variant="primary">
+                View All Fixtures
+              </Button>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
     return (
       <section className="py-16 bg-btfc-navy">
         <div className="container text-center text-white">

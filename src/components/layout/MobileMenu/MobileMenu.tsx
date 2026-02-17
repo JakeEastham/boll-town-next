@@ -32,7 +32,6 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "News", href: "/news" },
-  { label: "Squad", href: "/squad" },
   { label: "Get Involved", href: "/get-involved" },
   {
     label: "Club",
@@ -40,7 +39,6 @@ const navItems: NavItem[] = [
     children: [
       { label: "About Us", href: "/about" },
       { label: "Club Documents", href: "/club-documents" },
-      { label: "Community", href: "/community" },
     ],
   },
 ];

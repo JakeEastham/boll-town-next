@@ -13,7 +13,7 @@ import {
   RecentResultsWidget,
   NewsGrid,
   PlayerPreviewGrid,
-  SponsorCarousel,
+  SponsorBanner,
 } from "@/components/sections";
 import { Button } from "@/components/ui";
 import type { SiteSettings, Match, NewsArticle, Player, Sponsor } from "@/types";
@@ -59,7 +59,7 @@ export default async function HomePage() {
       <GetInvolvedCTA />
 
       {/* Sponsors */}
-      <SponsorCarousel sponsors={sponsors || []} />
+      <SponsorBanner sponsors={sponsors || []} />
     </>
   );
 }

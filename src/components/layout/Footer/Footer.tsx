@@ -7,7 +7,6 @@ const footerLinks = {
     { label: "About Us", href: "/about" },
     { label: "Our Journey", href: "/about#journey" },
     { label: "Club Documents", href: "/club-documents" },
-    { label: "Community", href: "/community" },
   ],
   football: [
     { label: "First Team", href: "/squad" },

@@ -37,7 +37,6 @@ const categoryColors: Record<string, BadgeVariant> = {
   "match-report": "primary",
   "club-news": "secondary",
   transfers: "warning",
-  community: "success",
   youth: "default",
   announcements: "error",
 };

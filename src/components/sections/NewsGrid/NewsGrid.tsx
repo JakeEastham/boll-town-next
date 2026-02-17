@@ -95,7 +95,6 @@ const categories = [
   { value: "match-report", label: "Match Reports" },
   { value: "club-news", label: "Club News" },
   { value: "transfers", label: "Transfers" },
-  { value: "community", label: "Community" },
   { value: "announcements", label: "Announcements" },
 ];
 

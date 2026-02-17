@@ -202,3 +202,399 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 2rem;
   }
 }
+
+/* =====================================================
+   FA FULL-TIME WIDGET STYLES
+   ===================================================== */
+
+.fa-fulltime-widget {
+  font-family: var(--font-sans);
+}
+
+.fa-widget-content {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--btfc-navy) var(--neutral-100);
+}
+
+.fa-widget-content::-webkit-scrollbar {
+  height: 6px;
+}
+
+.fa-widget-content::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+
+.fa-widget-content::-webkit-scrollbar-thumb {
+  background: var(--btfc-navy);
+  border-radius: 3px;
+}
+
+/* ===========================================
+   TABLE STYLES - League Tables
+   =========================================== */
+
+.fa-widget-content table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+}
+
+/* Table Header */
+.fa-widget-content table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.fa-widget-content table th {
+  background: linear-gradient(135deg, var(--btfc-navy) 0%, var(--btfc-navy-dark) 100%);
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  border-bottom: 3px solid var(--btfc-gold);
+}
+
+.fa-widget-content table th:first-child {
+  padding-left: 1.25rem;
+}
+
+.fa-widget-content table th:last-child {
+  padding-right: 1.25rem;
+}
+
+/* Table Body */
+.fa-widget-content table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.fa-widget-content table tbody tr:nth-child(odd) {
+  background-color: var(--neutral-50);
+}
+
+.fa-widget-content table tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+.fa-widget-content table tbody tr:hover {
+  background-color: #fef9e7;
+  transform: scale(1.005);
+  box-shadow: 0 2px 8px rgba(34, 48, 95, 0.1);
+}
+
+.fa-widget-content table td {
+  padding: 0.875rem 0.75rem;
+  color: var(--neutral-700);
+  border-bottom: 1px solid var(--neutral-100);
+  vertical-align: middle;
+}
+
+.fa-widget-content table td:first-child {
+  padding-left: 1.25rem;
+}
+
+.fa-widget-content table td:last-child {
+  padding-right: 1.25rem;
+}
+
+.fa-widget-content table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Position Column (first column) */
+.fa-widget-content table td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--btfc-navy);
+  text-align: center;
+  width: 3rem;
+  position: relative;
+}
+
+/* Top 3 positions get special styling */
+.fa-widget-content table tbody tr:nth-child(1) td:first-child,
+.fa-widget-content table tbody tr:nth-child(2) td:first-child,
+.fa-widget-content table tbody tr:nth-child(3) td:first-child {
+  color: var(--btfc-gold-dark);
+}
+
+/* Points Column (usually last) */
+.fa-widget-content table td:last-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--btfc-navy);
+  text-align: center;
+  background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+  min-width: 3.5rem;
+}
+
+/* Highlight Bollington Town row */
+.fa-widget-content table tbody tr:has(a[href*="bollington"]) {
+  background: linear-gradient(90deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 193, 7, 0.05) 100%) !important;
+  border-left: 4px solid var(--btfc-gold);
+}
+
+.fa-widget-content table tbody tr:has(a[href*="bollington"]) td {
+  font-weight: 600;
+  color: var(--btfc-navy);
+}
+
+/* Team name links */
+.fa-widget-content table a {
+  color: var(--btfc-navy);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.fa-widget-content table a:hover {
+  color: var(--btfc-gold-dark);
+}
+
+/* ===========================================
+   FIXTURE/RESULT CARD STYLES
+   =========================================== */
+
+/* General fixture styling */
+.fa-widget-content div[style*="border"] {
+  border: none !important;
+  background: white;
+  border-radius: 0.75rem;
+  margin: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.fa-widget-content div[style*="border"]:hover {
+  box-shadow: 0 4px 12px rgba(34, 48, 95, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Form indicators (W/D/L) */
+.fa-widget-content span[style*="green"],
+.fa-widget-content .win,
+.fa-widget-content .W {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white !important;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 4px rgba(22, 163, 74, 0.3);
+}
+
+.fa-widget-content span[style*="gray"],
+.fa-widget-content span[style*="grey"],
+.fa-widget-content .draw,
+.fa-widget-content .D {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: linear-gradient(135deg, var(--neutral-400) 0%, var(--neutral-500) 100%);
+  color: white !important;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 0.375rem;
+}
+
+.fa-widget-content span[style*="red"],
+.fa-widget-content .loss,
+.fa-widget-content .L {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white !important;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
+}
+
+/* Score display */
+.fa-widget-content .score,
+.fa-widget-content span[style*="font-size: 1"] {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem !important;
+  color: var(--btfc-navy);
+  letter-spacing: 0.02em;
+}
+
+/* Date styling */
+.fa-widget-content .date,
+.fa-widget-content span[style*="font-size: 0.8"],
+.fa-widget-content small {
+  font-size: 0.75rem;
+  color: var(--neutral-500);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Competition badges */
+.fa-widget-content .competition,
+.fa-widget-content .venue,
+.fa-widget-content span[style*="background"] {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  background: linear-gradient(135deg, var(--btfc-navy) 0%, var(--btfc-blue) 100%) !important;
+  color: white !important;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Versus text - styled via injected content */
+.fa-widget-content .vs,
+.fa-widget-content .versus {
+  font-family: var(--font-display);
+  color: var(--btfc-gold);
+  font-weight: 600;
+}
+
+/* ===========================================
+   FA BRANDING/CREDITS
+   =========================================== */
+
+.fa-widget-content > a[href*="thefa.com"]:last-child,
+.fa-widget-content > a[href*="FULL-TIME"]:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.875rem 1rem;
+  background: var(--neutral-50);
+  border-top: 1px solid var(--neutral-100);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--neutral-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.fa-widget-content > a[href*="thefa.com"]:last-child:hover,
+.fa-widget-content > a[href*="FULL-TIME"]:last-child:hover {
+  color: var(--btfc-blue);
+}
+
+/* Hide "Data loading" text */
+.fa-widget-content:has(table) > br,
+.fa-widget-content:has(table) > a:first-of-type {
+  display: none;
+}
+
+/* ===========================================
+   RESPONSIVE STYLES
+   =========================================== */
+
+@media (max-width: 768px) {
+  .fa-widget-content table {
+    font-size: 0.8rem;
+  }
+
+  .fa-widget-content table th {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.625rem;
+  }
+
+  .fa-widget-content table td {
+    padding: 0.625rem 0.5rem;
+  }
+
+  .fa-widget-content table th:first-child,
+  .fa-widget-content table td:first-child {
+    padding-left: 0.75rem;
+  }
+
+  .fa-widget-content table th:last-child,
+  .fa-widget-content table td:last-child {
+    padding-right: 0.75rem;
+  }
+
+  /* Hide less important columns on mobile */
+  .fa-widget-league-table-detail table th:nth-child(n+5):not(:last-child),
+  .fa-widget-league-table-detail table td:nth-child(n+5):not(:last-child) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .fa-widget-content table {
+    font-size: 0.75rem;
+  }
+
+  .fa-widget-content table th {
+    padding: 0.625rem 0.375rem;
+  }
+
+  .fa-widget-content table td {
+    padding: 0.5rem 0.375rem;
+  }
+
+  .fa-widget-content table td:first-child {
+    font-size: 0.875rem;
+    width: 2.5rem;
+  }
+
+  .fa-widget-content table td:last-child {
+    font-size: 1rem;
+    min-width: 2.5rem;
+  }
+
+  /* Hide even more columns on very small screens */
+  .fa-widget-league-table-detail table th:nth-child(n+4):not(:last-child),
+  .fa-widget-league-table-detail table td:nth-child(n+4):not(:last-child) {
+    display: none;
+  }
+}
+
+/* ===========================================
+   DARK MODE VARIANT (for navy backgrounds)
+   =========================================== */
+
+.bg-btfc-navy .fa-fulltime-widget h3,
+.bg-btfc-navy-dark .fa-fulltime-widget h3,
+.bg-gradient-to-b .fa-fulltime-widget h3 {
+  color: white;
+}
+
+.bg-btfc-navy .fa-fulltime-widget > div:first-child a,
+.bg-btfc-navy-dark .fa-fulltime-widget > div:first-child a,
+.bg-gradient-to-b .fa-fulltime-widget > div:first-child a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.bg-btfc-navy .fa-fulltime-widget > div:first-child a:hover,
+.bg-btfc-navy-dark .fa-fulltime-widget > div:first-child a:hover,
+.bg-gradient-to-b .fa-fulltime-widget > div:first-child a:hover {
+  color: var(--btfc-gold);
+}
+
+.bg-btfc-navy .fa-fulltime-widget .w-1,
+.bg-btfc-navy-dark .fa-fulltime-widget .w-1,
+.bg-gradient-to-b .fa-fulltime-widget .w-1 {
+  background-color: var(--btfc-gold);
+}

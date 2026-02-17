@@ -56,7 +56,7 @@ export default async function GetInvolvedPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-btfc-gold rounded-full" />
-                  Regular training sessions
+                  Regular training sessions with UEFA B Qualified coach
                 </li>
               </ul>
               <a
@@ -86,7 +86,7 @@ export default async function GetInvolvedPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-btfc-blue rounded-full" />
-                  Social media & content
+                  Social media, Photography & content
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-btfc-blue rounded-full" />
@@ -116,7 +116,7 @@ export default async function GetInvolvedPage() {
               <ul className="text-sm text-neutral-600 space-y-2 mb-6">
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-btfc-navy rounded-full" />
-                  Kit sponsorship
+                  Club sponsorship
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-btfc-navy rounded-full" />

@@ -7,48 +7,26 @@ export default defineType({
   fields: [
     defineField({
       name: "image",
-      title: "Background Image",
+      title: "Image",
       type: "image",
       options: { hotspot: true },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "heading",
-      title: "Heading",
+      name: "alt",
+      title: "Alt Text",
       type: "string",
-    }),
-    defineField({
-      name: "subheading",
-      title: "Subheading",
-      type: "text",
-      rows: 2,
-    }),
-    defineField({
-      name: "ctaText",
-      title: "CTA Button Text",
-      type: "string",
-    }),
-    defineField({
-      name: "ctaLink",
-      title: "CTA Button Link",
-      type: "string",
-    }),
-    defineField({
-      name: "linkedArticle",
-      title: "Or Link to Article",
-      type: "reference",
-      to: [{ type: "newsArticle" }],
-      description: "If set, CTA will link to this article instead",
+      description: "Describe the image for accessibility",
     }),
   ],
   preview: {
     select: {
-      title: "heading",
+      title: "alt",
       media: "image",
     },
     prepare({ title, media }) {
       return {
-        title: title || "Untitled Slide",
+        title: title || "Hero Image",
         media,
       };
     },

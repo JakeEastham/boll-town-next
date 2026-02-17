@@ -10,15 +10,7 @@ export const siteSettingsQuery = groq`
     heroSlides[] {
       _key,
       image,
-      heading,
-      subheading,
-      ctaText,
-      ctaLink,
-      linkedArticle-> {
-        _id,
-        title,
-        slug
-      }
+      alt
     },
     socialLinks[] {
       _key,

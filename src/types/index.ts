@@ -110,7 +110,7 @@ export interface Match extends SanityDocument {
 }
 
 // News Types
-export type NewsCategory = "match-report" | "club-news" | "transfers" | "community" | "youth" | "announcements";
+export type NewsCategory = "match-report" | "club-news" | "transfers" | "youth" | "announcements";
 
 export interface StaffMember extends SanityDocument {
   _type: "staffMember";
@@ -174,11 +174,7 @@ export interface ClubDocument extends SanityDocument {
 export interface HeroSlide {
   _key: string;
   image: SanityImage;
-  heading?: string;
-  subheading?: string;
-  ctaText?: string;
-  ctaLink?: string;
-  linkedArticle?: NewsArticle;
+  alt?: string;
 }
 
 export interface SocialLink {
