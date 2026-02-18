@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import { MapPin, Mail, Users, Heart, Building } from "lucide-react";
 import { client, urlFor } from "@/lib/sanity";
-import { staffByCategoryQuery } from "@/lib/sanity/queries";
+import { staffByCategoryQuery, sponsorsQuery } from "@/lib/sanity/queries";
 import { StaffCard, Button } from "@/components/ui";
-import type { StaffMember } from "@/types";
+import { SponsorBanner } from "@/components/sections";
+import type { StaffMember, Sponsor } from "@/types";
 
 export const revalidate = 60;
 
@@ -13,12 +14,16 @@ export const metadata: Metadata = {
     "Join Bollington Town FC as a player, volunteer, or sponsor. Find out how you can be part of our community football club.",
 };
 
-async function getBoardMembers() {
-  return client.fetch<StaffMember[]>(staffByCategoryQuery, { category: "board" });
+async function getPageData() {
+  const [boardMembers, sponsors] = await Promise.all([
+    client.fetch<StaffMember[]>(staffByCategoryQuery, { category: "board" }),
+    client.fetch<Sponsor[]>(sponsorsQuery),
+  ]);
+  return { boardMembers, sponsors };
 }
 
 export default async function GetInvolvedPage() {
-  const boardMembers = await getBoardMembers();
+  const { boardMembers, sponsors } = await getPageData();
 
   return (
     <div className="pt-24 pb-16">
@@ -208,6 +213,9 @@ export default async function GetInvolvedPage() {
           </div>
         </section>
       </div>
+
+      {/* Sponsors */}
+      <SponsorBanner sponsors={sponsors || []} />
     </div>
   );
 }
