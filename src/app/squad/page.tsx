@@ -4,6 +4,8 @@ import { playersQuery } from "@/lib/sanity/queries";
 import { PlayerGrid } from "@/components/sections";
 import type { Player } from "@/types";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Squad",
   description: "Meet the players of Bollington Town FC. View our first team squad profiles.",

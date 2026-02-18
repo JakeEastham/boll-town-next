@@ -51,6 +51,7 @@ export function NewsCard({ article, featured = false }: NewsCardProps) {
             src={urlFor(article.featuredImage).width(800).height(featured ? 450 : 533).url()}
             alt={article.title}
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
         )}
@@ -92,6 +93,7 @@ export function PlayerCard({ player }: PlayerCardProps) {
             src={urlFor(player.image).width(400).height(533).url()}
             alt={player.name}
             fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
             className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
@@ -296,6 +298,7 @@ export function StaffCard({ name, role, email, imageUrl }: StaffCardProps) {
             src={imageUrl}
             alt={name}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover"
           />
         ) : (

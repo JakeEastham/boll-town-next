@@ -1,9 +1,11 @@
 import { Metadata } from "next";
-import { MapPin, Mail, Phone, Users, Heart, Building } from "lucide-react";
-import { client } from "@/lib/sanity";
+import { MapPin, Mail, Users, Heart, Building } from "lucide-react";
+import { client, urlFor } from "@/lib/sanity";
 import { staffByCategoryQuery } from "@/lib/sanity/queries";
 import { StaffCard, Button } from "@/components/ui";
 import type { StaffMember } from "@/types";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Get Involved",
@@ -150,7 +152,7 @@ export default async function GetInvolvedPage() {
                   name={member.name}
                   role={member.role}
                   email={member.email}
-                  imageUrl={member.image ? `https://cdn.sanity.io/images/m8shvxfm/production/${member.image.asset._ref.replace("image-", "").replace("-jpg", ".jpg").replace("-png", ".png")}` : undefined}
+                  imageUrl={member.image ? urlFor(member.image).width(400).height(400).url() : undefined}
                 />
               ))}
             </div>

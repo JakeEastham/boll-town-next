@@ -60,6 +60,7 @@ export function Footer() {
                   src="/images/logo.png"
                   alt="Bollington Town FC"
                   fill
+                  sizes="64px"
                   className="object-contain"
                 />
               </div>
@@ -151,11 +152,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Bollington Town FC. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-white/50 text-sm">
-            <Link href="/privacy" className="hover:text-btfc-gold transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-btfc-gold transition-colors">
-              Terms of Use
+            <Link href="/club-documents" className="hover:text-btfc-gold transition-colors">
+              Club Documents
             </Link>
           </div>
         </div>

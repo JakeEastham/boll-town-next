@@ -4,6 +4,8 @@ import { latestNewsQuery, allMatchReportsQuery, sponsorsQuery } from "@/lib/sani
 import { NewsListing, SponsorBanner } from "@/components/sections";
 import type { NewsArticle, Sponsor, MatchReportPreview } from "@/types";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "News",
   description:

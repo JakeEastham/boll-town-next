@@ -9,6 +9,8 @@ import {
 } from "@/components/sections";
 import type { Team } from "@/types";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Matches",
   description: "View fixtures and results for Bollington Town FC.",

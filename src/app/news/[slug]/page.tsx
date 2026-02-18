@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,13 +10,15 @@ import { newsArticleBySlugQuery, latestNewsQuery } from "@/lib/sanity/queries";
 import { CategoryBadge, NewsCard } from "@/components/ui";
 import type { NewsArticle } from "@/types";
 
+export const revalidate = 60;
+
 interface NewsArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
-async function getArticle(slug: string) {
+const getArticle = cache(async (slug: string) => {
   return client.fetch<NewsArticle>(newsArticleBySlugQuery, { slug });
-}
+});
 
 async function getRelatedNews(excludeId: string) {
   const articles = await client.fetch<NewsArticle[]>(latestNewsQuery, { limit: 4 });
@@ -64,6 +67,7 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
             src={urlFor(article.featuredImage).width(1920).height(1080).url()}
             alt={article.title}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />

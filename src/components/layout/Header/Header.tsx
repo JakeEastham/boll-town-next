@@ -53,6 +53,7 @@ export function Header() {
                 src="/images/logo.png"
                 alt="Bollington Town FC"
                 fill
+                sizes="64px"
                 className="object-contain"
                 priority
               />

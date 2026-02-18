@@ -1,8 +1,11 @@
+import { cache } from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { client } from "@/lib/sanity";
 import { MatchReport, MatchReportData } from "@/components/sections";
 import { groq } from "next-sanity";
+
+export const revalidate = 60;
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -53,9 +56,9 @@ const matchReportQuery = groq`
   }
 `;
 
-async function getMatch(id: string) {
+const getMatch = cache(async (id: string) => {
   return client.fetch(matchReportQuery, { id });
-}
+});
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;

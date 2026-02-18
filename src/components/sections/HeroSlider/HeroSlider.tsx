@@ -41,6 +41,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
               src={urlFor(slides[currentIndex].image).width(1920).height(1080).url()}
               alt={slides[currentIndex].alt || "Bollington Town FC"}
               fill
+              sizes="100vw"
               className="object-cover"
               priority={currentIndex === 0}
             />

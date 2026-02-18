@@ -67,6 +67,17 @@ export const playersQuery = groq`
   }
 `;
 
+export const playersPreviewQuery = groq`
+  *[_type == "player" && isActive == true] | order(number asc) [0...5] {
+    _id,
+    name,
+    slug,
+    number,
+    position,
+    image
+  }
+`;
+
 export const playersByTeamQuery = groq`
   *[_type == "player" && isActive == true && team->slug.current == $teamSlug] | order(position asc, number asc) {
     _id,

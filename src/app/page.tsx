@@ -4,7 +4,7 @@ import {
   nextMatchQuery,
   latestNewsQuery,
   latestMatchReportQuery,
-  playersQuery,
+  playersPreviewQuery,
   sponsorsQuery,
 } from "@/lib/sanity/queries";
 import {
@@ -18,6 +18,8 @@ import {
 import { Button } from "@/components/ui";
 import type { SiteSettings, Match, NewsArticle, Player, Sponsor, MatchReportPreview } from "@/types";
 
+export const revalidate = 60;
+
 async function getHomePageData() {
   const [siteSettings, nextMatch, latestNews, latestMatchReport, players, sponsors] =
     await Promise.all([
@@ -25,7 +27,7 @@ async function getHomePageData() {
       client.fetch<Match>(nextMatchQuery),
       client.fetch<NewsArticle[]>(latestNewsQuery, { limit: 5 }),
       client.fetch<MatchReportPreview>(latestMatchReportQuery),
-      client.fetch<Player[]>(playersQuery),
+      client.fetch<Player[]>(playersPreviewQuery),
       client.fetch<Sponsor[]>(sponsorsQuery),
     ]);
 

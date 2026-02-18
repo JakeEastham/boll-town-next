@@ -3,6 +3,11 @@
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
+/** Strip all HTML tags except safe inline formatting */
+function sanitizeHtml(html: string): string {
+  return html.replace(/<\/?(?!strong|em|b|i|br\s*\/?)[\w\s="'-]+\/?>/gi, "");
+}
+
 // Types for match report data
 interface Scorer {
   name: string;
@@ -191,7 +196,7 @@ export function MatchReport({ data }: MatchReportProps) {
         <div className="match-report-narrative">
           <h3>Match Verdict</h3>
           {data.verdict.map((paragraph, i) => (
-            <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} />
+            <p key={i} dangerouslySetInnerHTML={{ __html: sanitizeHtml(paragraph) }} />
           ))}
         </div>
 
@@ -247,7 +252,7 @@ function TimelineSection({ title, events }: { title: string; events: MatchEvent[
               <div className={cn("match-report-event-type", event.type)}>{event.title}</div>
               <div
                 className="match-report-event-desc"
-                dangerouslySetInnerHTML={{ __html: event.description }}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(event.description) }}
               />
             </div>
           </div>

@@ -16,6 +16,9 @@ const oswald = Oswald({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://bollingtontownfc.co.uk"
+  ),
   title: {
     default: "Bollington Town FC | Community Football in Bollington",
     template: "%s | Bollington Town FC",

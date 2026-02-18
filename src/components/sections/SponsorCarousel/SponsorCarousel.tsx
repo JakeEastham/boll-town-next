@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { urlFor } from "@/lib/sanity";
 import type { Sponsor } from "@/types";
@@ -53,12 +54,12 @@ export function SponsorCarousel({ sponsors }: SponsorCarouselProps) {
 
           {/* Become a Sponsor CTA */}
           <div className="text-center mt-10">
-            <a
+            <Link
               href="/get-involved#sponsor"
               className="text-btfc-blue hover:text-btfc-gold transition-colors text-sm font-medium"
             >
               Become a Sponsor →
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>
@@ -198,12 +199,12 @@ export function SponsorBanner({ sponsors }: SponsorBannerProps) {
           </p>
         )}
         <div className="text-center mt-6">
-          <a
+          <Link
             href="/get-involved#sponsor"
             className="text-btfc-blue hover:text-btfc-gold transition-colors text-sm"
           >
             Become a sponsor →
-          </a>
+          </Link>
         </div>
       </div>
     </section>

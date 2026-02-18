@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { PlayerCard } from "@/components/ui";
@@ -152,12 +153,12 @@ export function PlayerPreviewGrid({ players, maxPlayers = 5 }: PlayerPreviewGrid
           </div>
 
           <div className="text-center">
-            <a
+            <Link
               href="/squad"
               className="inline-flex items-center gap-2 px-6 py-3 bg-btfc-gold text-btfc-navy font-display uppercase tracking-wider rounded-lg hover:bg-btfc-gold-light transition-colors"
             >
               View Full Squad
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>
