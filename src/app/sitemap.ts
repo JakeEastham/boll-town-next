@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { client } from "@/lib/sanity";
+
+export const dynamic = "force-static";
 import { groq } from "next-sanity";
 
 const baseUrl =

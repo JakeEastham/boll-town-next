@@ -6,8 +6,6 @@ import { StaffCard, Button } from "@/components/ui";
 import { SponsorBanner } from "@/components/sections";
 import type { StaffMember, Sponsor } from "@/types";
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   title: "Get Involved",
   description:

@@ -4,24 +4,18 @@ import { playersQuery } from "@/lib/sanity/queries";
 import { PlayerGrid } from "@/components/sections";
 import type { Player } from "@/types";
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   title: "Squad",
   description: "Meet the players of Bollington Town FC. View our first team squad profiles.",
 };
 
-interface SquadPageProps {
-  searchParams: Promise<{ team?: string }>;
-}
-
 async function getPlayers() {
   return client.fetch<Player[]>(playersQuery);
 }
 
-export default async function SquadPage({ searchParams }: SquadPageProps) {
-  const [players, params] = await Promise.all([getPlayers(), searchParams]);
-  const defaultTeam = params.team || "first-team";
+export default async function SquadPage() {
+  const players = await getPlayers();
+  const defaultTeam = "first-team";
 
   return (
     <div className="pt-24 pb-16">

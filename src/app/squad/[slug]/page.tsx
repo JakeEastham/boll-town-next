@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { PortableText } from "@portabletext/react";
 import { ArrowLeft } from "lucide-react";
+import { groq } from "next-sanity";
 import { client, urlFor } from "@/lib/sanity";
 import { playerBySlugQuery } from "@/lib/sanity/queries";
 import { PositionBadge, Button } from "@/components/ui";
@@ -12,6 +13,16 @@ import type { Player } from "@/types";
 
 interface PlayerPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const players = await client.fetch<{ slug: string }[]>(
+    groq`*[_type == "player" && isActive == true]{ "slug": slug.current }`
+  );
+  if (!players || players.length === 0) {
+    return [{ slug: "_placeholder" }];
+  }
+  return players.map((player) => ({ slug: player.slug }));
 }
 
 async function getPlayer(slug: string) {

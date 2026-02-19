@@ -18,8 +18,6 @@ import {
 import { Button } from "@/components/ui";
 import type { SiteSettings, Match, NewsArticle, Player, Sponsor, MatchReportPreview } from "@/types";
 
-export const revalidate = 60;
-
 async function getHomePageData() {
   const [siteSettings, nextMatch, latestNews, latestMatchReport, players, sponsors] =
     await Promise.all([

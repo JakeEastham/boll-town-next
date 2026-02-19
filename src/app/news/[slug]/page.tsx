@@ -5,15 +5,24 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import { PortableText } from "@portabletext/react";
+import { groq } from "next-sanity";
 import { client, urlFor } from "@/lib/sanity";
 import { newsArticleBySlugQuery, latestNewsQuery } from "@/lib/sanity/queries";
 import { CategoryBadge, NewsCard } from "@/components/ui";
 import type { NewsArticle } from "@/types";
 
-export const revalidate = 60;
-
 interface NewsArticlePageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const articles = await client.fetch<{ slug: string }[]>(
+    groq`*[_type == "newsArticle"]{ "slug": slug.current }`
+  );
+  if (!articles || articles.length === 0) {
+    return [{ slug: "_placeholder" }];
+  }
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
 const getArticle = cache(async (slug: string) => {

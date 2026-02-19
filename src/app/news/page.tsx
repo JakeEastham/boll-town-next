@@ -4,17 +4,11 @@ import { latestNewsQuery, allMatchReportsQuery, sponsorsQuery } from "@/lib/sani
 import { NewsListing, SponsorBanner } from "@/components/sections";
 import type { NewsArticle, Sponsor, MatchReportPreview } from "@/types";
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   title: "News",
   description:
     "Latest news, match reports, and announcements from Bollington Town FC.",
 };
-
-interface NewsPageProps {
-  searchParams: Promise<{ category?: string }>;
-}
 
 async function getNewsPageData() {
   const [articles, matchReports, sponsors] = await Promise.all([
@@ -25,9 +19,9 @@ async function getNewsPageData() {
   return { articles, matchReports, sponsors };
 }
 
-export default async function NewsPage({ searchParams }: NewsPageProps) {
-  const [{ articles, matchReports, sponsors }, params] = await Promise.all([getNewsPageData(), searchParams]);
-  const currentCategory = params.category || "all";
+export default async function NewsPage() {
+  const { articles, matchReports, sponsors } = await getNewsPageData();
+  const currentCategory = "all";
 
   return (
     <div className="pt-24 pb-16">

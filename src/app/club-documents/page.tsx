@@ -3,8 +3,6 @@ import { client } from "@/lib/sanity";
 import { clubDocumentsQuery } from "@/lib/sanity/queries";
 import { DocumentCard } from "@/components/ui";
 
-export const revalidate = 60;
-
 export const metadata: Metadata = {
   title: "Club Documents",
   description:

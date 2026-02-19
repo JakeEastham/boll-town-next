@@ -5,10 +5,18 @@ import { client } from "@/lib/sanity";
 import { MatchReport, MatchReportData } from "@/components/sections";
 import { groq } from "next-sanity";
 
-export const revalidate = 60;
-
 interface PageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateStaticParams() {
+  const matches = await client.fetch<{ id: string }[]>(
+    groq`*[_type == "match" && defined(reportHeadline)]{ "id": _id }`
+  );
+  if (!matches || matches.length === 0) {
+    return [{ id: "_placeholder" }];
+  }
+  return matches.map((match) => ({ id: match.id }));
 }
 
 const matchReportQuery = groq`
