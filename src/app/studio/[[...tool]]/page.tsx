@@ -1,11 +1,9 @@
-import dynamic from "next/dynamic";
-
-const Studio = dynamic(() => import("./Studio"), { ssr: false });
+import StudioLoader from "./StudioLoader";
 
 export function generateStaticParams() {
   return [{ tool: [] }];
 }
 
 export default function StudioPage() {
-  return <Studio />;
+  return <StudioLoader />;
 }
