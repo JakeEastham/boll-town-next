@@ -56,7 +56,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
 
       {/* Club Name */}
       <div className="relative h-full flex items-center justify-center">
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-white uppercase tracking-wider drop-shadow-lg">
+        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl text-white uppercase tracking-wider drop-shadow-lg text-center">
           Bollington Town FC
         </h1>
       </div>
