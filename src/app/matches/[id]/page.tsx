@@ -166,5 +166,27 @@ export default async function MatchReportPage({ params }: PageProps) {
     })),
   };
 
-  return <MatchReport data={reportData} />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    name: `${reportData.homeTeam} vs ${reportData.awayTeam}`,
+    startDate: match.date,
+    location: { "@type": "Place", name: reportData.venue },
+    homeTeam: { "@type": "SportsTeam", name: reportData.homeTeam },
+    awayTeam: { "@type": "SportsTeam", name: reportData.awayTeam },
+    competitor: [
+      { "@type": "SportsTeam", name: reportData.homeTeam },
+      { "@type": "SportsTeam", name: reportData.awayTeam },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <MatchReport data={reportData} />
+    </>
+  );
 }

@@ -67,8 +67,35 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
 
   const relatedNews = await getRelatedNews(article._id);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: article.title,
+    description: article.excerpt,
+    ...(article.featuredImage && {
+      image: urlFor(article.featuredImage).width(1200).height(630).url(),
+    }),
+    datePublished: article.publishedAt,
+    ...(article._updatedAt && { dateModified: article._updatedAt }),
+    ...(article.author && {
+      author: { "@type": "Person", name: article.author.name },
+    }),
+    publisher: {
+      "@type": "SportsTeam",
+      name: "Bollington Town FC",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://bollingtontownfc.co.uk/images/logo.png",
+      },
+    },
+  };
+
   return (
     <div className="pt-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Image */}
       {article.featuredImage && (
         <div className="relative h-[50vh] md:h-[60vh]">

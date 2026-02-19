@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
 import { NewsCard } from "@/components/ui";
 import type { NewsArticle, MatchReportPreview } from "@/types";
+
+const ITEMS_PER_PAGE = 12;
 
 interface NewsGridProps {
   articles: NewsArticle[];
@@ -100,102 +103,120 @@ const categories = [
   { value: "announcements", label: "Announcements" },
 ];
 
-export function NewsListing({ articles, matchReports = [], currentCategory = "all" }: NewsListingProps) {
+export function NewsListing({ articles, matchReports = [] }: NewsListingProps) {
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+
   const filteredArticles =
-    currentCategory === "all"
+    activeCategory === "all"
       ? articles
-      : articles.filter((a) => a.category === currentCategory);
+      : articles.filter((a) => a.category === activeCategory);
+
+  // Build the combined items list based on category
+  const allItems: Array<{ type: "report"; data: MatchReportPreview } | { type: "article"; data: NewsArticle }> = [];
+  if (activeCategory === "all" || activeCategory === "match-report") {
+    matchReports.forEach((r) => allItems.push({ type: "report", data: r }));
+  }
+  if (activeCategory !== "match-report") {
+    filteredArticles.forEach((a) => allItems.push({ type: "article", data: a }));
+  }
+
+  const totalPages = Math.max(1, Math.ceil(allItems.length / ITEMS_PER_PAGE));
+  const paginatedItems = allItems.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  function handleCategoryChange(value: string) {
+    setActiveCategory(value);
+    setCurrentPage(1);
+  }
 
   return (
     <div>
       {/* Category Filters */}
       <div className="flex flex-wrap gap-2 mb-8">
         {categories.map((category) => (
-          <Link
+          <button
             key={category.value}
-            href={category.value === "all" ? "/news" : `/news?category=${category.value}`}
+            onClick={() => handleCategoryChange(category.value)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              currentCategory === category.value
+              activeCategory === category.value
                 ? "bg-btfc-gold text-btfc-navy"
                 : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
             }`}
           >
             {category.label}
-          </Link>
+          </button>
         ))}
       </div>
 
       {/* Content Grid */}
-      {currentCategory === "match-report" ? (
-        // Match Reports only
-        matchReports.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {matchReports.map((report, index) => (
+      {paginatedItems.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {paginatedItems.map((item, index) =>
+            item.type === "report" ? (
               <motion.div
-                key={report._id}
+                key={item.data._id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <MatchReportCard report={report} />
+                <MatchReportCard report={item.data} />
               </motion.div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-neutral-500 text-center py-12">
-            No match reports available yet
-          </p>
-        )
-      ) : currentCategory === "all" ? (
-        // All: Show both articles and match reports
-        filteredArticles.length > 0 || matchReports.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {matchReports.map((report, index) => (
+            ) : (
               <motion.div
-                key={report._id}
+                key={item.data._id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
               >
-                <MatchReportCard report={report} />
+                <NewsCard article={item.data} />
               </motion.div>
-            ))}
-            {filteredArticles.map((article, index) => (
-              <motion.div
-                key={article._id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: (matchReports.length + index) * 0.05 }}
-              >
-                <NewsCard article={article} />
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-neutral-500 text-center py-12">
-            No content available yet
-          </p>
-        )
+            )
+          )}
+        </div>
       ) : (
-        // Other categories: Articles only
-        filteredArticles.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredArticles.map((article, index) => (
-              <motion.div
-                key={article._id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-              >
-                <NewsCard article={article} />
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-neutral-500 text-center py-12">
-            No articles found in this category
-          </p>
-        )
+        <p className="text-neutral-500 text-center py-12">
+          {activeCategory === "match-report"
+            ? "No match reports available yet"
+            : activeCategory === "all"
+            ? "No content available yet"
+            : "No articles found in this category"}
+        </p>
+      )}
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center gap-2 mt-12">
+          <button
+            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            disabled={currentPage === 1}
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+          >
+            Previous
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className={`w-10 h-10 rounded-lg text-sm font-medium transition-colors ${
+                currentPage === page
+                  ? "bg-btfc-gold text-btfc-navy"
+                  : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+              }`}
+            >
+              {page}
+            </button>
+          ))}
+          <button
+            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            disabled={currentPage === totalPages}
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+          >
+            Next
+          </button>
+        </div>
       )}
     </div>
   );

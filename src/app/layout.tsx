@@ -20,11 +20,11 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "https://bollingtontownfc.co.uk"
   ),
   title: {
-    default: "Bollington Town FC | Community Football in Bollington",
+    default: "Bollington Town FC | The leading Football club in Bollington",
     template: "%s | Bollington Town FC",
   },
   description:
-    "Official website of Bollington Town Football Club. Fixtures, results, news, and squad information for our community football club in Bollington, Macclesfield, Cheshire.",
+    "Official website of Bollington Town Football Club. Fixtures, results, news, and squad information for the leading football club in Bollington, Cheshire.",
   keywords: [
     "Bollington",
     "football",
@@ -80,6 +80,39 @@ export default function RootLayout({
       <body
         className={`${robotoCondensed.variable} ${oswald.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SportsTeam",
+              name: "Bollington Town FC",
+              url: "https://bollingtontownfc.co.uk",
+              sport: "Football",
+              logo: "https://bollingtontownfc.co.uk/images/logo.png",
+              location: {
+                "@type": "Place",
+                name: "All Hallows Catholic College",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Macclesfield",
+                  addressRegion: "Cheshire",
+                  addressCountry: "GB",
+                },
+              },
+              foundingDate: "2021",
+              memberOf: {
+                "@type": "SportsOrganization",
+                name: "Cheshire Football League",
+              },
+              sameAs: [
+                "https://instagram.com/bollingtontownfc",
+                "https://facebook.com/bollingtontownfc",
+                "https://twitter.com/bollingtontown",
+              ],
+            }),
+          }}
+        />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
