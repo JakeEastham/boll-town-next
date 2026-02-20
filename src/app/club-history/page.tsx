@@ -3,15 +3,54 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Trophy, Star, TrendingUp, Shield, ExternalLink } from "lucide-react";
+import { allTimeStats } from "@/data/playerStats";
 
 const seasons = [
   {
+    id: "2020-21",
+    label: "2020/21",
+    title: "The Beginning",
+    subtitle: "Inaugural Season",
+    competition: "Altrincham & District Amateur Football League",
+    narrative: `The 2020/21 season marked the very start of Bollington Town FC's story. With a squad of local players brought together by a shared love of the game, the club made an immediate impression on the Altrincham & District Amateur Football League.\n\nA dominant campaign followed — 14 wins and just one defeat from 16 matches, with 63 goals scored and only 9 conceded. It was a remarkable debut that set the standard for everything that would follow.`,
+    stats: [
+      { label: "Played", value: "16" },
+      { label: "Won", value: "14" },
+      { label: "Drawn", value: "1" },
+      { label: "Lost", value: "1" },
+      { label: "Goals For", value: "63" },
+      { label: "Goals Against", value: "9" },
+    ],
+    highlights: [
+      "Club's first competitive season",
+      "14 wins from 16 games — a dominant debut campaign",
+      "63 goals scored, just 9 conceded",
+    ],
+    topScorers: [
+      { name: "Conor Beaden", goals: 14 },
+      { name: "Jack Naylor", goals: 14 },
+      { name: "Nathan Edwards", goals: 9 },
+      { name: "Beau Gatward", goals: 7 },
+      { name: "Zach Gatward", goals: 6 },
+    ],
+    topAppearances: [
+      { name: "Matthew Joyce", apps: 15 },
+      { name: "Conor Beaden", apps: 14 },
+      { name: "Jake Eastham", apps: 14 },
+      { name: "Nathan Edwards", apps: 14 },
+      { name: "Declan Hanks", apps: 13 },
+    ],
+    leagueTableUrl: "https://fulltime.thefa.com/displayTeam.html?divisionseason=320897402&teamID=961018307",
+    icon: Trophy,
+    accent: "btfc-gold",
+  },
+  {
     id: "2021-22",
     label: "2021/22",
-    title: "Champions — First Time Out",
-    subtitle: "Inaugural Season",
+    title: "Champions — Back-to-Back",
+    subtitle: "Second Season",
     competition: "Altrincham & District Amateur Football League — Division One",
-    narrative: `Bollington Town FC was founded in the summer of 2021 by a group of friends with a shared vision: to bring competitive grassroots football back to Bollington. With a squad assembled from players across the local area, the club took to the field for the first time in the 2021/22 season.\n\nWhat followed was nothing short of remarkable. The club's inaugural campaign produced an almost flawless league record — 13 wins and a single draw from 14 games, finishing the season unbeaten and at the top of Division One. Champions in year one.\n\nIt was a statement of intent that set the tone for everything that would follow.`,
+    narrative: `Building on a strong debut campaign, Bollington Town returned for 2021/22 with even greater ambition. The squad — many of whom had been with the club from the start — were determined to go one better.\n\nWhat followed was nothing short of remarkable. An almost flawless league record — 16 wins and a single draw from 17 games, finishing the season unbeaten and at the top of Division One. Champions again.\n\nIt was a statement of intent that set the tone for everything that would follow.`,
     stats: [
       { label: "Played", value: "17" },
       { label: "Won", value: "16" },
@@ -22,21 +61,25 @@ const seasons = [
       { label: "Final Position", value: "1st" },
     ],
     highlights: [
-      "Club founded and first competitive match played",
       "ADAFL Champions — unbeaten throughout the entire season",
       "Altrincham & District Cup Winners",
+      "Beau Gatward top scorer with 9 goals",
     ],
     topScorers: [
       { name: "Beau Gatward", goals: 9 },
       { name: "Conor Beaden", goals: 8 },
       { name: "Nathan Jackson", goals: 7 },
+      { name: "Connor Dabbs", goals: 6 },
+      { name: "Ethan Barker", goals: 5 },
     ],
     topAppearances: [
       { name: "Matthew Joyce", apps: 15 },
       { name: "Nathan Edwards", apps: 14 },
       { name: "Jake Eastham", apps: 13 },
+      { name: "Declan Hanks", apps: 13 },
+      { name: "Alexander Howarth", apps: 13 },
     ],
-    leagueTableUrl: "https://fulltime.thefa.com/index.html?league=3909304",
+    leagueTableUrl: "https://fulltime.thefa.com/index.html?league=3909304&selectedSeason=564569651&selectedDivision=556402235&selectedCompetition=0&selectedFixtureGroupKey=1_685266626",
     icon: Trophy,
     accent: "btfc-gold",
   },
@@ -44,9 +87,9 @@ const seasons = [
     id: "2022-23",
     label: "2022/23",
     title: "Establishing Ourselves",
-    subtitle: "Second Season",
+    subtitle: "Third Season",
     competition: "Cheshire Football League — League 2",
-    narrative: `Bollington Town stepped up into the Cheshire Football League for the first time in 2022/23. The jump in quality was immediately apparent, but the squad adapted well to the demands of the quality division throughout the campaign.\n\nA consistent season saw the club win 17 of their 26 league fixtures, accumulating 53 points and finishing third in League 2. It was a strong debut at this level — comfortably in the promotion conversation for much of the campaign — and confirmed that the club had the quality and the character to compete at Cheshire Football League level.\n\nThe third-place finish earned promotion to League 1, setting up what would prove to be the club's most challenging campaign to date.`,
+    narrative: `Bollington Town stepped up into the Cheshire Football League for the first time in 2022/23. The jump in quality was immediately apparent, but the squad adapted well to the demands of the division throughout the campaign.\n\nA consistent season saw the club win 19 of their 30 league fixtures and finish third in League 2. It was a strong debut at this level — comfortably in the promotion conversation for much of the campaign — and confirmed that the club had the quality and the character to compete at Cheshire Football League level.\n\nThe third-place finish earned promotion to League 1, setting up what would prove to be a defining challenge.`,
     stats: [
       { label: "Played", value: "30" },
       { label: "Won", value: "19" },
@@ -59,18 +102,22 @@ const seasons = [
     highlights: [
       "First season in the Cheshire Football League",
       "Finished third — promotion secured to League 1",
-      "17 wins from 26 games at a higher level of football",
+      "19 wins from 30 games at a higher level of football",
       "Strong goal difference reflecting attacking intent throughout",
     ],
     topScorers: [
       { name: "Joshua Connolly", goals: 11 },
       { name: "Nathan Jackson", goals: 11 },
       { name: "Jack Naylor", goals: 11 },
+      { name: "Conor Beaden", goals: 8 },
+      { name: "Ryan Hibbert", goals: 6 },
     ],
     topAppearances: [
       { name: "Alfie Earith", apps: 26 },
       { name: "Matthew Joyce", apps: 26 },
       { name: "Declan Hanks", apps: 25 },
+      { name: "Nathan Jackson", apps: 23 },
+      { name: "Matthew Nelson", apps: 23 },
     ],
     leagueTableUrl: "https://fulltime.thefa.com/index.html?selectedSeason=266082746&selectedFixtureGroupAgeGroup=0&selectedDivision=629513070&selectedCompetition=0",
     icon: TrendingUp,
@@ -80,9 +127,9 @@ const seasons = [
     id: "2023-24",
     label: "2023/24",
     title: "Rising to the Challenge",
-    subtitle: "Third Season",
+    subtitle: "Fourth Season",
     competition: "Cheshire Football League — League 1",
-    narrative: `League 1 represented a significant step up in class, and the 2023/24 season tested the squad in ways the previous two campaigns had not. The competition was tighter, the margins smaller, and the quality of opposition notably higher across the board.\n\nDespite the challenges, Bollington Town produced a campaign of real substance — winning 20 of 30 matches and conceding just 22 goals across the entire season. The defensive record in particular was outstanding at this level, and showed the tactical maturity the squad had developed.\n\nA seventh-place finish, while not reflecting the total number of wins, demonstrated the club's ability to compete in the top division of the Cheshire Football League and set a platform for the title challenge that would follow.`,
+    narrative: `League 1 represented a significant step up in class, and the 2023/24 season tested the squad in ways the previous campaigns had not. The competition was tighter, the margins smaller, and the quality of opposition notably higher across the board.\n\nDespite the challenges, Bollington Town produced a campaign of real substance — winning 20 of 30 matches and conceding just 22 goals across the entire season. The defensive record in particular was outstanding at this level, and showed the tactical maturity the squad had developed.\n\nA seventh-place finish, while not reflecting the total number of wins, demonstrated the club's ability to compete in the top division of the Cheshire Football League and set a platform for the title challenge that would follow.`,
     stats: [
       { label: "Played", value: "30" },
       { label: "Won", value: "20" },
@@ -103,11 +150,15 @@ const seasons = [
       { name: "Joshua Connolly", goals: 20 },
       { name: "Jack Heppell", goals: 15 },
       { name: "Beau Gatward", goals: 9 },
+      { name: "Zak James Mousa", goals: 8 },
+      { name: "Ryan Hibbert", goals: 7 },
     ],
     topAppearances: [
-      { name: "Matthew Joyce", apps: 34 },
-      { name: "Ryan Hibbert", apps: 32 },
       { name: "Jack Heppell", apps: 32 },
+      { name: "Ryan Hibbert", apps: 32 },
+      { name: "Finn Manning", apps: 32 },
+      { name: "Joshua Connolly", apps: 31 },
+      { name: "Jake Eastham", apps: 31 },
     ],
     leagueTableUrl: "https://fulltime.thefa.com/index.html?selectedSeason=468302204&selectedFixtureGroupAgeGroup=0&selectedDivision=900532629&selectedCompetition=0",
     icon: Shield,
@@ -117,9 +168,9 @@ const seasons = [
     id: "2024-25",
     label: "2024/25",
     title: "Champions Again",
-    subtitle: "Fourth Season",
+    subtitle: "Fifth Season",
     competition: "Cheshire Football League — League 1",
-    narrative: `If the 2023/24 season was about proving the club belonged at League 1 level, the 2024/25 campaign was about dominating it. Bollington Town were simply outstanding from start to finish — winning 22 of 30 matches, dropping points in just eight games all season, and finishing as champions with 70 points.\n\nThe goal difference of +59 told the story of a team that was relentless going forward while remaining difficult to break down at the back. It was a performance that drew attention from all within the Cheshire League system.\n\nThe title was the club's biggest achievement since its formation — claiming the Cheshire Football League League 1 championship in just their third season at this level. A remarkable testament to the players, the management, and everyone who has been part of the journey.`,
+    narrative: `If the 2023/24 season was about proving the club belonged at League 1 level, the 2024/25 campaign was about dominating it. Bollington Town were simply outstanding from start to finish — winning 22 of 30 matches, dropping points in just eight games all season, and finishing as champions with 70 points.\n\nThe goal difference of +59 told the story of a team that was relentless going forward while remaining difficult to break down at the back. It was a performance that drew attention from all within the Cheshire League system.\n\nThe title was the club's biggest achievement to date — claiming the Cheshire Football League League 1 championship and earning promotion. A remarkable testament to the players, the management, and everyone who has been part of the journey.\n\n Not satisfied with just the league title, Bollington also triumphed in the Altrincham & District Cup — a stunning end to the greatest season in the clubs short history`,
     stats: [
       { label: "Played", value: "30" },
       { label: "Won", value: "22" },
@@ -133,17 +184,21 @@ const seasons = [
       "Cheshire Football League 1 Champions",
       "70 points from 30 games — dominant title-winning campaign",
       "Goal difference of +59 across the season",
-      "Only four league defeats all season",
+      "Altrincham & District Cup Winners",
     ],
     topScorers: [
       { name: "Ally Harrison-Virani", goals: 21 },
       { name: "Joshua Connolly", goals: 15 },
       { name: "Matthew Nelson", goals: 12 },
+      { name: "Zak James Mousa", goals: 10 },
+      { name: "Alfie Earith", goals: 5 },
     ],
     topAppearances: [
       { name: "Matthew Joyce", apps: 32 },
       { name: "Jake Eastham", apps: 31 },
       { name: "Ally Harrison-Virani", apps: 30 },
+      { name: "George Richardson", apps: 30 },
+      { name: "Zak James Mousa", apps: 26 },
     ],
     leagueTableUrl: "https://fulltime.thefa.com/index.html?selectedSeason=54628403&selectedFixtureGroupAgeGroup=0&selectedDivision=900532629&selectedCompetition=0",
     icon: Trophy,
@@ -153,9 +208,9 @@ const seasons = [
     id: "2025-26",
     label: "2025/26",
     title: "Current Season",
-    subtitle: "Fifth Season — In Progress",
+    subtitle: "Sixth Season — In Progress",
     competition: "Cheshire Football League",
-    narrative: `As champions of League 1, Bollington Town enter the 2025/26 season with their sights set firmly on the next challenge. The squad that delivered last season's title has been retained and strengthened, and the ambition within the club has never been higher.\n\nThe story of this season is still being written. Check the fixtures and results pages for the latest from the campaign.`,
+    narrative: `As champions of League 1, Bollington Town enter the 2025/26 season with their sights set firmly on the next challenge. The squad that delivered last season's title has been retained and strengthened, and the ambition within the club has never been higher.\n\nThe story of this season is still being written. Check the fixtures and results pages for the latest from the campaign..`,
     stats: [
       { label: "Played", value: "20+" },
       { label: "Won", value: "—" },
@@ -167,53 +222,33 @@ const seasons = [
     ],
     highlights: [
       "Season underway — building on last season's title win",
+      "Alfie Earith and Joshua Connolly joint leading scorers with 10 goals each",
       "Squad retained and strengthened ahead of the new challenge",
-      "Ambitions high following Cheshire Football League 1 championship",
     ],
     topScorers: [
       { name: "Alfie Earith", goals: 10 },
       { name: "Joshua Connolly", goals: 10 },
       { name: "Zak James Mousa", goals: 4 },
       { name: "Daniel Williams", goals: 4 },
+      { name: "George Richardson", goals: 3 },
     ],
     topAppearances: [
       { name: "Jake Eastham", apps: 20 },
       { name: "Beau Gatward", apps: 20 },
       { name: "Alfie Earith", apps: 19 },
       { name: "Matthew Joyce", apps: 19 },
+      { name: "Philip Milsom", apps: 17 },
     ],
+    leagueTableUrl: "https://fulltime.thefa.com/index.html?selectedSeason=882113536&selectedFixtureGroupAgeGroup=0&selectedDivision=261815174&selectedCompetition=0",
     icon: Star,
     accent: "btfc-gold",
     isCurrent: true,
   },
 ];
 
-// Aggregated from all seasons 2021/22 – 2025/26 (FA Full-Time data, up to 19 Feb 2026)
-const allTimeScorers = [
-  { name: "Joshua Connolly", goals: 58 },
-  { name: "Jack Heppell", goals: 27 },
-  { name: "Ally Harrison-Virani", goals: 25 },
-  { name: "Beau Gatward", goals: 22 },
-  { name: "Zak James Mousa", goals: 22 },
-  { name: "Alfie Earith", goals: 18 },
-  { name: "Nathan Jackson", goals: 18 },
-  { name: "Conor Beaden", goals: 17 },
-  { name: "Ryan Hibbert", goals: 17 },
-  { name: "Matthew Nelson", goals: 14 },
-];
-
-const allTimeAppearances = [
-  { name: "Matthew Joyce", apps: 126 },
-  { name: "Jake Eastham", apps: 117 },
-  { name: "Alfie Earith", apps: 108 },
-  { name: "Declan Hanks", apps: 103 },
-  { name: "Finn Manning", apps: 93 },
-  { name: "Beau Gatward", apps: 88 },
-  { name: "Joshua Connolly", apps: 83 },
-  { name: "Ryan Hibbert", apps: 82 },
-  { name: "Jack Heppell", apps: 78 },
-  { name: "Alexander Howarth", apps: 67 },
-];
+// Computed from src/data/playerStats.ts — all seasons 2020/21 – 2025/26
+const allTimeScorers = allTimeStats.byGoals.slice(0, 10);
+const allTimeAppearances = allTimeStats.byApps.slice(0, 10);
 
 function StatBadge({ label, value }: { label: string; value: string }) {
   return (
@@ -234,7 +269,7 @@ export default function ClubHistoryPage() {
             Club History
           </h1>
           <p className="text-white/70 mt-4 max-w-xl">
-            From humble beginnings in 2021 to competing in the Cheshire Association
+            From humble beginnings in 2020 to competing in the Cheshire Association
             Football League — the story of Bollington Town FC.
           </p>
         </div>
@@ -251,7 +286,7 @@ export default function ClubHistoryPage() {
           <div className="relative flex flex-col md:flex-row md:items-center gap-6">
             <div className="shrink-0">
               <div className="font-display text-6xl md:text-8xl text-btfc-gold leading-none">
-                2021
+                2020
               </div>
               <div className="text-white/60 text-sm uppercase tracking-widest mt-1">
                 Year Founded
@@ -262,9 +297,9 @@ export default function ClubHistoryPage() {
                 Born in Bollington
               </h2>
               <p className="text-white/75 leading-relaxed max-w-2xl">
-                Bollington Town FC was established in 2021 with a simple ambition: to create
+                Bollington Town FC was established in 2020 with a simple ambition: to create
                 a competitive, community-focused football club that the town could be proud of.
-                In five short seasons the club has grown from a newly formed side to an
+                In six short seasons the club has grown from a newly formed side to an
                 established presence in the Cheshire Association Football League.
               </p>
             </div>
