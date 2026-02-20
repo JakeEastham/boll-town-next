@@ -1,4 +1,10 @@
+Options -Indexes
 RewriteEngine On
+RewriteBase /
+
+# Strip trailing slash (redirect /matches/ → /matches)
+RewriteCond %{REQUEST_URI} !^/$
+RewriteRule ^(.*)/$ /$1 [R=301,L]
 
 # SPA fallback for Sanity Studio
 RewriteRule ^studio/.+ /studio.html [L]
