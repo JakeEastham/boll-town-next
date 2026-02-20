@@ -4,6 +4,7 @@ import {
   nextMatchQuery,
   latestNewsQuery,
   latestMatchReportQuery,
+  latestHighlightQuery,
   playersPreviewQuery,
   sponsorsQuery,
 } from "@/lib/sanity/queries";
@@ -14,26 +15,29 @@ import {
   PlayerPreviewGrid,
   SponsorBanner,
   LatestMatchReport,
+  MatchHighlights,
 } from "@/components/sections";
+import type { MatchHighlight } from "@/components/sections";
 import { Button } from "@/components/ui";
 import type { SiteSettings, Match, NewsArticle, Player, Sponsor, MatchReportPreview } from "@/types";
 
 async function getHomePageData() {
-  const [siteSettings, nextMatch, latestNews, latestMatchReport, players, sponsors] =
+  const [siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors] =
     await Promise.all([
       client.fetch<SiteSettings>(siteSettingsQuery),
       client.fetch<Match>(nextMatchQuery),
       client.fetch<NewsArticle[]>(latestNewsQuery, { limit: 5 }),
       client.fetch<MatchReportPreview>(latestMatchReportQuery),
+      client.fetch<MatchHighlight>(latestHighlightQuery),
       client.fetch<Player[]>(playersPreviewQuery),
       client.fetch<Sponsor[]>(sponsorsQuery),
     ]);
 
-  return { siteSettings, nextMatch, latestNews, latestMatchReport, players, sponsors };
+  return { siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors };
 }
 
 export default async function HomePage() {
-  const { siteSettings, nextMatch, latestNews, latestMatchReport, players, sponsors } =
+  const { siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors } =
     await getHomePageData();
 
   return (
@@ -46,6 +50,12 @@ export default async function HomePage() {
 
       {/* Latest Match Report */}
       <LatestMatchReport report={latestMatchReport} />
+
+      {/* Veo Highlight Reel */}
+      <MatchHighlights
+        highlight={latestHighlight}
+        isLatestMatch={latestHighlight?._id === latestMatchReport?._id}
+      />
 
       {/* Latest News */}
       <NewsGrid articles={latestNews || []} />

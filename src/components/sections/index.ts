@@ -13,3 +13,5 @@ export {
 export { MatchReport } from "./MatchReport/MatchReport";
 export type { MatchReportData } from "./MatchReport/MatchReport";
 export { LatestMatchReport } from "./LatestMatchReport/LatestMatchReport";
+export { MatchHighlights } from "./MatchHighlights/MatchHighlights";
+export type { MatchHighlight } from "./MatchHighlights/MatchHighlights";

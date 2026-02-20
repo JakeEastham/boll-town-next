@@ -281,6 +281,21 @@ export const matchByIdQuery = groq`
   }
 `;
 
+// Latest match with a Veo highlight reel uploaded
+export const latestHighlightQuery = groq`
+  *[_type == "match" && status == "fulltime" && defined(veoHighlightUrl)] | order(date desc) [0] {
+    _id,
+    date,
+    opponent,
+    isHome,
+    homeScore,
+    awayScore,
+    reportHeadline,
+    reportHeadlineEmphasis,
+    veoHighlightUrl
+  }
+`;
+
 // News Articles
 export const latestNewsQuery = groq`
   *[_type == "newsArticle"] | order(publishedAt desc) [0...$limit] {
