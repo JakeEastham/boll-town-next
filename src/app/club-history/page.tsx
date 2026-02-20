@@ -170,7 +170,7 @@ const seasons = [
     title: "Champions Again",
     subtitle: "Fifth Season",
     competition: "Cheshire Football League — League 1",
-    narrative: `If the 2023/24 season was about proving the club belonged at League 1 level, the 2024/25 campaign was about dominating it. Bollington Town were simply outstanding from start to finish — winning 22 of 30 matches, dropping points in just eight games all season, and finishing as champions with 70 points.\n\nThe goal difference of +59 told the story of a team that was relentless going forward while remaining difficult to break down at the back. It was a performance that drew attention from all within the Cheshire League system.\n\nThe title was the club's biggest achievement to date — claiming the Cheshire Football League League 1 championship and earning promotion. A remarkable testament to the players, the management, and everyone who has been part of the journey.\n\n Not satisfied with just the league title, Bollington also triumphed in the Altrincham & District Cup — a stunning end to the greatest season in the clubs short history`,
+    narrative: `If the 2023/24 season was about proving the club belonged at League 1 level, the 2024/25 campaign was about dominating it. Bollington Town were simply outstanding from start to finish — winning 22 of 30 matches, dropping points in just eight games all season, and finishing as champions with 70 points.\n\nThe goal difference of +59 told the story of a team that was relentless going forward while remaining difficult to break down at the back. It was a performance that drew attention from all within the Cheshire League system.\n\nThe title was the club's biggest achievement to date — claiming the Cheshire Football League League 1 championship and earning promotion. A remarkable testament to the players, the management, and everyone who has been part of the journey.`,
     stats: [
       { label: "Played", value: "30" },
       { label: "Won", value: "22" },
@@ -533,6 +533,15 @@ export default function ClubHistoryPage() {
                 })}
               </div>
             </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <Link
+              href="/club-history/all-time-stats"
+              className="inline-flex items-center gap-2 text-sm text-btfc-blue hover:text-btfc-navy font-medium transition-colors"
+            >
+              View full all-time stats for all players →
+            </Link>
           </div>
         </motion.div>
       </div>
