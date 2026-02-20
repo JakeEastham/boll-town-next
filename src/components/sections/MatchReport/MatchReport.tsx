@@ -76,6 +76,9 @@ export interface MatchReportData {
   homeSubs: PlayerLineup[];
   awayLineup: PlayerLineup[];
   awaySubs?: PlayerLineup[];
+
+  // Veo highlight reel
+  veoHighlightUrl?: string;
 }
 
 interface MatchReportProps {
@@ -199,6 +202,37 @@ export function MatchReport({ data }: MatchReportProps) {
             <p key={i} dangerouslySetInnerHTML={{ __html: sanitizeHtml(paragraph) }} />
           ))}
         </div>
+
+        {/* Veo Highlight Reel */}
+        {data.veoHighlightUrl && (
+          <div className="match-report-veo">
+            <p className="match-report-section-label">Highlight Reel</p>
+            <h3 className="match-report-veo-title">Watch the Highlights</h3>
+            <div className="match-report-veo-player">
+              {data.veoHighlightUrl.endsWith(".mp4") ? (
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="match-report-veo-video"
+                >
+                  <source src={data.veoHighlightUrl} type="video/mp4" />
+                </video>
+              ) : (
+                <iframe
+                  src={data.veoHighlightUrl}
+                  allow="autoplay; fullscreen"
+                  allowFullScreen
+                  className="match-report-veo-iframe"
+                />
+              )}
+            </div>
+            <p className="match-report-veo-credit">
+              Recorded &amp; produced by{" "}
+              <a href="https://veo.co" target="_blank" rel="noopener noreferrer">Veo</a>
+            </p>
+          </div>
+        )}
 
         {/* Lineups */}
         <div className="match-report-lineups">

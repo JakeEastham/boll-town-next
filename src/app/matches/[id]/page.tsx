@@ -41,6 +41,7 @@ const matchReportQuery = groq`
     matchStats,
     pullQuote,
     matchVerdict,
+    veoHighlightUrl,
     homeLineup[] {
       "name": coalesce(player->name, customName),
       badgeType,
@@ -132,6 +133,7 @@ export default async function MatchReportPage({ params }: PageProps) {
     stats: match.matchStats || [],
     quote: match.pullQuote,
     verdict: match.matchVerdict || [],
+    veoHighlightUrl: match.veoHighlightUrl,
 
     homeLineup: (match.homeLineup || []).map((p: any) => ({
       name: p.name,

@@ -285,6 +285,13 @@ export default defineType({
 
     // === MEDIA ===
     defineField({
+      name: "veoHighlightUrl",
+      title: "Veo Highlight Reel URL",
+      type: "url",
+      description: "Paste the Veo CDN video URL (ending in .mp4) or a Veo share/embed URL",
+      group: "media",
+    }),
+    defineField({
       name: "gallery",
       title: "Match Photos",
       type: "array",
