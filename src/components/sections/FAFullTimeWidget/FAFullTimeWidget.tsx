@@ -97,10 +97,27 @@ export function FAFullTimeWidget({
   useEffect(() => {
     if (!containerRef.current) return;
 
+    const labelUnnamedLinks = (container: HTMLDivElement) => {
+      container.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((a) => {
+        // Skip if already has accessible text
+        if (a.textContent?.trim() || a.getAttribute("aria-label")) return;
+        // Build label from sibling cell text in the same row
+        const row = a.closest("tr");
+        if (row) {
+          const cellText = Array.from(row.querySelectorAll("td"))
+            .map((td) => td.textContent?.trim())
+            .filter(Boolean)
+            .join(" ");
+          if (cellText) a.setAttribute("aria-label", cellText);
+        }
+      });
+    };
+
     const observer = new MutationObserver(() => {
       const container = containerRef.current;
       if (container && container.querySelector("table, .ft-table, div[style]")) {
         setLoading(false);
+        labelUnnamedLinks(container);
       }
     });
 
@@ -112,6 +129,7 @@ export function FAFullTimeWidget({
     // Fallback timeout
     const timeout = setTimeout(() => {
       setLoading(false);
+      if (containerRef.current) labelUnnamedLinks(containerRef.current);
     }, 8000);
 
     return () => {

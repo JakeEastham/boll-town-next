@@ -15,5 +15,5 @@ const builder = createImageUrlBuilder({
 });
 
 export function urlFor(source: SanityImage) {
-  return builder.image(source);
+  return builder.image(source).auto("format");
 }
