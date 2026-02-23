@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { MapPin, Mail, Users, Heart, Building } from "lucide-react";
 import { client, urlFor } from "@/lib/sanity";
 import { staffByCategoryQuery, sponsorsQuery } from "@/lib/sanity/queries";
-import { StaffCard, Button } from "@/components/ui";
+import { StaffCard, Button, ScrollToHash } from "@/components/ui";
 import { SponsorBanner } from "@/components/sections";
 import type { StaffMember, Sponsor } from "@/types";
 
@@ -25,6 +25,7 @@ export default async function GetInvolvedPage() {
 
   return (
     <div className="pt-24 pb-16">
+      <ScrollToHash />
       {/* Page Header */}
       <div className="bg-btfc-navy py-16 mb-12">
         <div className="container">

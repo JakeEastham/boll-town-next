@@ -1,4 +1,5 @@
 export { Button } from "./Button/Button";
+export { ScrollToHash } from "./ScrollToHash/ScrollToHash";
 export { Badge, CategoryBadge, PositionBadge, StatusBadge } from "./Badge/Badge";
 export {
   Card,
