@@ -54,7 +54,7 @@ export default function AllTimeStatsPage() {
             All-Time Player Stats
           </h1>
           <p className="text-white/60 mt-3 text-sm">
-            All competitive appearances across all seasons. Data up to 19 February 2026.
+            All competitive appearances across all seasons. Data up to 23 February 2026.
           </p>
         </div>
       </div>
