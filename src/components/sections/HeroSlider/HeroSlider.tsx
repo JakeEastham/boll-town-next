@@ -44,6 +44,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
               sizes="100vw"
               className="object-cover"
               priority={currentIndex === 0}
+              fetchPriority={currentIndex === 0 ? "high" : "auto"}
             />
           </motion.div>
         </AnimatePresence>
@@ -68,14 +69,16 @@ export function HeroSlider({ slides }: HeroSliderProps) {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={cn(
-                "h-2 rounded-full transition-all duration-500",
+              className="flex items-center justify-center min-w-[44px] min-h-[44px]"
+              aria-label={`Go to slide ${index + 1}`}
+            >
+              <span className={cn(
+                "h-2 rounded-full transition-all duration-500 block",
                 index === currentIndex
                   ? "bg-btfc-gold w-8"
                   : "bg-white/50 w-2 hover:bg-white/80"
-              )}
-              aria-label={`Go to slide ${index + 1}`}
-            />
+              )} />
+            </button>
           ))}
         </div>
       )}

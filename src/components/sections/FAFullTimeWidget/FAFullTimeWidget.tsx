@@ -82,12 +82,23 @@ export function FAFullTimeWidget({
       containerRef.current?.appendChild(script);
     };
 
-    // Add to queue and process
-    loadQueue.push(loadWidget);
-    processQueue();
+    // Defer loading until widget is near the viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          observer.disconnect();
+          loadQueue.push(loadWidget);
+          processQueue();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(containerRef.current);
 
     // Cleanup
     return () => {
+      observer.disconnect();
       const index = loadQueue.indexOf(loadWidget);
       if (index > -1) loadQueue.splice(index, 1);
     };
