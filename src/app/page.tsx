@@ -7,6 +7,7 @@ import {
   latestHighlightQuery,
   playersPreviewQuery,
   sponsorsQuery,
+  videoSponsorQuery,
 } from "@/lib/sanity/queries";
 import {
   HeroSlider,
@@ -22,7 +23,7 @@ import { Button } from "@/components/ui";
 import type { SiteSettings, Match, NewsArticle, Player, Sponsor, MatchReportPreview } from "@/types";
 
 async function getHomePageData() {
-  const [siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors] =
+  const [siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors, videoSponsor] =
     await Promise.all([
       client.fetch<SiteSettings>(siteSettingsQuery),
       client.fetch<Match>(nextMatchQuery),
@@ -31,13 +32,14 @@ async function getHomePageData() {
       client.fetch<MatchHighlight>(latestHighlightQuery),
       client.fetch<Player[]>(playersPreviewQuery),
       client.fetch<Sponsor[]>(sponsorsQuery),
+      client.fetch<Sponsor[]>(videoSponsorQuery),
     ]);
 
-  return { siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors };
+  return { siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors, videoSponsor };
 }
 
 export default async function HomePage() {
-  const { siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors } =
+  const { siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors, videoSponsor } =
     await getHomePageData();
 
   return (
@@ -55,6 +57,7 @@ export default async function HomePage() {
       <MatchHighlights
         highlight={latestHighlight}
         isLatestMatch={latestHighlight?._id === latestMatchReport?._id}
+        videoSponsor={videoSponsor}
       />
 
       {/* Latest News */}

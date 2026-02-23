@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { urlFor } from "@/lib/sanity";
+import type { Sponsor } from "@/types";
 
 /** Strip all HTML tags except safe inline formatting */
 function sanitizeHtml(html: string): string {
@@ -24,10 +27,10 @@ interface MatchEvent {
 
 interface PlayerLineup {
   name: string;
-  badge?: {
-    type: "goal" | "sub" | "yellow" | "red";
+  badges?: {
+    type: "goal" | "sub" | "sub-on" | "yellow" | "red";
     text: string;
-  };
+  }[];
 }
 
 interface MatchStat {
@@ -79,6 +82,9 @@ export interface MatchReportData {
 
   // Veo highlight reel
   veoHighlightUrl?: string;
+
+  // Video sponsors
+  videoSponsor?: Sponsor[] | null;
 }
 
 interface MatchReportProps {
@@ -227,10 +233,45 @@ export function MatchReport({ data }: MatchReportProps) {
                 />
               )}
             </div>
-            <p className="match-report-veo-credit">
-              Recorded &amp; produced by{" "}
-              <a href="https://veo.co" target="_blank" rel="noopener noreferrer">Veo</a>
-            </p>
+            <div className="match-report-veo-credit">
+              {data.videoSponsor && data.videoSponsor.length > 0 && (
+                <span className="match-report-veo-sponsor">
+                  <span>Video sponsored by</span>
+                  {data.videoSponsor.map((s) =>
+                    s.website ? (
+                      <a
+                        key={s._id}
+                        href={s.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={s.name}
+                      >
+                        <Image
+                          src={urlFor(s.logo).width(120).height(40).url()}
+                          alt={s.name}
+                          width={60}
+                          height={20}
+                          className="object-contain"
+                        />
+                      </a>
+                    ) : (
+                      <Image
+                        key={s._id}
+                        src={urlFor(s.logo).width(120).height(40).url()}
+                        alt={s.name}
+                        width={60}
+                        height={20}
+                        className="object-contain"
+                      />
+                    )
+                  )}
+                </span>
+              )}
+              <span>
+                Recorded &amp; produced by{" "}
+                <a href="https://veo.co" target="_blank" rel="noopener noreferrer">Veo</a>
+              </span>
+            </div>
           </div>
         )}
 
@@ -313,6 +354,7 @@ function LineupColumn({
       case "goal":
         return "badge-goal";
       case "sub":
+      case "sub-on":
         return "badge-sub";
       case "yellow":
         return "badge-yellow";
@@ -330,11 +372,11 @@ function LineupColumn({
         {players.map((player, i) => (
           <li key={i}>
             <span className="pname">{player.name}</span>
-            {player.badge && (
-              <span className={cn("pbadge", getBadgeClass(player.badge.type))}>
-                {player.badge.text}
+            {player.badges?.map((badge, j) => (
+              <span key={j} className={cn("pbadge", getBadgeClass(badge.type))}>
+                {badge.text}
               </span>
-            )}
+            ))}
           </li>
         ))}
       </ul>
@@ -346,11 +388,11 @@ function LineupColumn({
             {subs.map((player, i) => (
               <li key={i}>
                 <span className="pname">{player.name}</span>
-                {player.badge && (
-                  <span className={cn("pbadge", getBadgeClass(player.badge.type))}>
-                    {player.badge.text}
+                {player.badges?.map((badge, j) => (
+                  <span key={j} className={cn("pbadge", getBadgeClass(badge.type))}>
+                    {badge.text}
                   </span>
-                )}
+                ))}
               </li>
             ))}
           </ul>

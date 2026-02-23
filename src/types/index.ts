@@ -155,7 +155,7 @@ export interface NewsArticle extends SanityDocument {
 }
 
 // Sponsor Types
-export type SponsorTier = "main" | "kit" | "partner" | "community";
+export type SponsorTier = "main" | "kit" | "partner" | "community" | "video";
 
 export interface Sponsor extends SanityDocument {
   _type: "sponsor";

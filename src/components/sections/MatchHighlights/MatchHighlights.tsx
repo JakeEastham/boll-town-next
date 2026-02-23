@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { format } from "date-fns";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import { urlFor } from "@/lib/sanity";
+import type { Sponsor } from "@/types";
 
 export interface MatchHighlight {
   _id: string;
@@ -20,9 +23,10 @@ export interface MatchHighlight {
 interface MatchHighlightsProps {
   highlight: MatchHighlight | null;
   isLatestMatch?: boolean;
+  videoSponsor?: Sponsor[] | null;
 }
 
-export function MatchHighlights({ highlight, isLatestMatch = true }: MatchHighlightsProps) {
+export function MatchHighlights({ highlight, isLatestMatch = true, videoSponsor }: MatchHighlightsProps) {
   if (!highlight) return null;
 
   const isDirectVideo = highlight.veoHighlightUrl.endsWith(".mp4");
@@ -77,17 +81,54 @@ export function MatchHighlights({ highlight, isLatestMatch = true }: MatchHighli
             )}
           </div>
 
-          <p className="text-white/30 text-xs mt-2 text-right">
-            Recorded by{" "}
-            <a
-              href="https://veo.co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-white/50 transition-colors"
-            >
-              Veo
-            </a>
-          </p>
+          <div className="flex items-center justify-between mt-3">
+            {videoSponsor && videoSponsor.length > 0 ? (
+              <div className="flex items-center gap-3">
+                <span className="text-white/40 text-xs">Video sponsored by</span>
+                {videoSponsor.map((s) =>
+                  s.website ? (
+                    <a
+                      key={s._id}
+                      href={s.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={s.name}
+                      className="bg-white/90 rounded px-2 py-1 opacity-80 hover:opacity-100 transition-opacity"
+                    >
+                      <Image
+                        src={urlFor(s.logo).width(120).height(40).url()}
+                        alt={s.name}
+                        width={60}
+                        height={20}
+                        className="object-contain"
+                      />
+                    </a>
+                  ) : (
+                    <span key={s._id} className="bg-white/90 rounded px-2 py-1 opacity-80">
+                      <Image
+                        src={urlFor(s.logo).width(120).height(40).url()}
+                        alt={s.name}
+                        width={60}
+                        height={20}
+                        className="object-contain"
+                      />
+                    </span>
+                  )
+                )}
+              </div>
+            ) : <span />}
+            <p className="text-white/30 text-xs">
+              Recorded by{" "}
+              <a
+                href="https://veo.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white/50 transition-colors"
+              >
+                Veo
+              </a>
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

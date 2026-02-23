@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { client } from "@/lib/sanity";
 import { MatchReport, MatchReportData } from "@/components/sections";
 import { groq } from "next-sanity";
+import { videoSponsorQuery } from "@/lib/sanity/queries";
+import type { Sponsor } from "@/types";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -45,22 +47,30 @@ const matchReportQuery = groq`
     homeLineup[] {
       "name": coalesce(player->name, customName),
       badgeType,
-      badgeText
+      badgeText,
+      badge2Type,
+      badge2Text
     },
     homeSubs[] {
       "name": coalesce(player->name, customName),
       badgeType,
-      badgeText
+      badgeText,
+      badge2Type,
+      badge2Text
     },
     awayLineup[] {
       "name": coalesce(player->name, customName),
       badgeType,
-      badgeText
+      badgeText,
+      badge2Type,
+      badge2Text
     },
     awaySubs[] {
       "name": coalesce(player->name, customName),
       badgeType,
-      badgeText
+      badgeText,
+      badge2Type,
+      badge2Text
     }
   }
 `;
@@ -90,11 +100,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function MatchReportPage({ params }: PageProps) {
   const { id } = await params;
-  const match = await getMatch(id);
+  const [match, videoSponsor] = await Promise.all([
+    getMatch(id),
+    client.fetch<Sponsor[]>(videoSponsorQuery),
+  ]);
 
   if (!match || !match.reportHeadline) {
     notFound();
   }
+
+  const mapPlayer = (p: any) => {
+    const badges = [];
+    if (p.badgeType && p.badgeType !== "none" && p.badgeText) {
+      badges.push({ type: p.badgeType, text: p.badgeText });
+    }
+    if (p.badge2Type && p.badge2Type !== "none" && p.badge2Text) {
+      badges.push({ type: p.badge2Type, text: p.badge2Text });
+    }
+    return { name: p.name, badges };
+  };
 
   // Transform Sanity data to MatchReportData format
   const reportData: MatchReportData = {
@@ -135,37 +159,12 @@ export default async function MatchReportPage({ params }: PageProps) {
     verdict: match.matchVerdict || [],
     veoHighlightUrl: match.veoHighlightUrl,
 
-    homeLineup: (match.homeLineup || []).map((p: any) => ({
-      name: p.name,
-      badge: p.badgeType !== "none" && p.badgeText ? {
-        type: p.badgeType,
-        text: p.badgeText,
-      } : undefined,
-    })),
+    homeLineup: (match.homeLineup || []).map(mapPlayer),
+    homeSubs: (match.homeSubs || []).map(mapPlayer),
+    awayLineup: (match.awayLineup || []).map(mapPlayer),
+    awaySubs: (match.awaySubs || []).map(mapPlayer),
 
-    homeSubs: (match.homeSubs || []).map((p: any) => ({
-      name: p.name,
-      badge: p.badgeType !== "none" && p.badgeText ? {
-        type: p.badgeType,
-        text: p.badgeText,
-      } : undefined,
-    })),
-
-    awayLineup: (match.awayLineup || []).map((p: any) => ({
-      name: p.name,
-      badge: p.badgeType !== "none" && p.badgeText ? {
-        type: p.badgeType,
-        text: p.badgeText,
-      } : undefined,
-    })),
-
-    awaySubs: (match.awaySubs || []).map((p: any) => ({
-      name: p.name,
-      badge: p.badgeType !== "none" && p.badgeText ? {
-        type: p.badgeType,
-        text: p.badgeText,
-      } : undefined,
-    })),
+    videoSponsor: videoSponsor || null,
   };
 
   const startDateTime = `${match.date}T${reportData.kickoff}:00`;

@@ -41,6 +41,30 @@ export default defineType({
       description: "e.g., \"⚽ 10', 24'\", \"Sub 57'\", \"🟨 32'\"",
       hidden: ({ parent }) => parent?.badgeType === "none",
     }),
+    defineField({
+      name: "badge2Type",
+      title: "Second Badge Type",
+      type: "string",
+      description: "For players with two events (e.g. yellow card + substituted)",
+      options: {
+        list: [
+          { title: "None", value: "none" },
+          { title: "Goal", value: "goal" },
+          { title: "Substituted Off", value: "sub" },
+          { title: "Substituted On", value: "sub-on" },
+          { title: "Yellow Card", value: "yellow" },
+          { title: "Red Card", value: "red" },
+        ],
+      },
+      initialValue: "none",
+    }),
+    defineField({
+      name: "badge2Text",
+      title: "Second Badge Text",
+      type: "string",
+      description: "e.g., \"Sub 72'\"",
+      hidden: ({ parent }) => !parent?.badge2Type || parent?.badge2Type === "none",
+    }),
   ],
   preview: {
     select: {
@@ -48,12 +72,15 @@ export default defineType({
       customName: "customName",
       badgeType: "badgeType",
       badgeText: "badgeText",
+      badge2Type: "badge2Type",
+      badge2Text: "badge2Text",
     },
-    prepare({ playerName, customName, badgeType, badgeText }) {
+    prepare({ playerName, customName, badgeType, badgeText, badge2Type, badge2Text }) {
       const name = playerName || customName || "Unknown";
       const badge = badgeType !== "none" && badgeText ? ` (${badgeText})` : "";
+      const badge2 = badge2Type && badge2Type !== "none" && badge2Text ? ` (${badge2Text})` : "";
       return {
-        title: `${name}${badge}`,
+        title: `${name}${badge}${badge2}`,
       };
     },
   },

@@ -32,6 +32,7 @@ export default defineType({
           { title: "Kit Sponsor", value: "kit" },
           { title: "Official Partner", value: "partner" },
           { title: "Community Partner", value: "community" },
+          { title: "Video Sponsor", value: "video" },
         ],
       },
     }),

@@ -406,6 +406,16 @@ export const staffByCategoryQuery = groq`
   }
 `;
 
+// Video sponsors (e.g. SSO Logistics, SSOIF — sponsor the Veo footage)
+export const videoSponsorQuery = groq`
+  *[_type == "sponsor" && isActive == true && tier == "video"] | order(order asc) {
+    _id,
+    name,
+    logo,
+    website
+  }
+`;
+
 // Sponsors
 export const sponsorsQuery = groq`
   *[_type == "sponsor" && isActive == true] | order(tier asc, order asc) {
