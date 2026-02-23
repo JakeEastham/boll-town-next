@@ -281,7 +281,7 @@ function computeAllTime() {
   }
 
   const all = Array.from(map.values());
-  const byApps = [...all].sort((a, b) => b.apps - a.apps);
+  const byApps = [...all].filter((p) => p.apps > 0).sort((a, b) => b.apps - a.apps);
   const byGoals = [...all].filter((p) => p.goals > 0).sort((a, b) => b.goals - a.goals);
 
   return { byApps, byGoals };
