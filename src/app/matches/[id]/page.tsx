@@ -168,12 +168,41 @@ export default async function MatchReportPage({ params }: PageProps) {
     })),
   };
 
+  const startDateTime = `${match.date}T${reportData.kickoff}:00`;
+  const [hours, minutes] = reportData.kickoff.split(":").map(Number);
+  const endHours = String((hours + 2) % 24).padStart(2, "0");
+  const endDateTime = `${match.date}T${endHours}:${String(minutes).padStart(2, "0")}:00`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
     name: `${reportData.homeTeam} vs ${reportData.awayTeam}`,
-    startDate: match.date,
-    location: { "@type": "Place", name: reportData.venue },
+    description: reportData.intro || `${reportData.competition} match report: ${reportData.homeTeam} ${reportData.homeScore}-${reportData.awayScore} ${reportData.awayTeam}`,
+    startDate: startDateTime,
+    endDate: endDateTime,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    image: "https://bollingtontownfc.co.uk/images/badge.png",
+    location: {
+      "@type": "Place",
+      name: reportData.venue,
+      address: { "@type": "PostalAddress", addressLocality: reportData.venue },
+    },
+    organizer: {
+      "@type": "SportsOrganization",
+      name: reportData.competition,
+    },
+    performer: [
+      { "@type": "SportsTeam", name: reportData.homeTeam },
+      { "@type": "SportsTeam", name: reportData.awayTeam },
+    ],
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "GBP",
+      availability: "https://schema.org/InStock",
+      url: `https://bollingtontownfc.co.uk/matches/${id}`,
+    },
     homeTeam: { "@type": "SportsTeam", name: reportData.homeTeam },
     awayTeam: { "@type": "SportsTeam", name: reportData.awayTeam },
     competitor: [
