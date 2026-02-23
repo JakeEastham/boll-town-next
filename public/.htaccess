@@ -4,6 +4,17 @@ DirectoryIndex index.html
 RewriteEngine On
 RewriteBase /
 
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.bollingtontownfc\.co\.uk$ [NC]
+RewriteRule ^(.*)$ https://bollingtontownfc.co.uk/$1 [L,R=301]
+
+# Redirect old /home route
+RewriteRule ^home/?$ / [L,R=301]
+
 # SPA fallback for Sanity Studio
 RewriteRule ^studio/.+ /studio/index.html [L]
 
