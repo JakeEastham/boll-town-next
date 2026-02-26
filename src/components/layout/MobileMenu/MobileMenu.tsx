@@ -54,6 +54,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const handleNavClick = () => {
     onClose();
     setExpandedItem(null);
+    window.scrollTo(0, 0);
   };
 
   return (

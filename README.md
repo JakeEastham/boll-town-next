@@ -18,7 +18,7 @@ Official website for **Bollington Town FC**, a community football club based in 
 | Icons | Lucide React |
 | Dates | date-fns 4 |
 | Rich Text | Portable Text (`@portabletext/react`) |
-| Hosting | IONOS shared hosting (Apache) |
+| Hosting | Hostinger shared hosting (Apache) |
 | Deployment | GitHub Actions → SFTP |
 
 ---
@@ -114,9 +114,9 @@ npm install
 Create a `.env.local` file in the project root:
 
 ```env
-NEXT_PUBLIC_SANITY_PROJECT_ID=m8shvxfm
-NEXT_PUBLIC_SANITY_DATASET=production
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_SANITY_PROJECT_ID=
+NEXT_PUBLIC_SANITY_DATASET=
+NEXT_PUBLIC_SITE_URL=
 ```
 
 ### Development

@@ -40,6 +40,10 @@ export function Navigation() {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
+  const handleNavClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
@@ -56,6 +60,7 @@ export function Navigation() {
         >
           <Link
             href={item.href}
+            onClick={handleNavClick}
             className={cn(
               "flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide uppercase transition-colors",
               isActive(item.href)
@@ -90,6 +95,7 @@ export function Navigation() {
                   href={child.href}
                   target={child.external ? "_blank" : undefined}
                   rel={child.external ? "noopener noreferrer" : undefined}
+                  onClick={handleNavClick}
                   className="flex items-center justify-between px-4 py-2.5 text-sm text-white/80 hover:text-btfc-gold hover:bg-white/5 transition-colors"
                 >
                   {child.label}
