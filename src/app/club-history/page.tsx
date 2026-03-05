@@ -212,7 +212,7 @@ const seasons = [
     competition: "Cheshire Football League",
     narrative: `As champions of League 1, Bollington Town enter the 2025/26 season with their sights set firmly on the next challenge. The squad that delivered last season's title has been retained and strengthened, and the ambition within the club has never been higher.\n\nThe story of this season is still being written. Check the fixtures and results pages for the latest from the campaign..`,
     stats: [
-      { label: "Played", value: "20+" },
+      { label: "Played", value: "21+" },
       { label: "Won", value: "—" },
       { label: "Drawn", value: "—" },
       { label: "Lost", value: "—" },
@@ -233,11 +233,11 @@ const seasons = [
       { name: "George Richardson", goals: 3 },
     ],
     topAppearances: [
-      { name: "Jake Eastham", apps: 21 },
-      { name: "Beau Gatward", apps: 21 },
-      { name: "Alfie Earith", apps: 20 },
+      { name: "Jake Eastham", apps: 22 },
+      { name: "Beau Gatward", apps: 22 },
+      { name: "Alfie Earith", apps: 21 },
       { name: "Matthew Joyce", apps: 20 },
-      { name: "Philip Milsom", apps: 18 },
+      { name: "Philip Milsom", apps: 19 },
     ],
     leagueTableUrl: "https://fulltime.thefa.com/index.html?selectedSeason=882113536&selectedFixtureGroupAgeGroup=0&selectedDivision=261815174&selectedCompetition=0",
     icon: Star,
@@ -412,7 +412,7 @@ export default function ClubHistoryPage() {
                         <div className="mt-8 pt-8 border-t border-neutral-100">
                           {season.isCurrent && (
                             <p className="text-xs text-neutral-400 italic mb-4">
-                              Statistics up to 19 February 2026. Season in progress.
+                              Statistics up to 28 February 2026. Season in progress.
                             </p>
                           )}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -479,7 +479,7 @@ export default function ClubHistoryPage() {
               All-Time Records
             </h2>
             <p className="text-sm text-neutral-400 italic">
-              All competitive appearances. Data up to 19 February 2026.
+              All competitive appearances. Data up to 28 February 2026.
             </p>
           </div>
 
