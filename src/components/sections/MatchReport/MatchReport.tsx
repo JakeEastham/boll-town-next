@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 import { urlFor } from "@/lib/sanity";
 import type { Sponsor } from "@/types";
 
-/** Strip all HTML tags except safe inline formatting */
-function sanitizeHtml(html: string): string {
-  return html.replace(/<\/?(?!strong|em|b|i|br\s*\/?)[\w\s="'-]+\/?>/gi, "");
+/** Convert **bold** markdown and strip unsafe HTML tags */
+function sanitizeHtml(text: string): string {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/<\/?(?!strong|em|b|i|br\s*\/?)[\w\s="'-]+\/?>/gi, "");
 }
 
 // Types for match report data
