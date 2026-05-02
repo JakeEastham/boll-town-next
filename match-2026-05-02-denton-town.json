@@ -1,0 +1,280 @@
+{
+  "_id": "match-2026-05-02-denton-town",
+  "_type": "match",
+  "date": "2026-05-02T14:00:00.000Z",
+  "kickoff": "14:00",
+  "competition": {
+    "_type": "reference",
+    "_ref": "7fb0b970-d719-4e6f-a382-41786b8fe5d9"
+  },
+  "team": {
+    "_type": "reference",
+    "_ref": "0d997d69-27d3-4cd5-9c77-a9d496bebd26"
+  },
+  "opponent": "Denton Town",
+  "isHome": true,
+  "venue": "Congleton High School",
+  "status": "fulltime",
+  "homeScore": 4,
+  "awayScore": 2,
+  "homeScorers": [
+    {
+      "_key": "hs1",
+      "name": "Declan Hanks",
+      "minutes": ["33'"]
+    },
+    {
+      "_key": "hs2",
+      "name": "Alfie Earith",
+      "minutes": ["52' (pen)"]
+    },
+    {
+      "_key": "hs3",
+      "name": "Ally Harrison-Virani",
+      "minutes": ["55'"]
+    },
+    {
+      "_key": "hs4",
+      "name": "Joshua Connolly",
+      "minutes": ["61'"]
+    }
+  ],
+  "awayScorers": [],
+  "homeLineup": [
+    {
+      "_key": "hl1",
+      "badgeType": "goal",
+      "badgeText": "⚽ 61'",
+      "badge2Type": "sub",
+      "badge2Text": "Sub 82'",
+      "customName": "Joshua Connolly"
+    },
+    {
+      "_key": "hl2",
+      "badgeType": "goal",
+      "badgeText": "⚽ pen",
+      "customName": "Alfie Earith"
+    },
+    {
+      "_key": "hl3",
+      "badgeType": "none",
+      "customName": "Jake Eastham"
+    },
+    {
+      "_key": "hl4",
+      "badgeType": "none",
+      "customName": "Zach Gatward"
+    },
+    {
+      "_key": "hl5",
+      "badgeType": "none",
+      "customName": "Sam Glover"
+    },
+    {
+      "_key": "hl6",
+      "badgeType": "goal",
+      "badgeText": "⚽ 33'",
+      "customName": "Declan Hanks"
+    },
+    {
+      "_key": "hl7",
+      "badgeType": "goal",
+      "badgeText": "⚽ 55'",
+      "customName": "Ally Harrison-Virani"
+    },
+    {
+      "_key": "hl8",
+      "badgeType": "yellow",
+      "badgeText": "🟨 69'",
+      "customName": "Ryan Hibbert"
+    },
+    {
+      "_key": "hl9",
+      "badgeType": "none",
+      "customName": "Matthew Joyce"
+    },
+    {
+      "_key": "hl10",
+      "badgeType": "none",
+      "customName": "Zak James Mousa"
+    },
+    {
+      "_key": "hl11",
+      "badgeType": "none",
+      "customName": "Daniel Williams"
+    }
+  ],
+  "homeSubs": [
+    {
+      "_key": "hsu1",
+      "badgeType": "sub-on",
+      "badgeText": "On 82'",
+      "customName": "Beau Gatward"
+    }
+  ],
+  "awayLineup": [],
+  "awaySubs": [],
+  "reportHeadline": "Town battle back to claim a commanding win against",
+  "reportHeadlineEmphasis": "Denton Town",
+  "reportIntro": "Bollington Town produced a gutsy, character-filled performance at Congleton High School, overcoming an early penalty setback to secure a dominant 4-2 victory over Denton Town — with Declan Hanks, Alfie Earith from the spot, Ally Harrison-Virani and Joshua Connolly all getting on the scoresheet in a memorable afternoon.",
+  "firstHalfEvents": [
+    {
+      "_key": "fh1",
+      "minute": "1'",
+      "type": "opponent-goal",
+      "title": "Early Penalty Blow",
+      "description": "Town were dealt a cruel early setback when **Ryan Hibbert**'s mistimed shot inadvertently caught an opposition player, leaving the referee no choice but to point to the spot. Denton Town converted to take a shock lead inside the opening minute. 0–1."
+    },
+    {
+      "_key": "fh2",
+      "minute": "14'",
+      "type": "save",
+      "title": "Ally Goes Close",
+      "description": "Town began to grow into the game when **Ally Harrison-Virani** drove a shot on target from 10 yards out on the left wing, only for the effort to clip a defender and be deflected wide. A sign of things to come from a lively Harrison-Virani."
+    },
+    {
+      "_key": "fh3",
+      "minute": "22'",
+      "type": "chance",
+      "title": "Eastham Effort Over",
+      "description": "**Jake Eastham** had a sight of goal and got a shot away, but the effort drifted over the crossbar. Town were pushing for an equaliser."
+    },
+    {
+      "_key": "fh4",
+      "minute": "26'",
+      "type": "save",
+      "title": "Matt Denied by Keeper",
+      "description": "**Matthew Joyce** won a tense 1v1 in the box against Denton's number eleven, getting past his man, only for the opposition keeper to get down well and deny him. A chance that deserved better."
+    },
+    {
+      "_key": "fh5",
+      "minute": "32'",
+      "type": "chance",
+      "title": "Denton Miss a Sitter",
+      "description": "A chaotic scramble in the Town box should have put Denton further ahead, but an opposition player somehow missed from point-blank range with the goal gaping. A massive let-off — and Town made them pay within a minute."
+    },
+    {
+      "_key": "fh6",
+      "minute": "33'",
+      "type": "goal",
+      "title": "Goal — Declan Hanks",
+      "description": "Town drew level immediately. **Zach Gatward**'s inviting cross from the right found **Declan Hanks** arriving in the box, who finished with composure to restore parity. A richly deserved equaliser and a moment that changed the game. 1–1."
+    },
+    {
+      "_key": "fh7",
+      "minute": "37'",
+      "type": "chance",
+      "title": "Connolly Booked",
+      "description": "**Joshua Connolly** was shown a yellow card for a foul on the Denton goalkeeper — an unfortunate caution that didn't dampen his influence on the game as the half wore on."
+    },
+    {
+      "_key": "fh8",
+      "minute": "43'–46'",
+      "type": "chance",
+      "title": "Late First Half Pressure",
+      "description": "Town finished the half on the front foot. **Declan Hanks** had a close chance at 43' that narrowly failed to find the target, **Connolly** tested the keeper from distance at 44', and **Ally Harrison-Virani** blazed an effort over in stoppage time. Both sides went in level, but Town looked the more dangerous."
+    }
+  ],
+  "secondHalfEvents": [
+    {
+      "_key": "sh1",
+      "minute": "52'",
+      "type": "goal",
+      "title": "Goal — Alfie Earith (Pen)",
+      "description": "Town took the lead from the spot when a foul in the box handed them a penalty. **Alfie Earith** stepped up and converted with his usual composure, giving Bollington the lead they had been threatening for much of the match. 2–1."
+    },
+    {
+      "_key": "sh2",
+      "minute": "55'",
+      "type": "goal",
+      "title": "Goal — Ally Harrison-Virani",
+      "description": "Town doubled their advantage almost immediately, with a devastating one-two punch. **Zach Gatward**'s sharp pass slid **Ally Harrison-Virani** in behind the defence, and she finished clinically from seven yards out. A stunning blow for Denton. 3–1."
+    },
+    {
+      "_key": "sh3",
+      "minute": "56'",
+      "type": "opponent-goal",
+      "title": "Denton Pull One Back",
+      "description": "Denton Town refused to lie down and pulled a goal back within a minute to make it 3–2. A nervy moment for Town, but the response was emphatic."
+    },
+    {
+      "_key": "sh4",
+      "minute": "57'",
+      "type": "chance",
+      "title": "Connolly Offside",
+      "description": "**Joshua Connolly** had the ball in the net almost immediately after the restart, only for the flag to go up for offside. The goal was chalked off — but Connolly wasn't done."
+    },
+    {
+      "_key": "sh5",
+      "minute": "61'",
+      "type": "goal",
+      "title": "Goal — Joshua Connolly",
+      "description": "Connolly got his legitimate goal. **Zach Gatward** played a decisive through ball into the channel, and **Joshua Connolly** showed tremendous composure to hold off two centre-backs and finish clinically. The game was put to bed. 4–2."
+    },
+    {
+      "_key": "sh6",
+      "minute": "63'–64'",
+      "type": "save",
+      "title": "Zach Denied — Connolly Ruled Offside Again",
+      "description": "Town continued to press for more. **Zach Gatward** had a shot on target well saved by the Denton keeper at 63', before **Connolly** had another effort ruled out for offside at 64' — the flag going up for an offside pass from **Declan Hanks** that preceded the finish."
+    },
+    {
+      "_key": "sh7",
+      "minute": "66'",
+      "type": "save",
+      "title": "Hanks Shot Saved",
+      "description": "**Alfie Earith**'s cross from the right found **Declan Hanks** in a dangerous area, but the Denton keeper produced a good save to deny him a brace. Town continued to create."
+    },
+    {
+      "_key": "sh8",
+      "minute": "69'",
+      "type": "chance",
+      "title": "Hibbert Booked for Dissent",
+      "description": "**Ryan Hibbert** picked up a yellow card for dissent after a disagreement with the referee. He then required a spell of injury treatment at 74' but battled on to see out his shift."
+    },
+    {
+      "_key": "sh9",
+      "minute": "76'",
+      "type": "save",
+      "title": "Connolly Denied Again",
+      "description": "**Declan Hanks** whipped a cross into the box to find **Joshua Connolly**, whose shot on target was well saved by the Denton keeper. Town were relentless even with the points secured."
+    },
+    {
+      "_key": "sh10",
+      "minute": "82'",
+      "type": "chance",
+      "title": "Fresh Legs",
+      "description": "**Beau Gatward** came on to replace the excellent **Joshua Connolly**, who had given everything across his 82 minutes on the pitch."
+    },
+    {
+      "_key": "sh11",
+      "minute": "90'",
+      "type": "save",
+      "title": "Zach's Final Fling",
+      "description": "**Zach Gatward** capped a superb personal display with a fierce shot in stoppage time that was somehow cleared off the line. A fitting end to a commanding team performance."
+    }
+  ],
+  "matchStats": [
+    {
+      "_key": "stat1",
+      "label": "Goals Scored",
+      "value": "4"
+    },
+    {
+      "_key": "stat2",
+      "label": "Goals Conceded",
+      "value": "2"
+    },
+    {
+      "_key": "stat3",
+      "label": "Result",
+      "value": "Win"
+    }
+  ],
+  "pullQuote": "Zach pulled the strings all afternoon — two of those goals came directly off his pass, and he was unfortunate not to add his name to the scoresheet himself.",
+  "matchVerdict": [
+    "Bollington Town showed tremendous character at Congleton High School, responding to a cruel opening-minute penalty with a performance full of quality and determination. The first half saw Town create chance after chance despite trailing — Joyce denied in a 1v1, Harrison-Virani going close, Hanks and Connolly both testing the keeper — before Zach Gatward's cross gave Declan Hanks the chance to level on 33'. Town went in at the break level and looking the stronger side.",
+    "The second half belonged to Bollington. Earith's penalty opened the floodgates, and Harrison-Virani's clinical finish moments later looked to have killed the game — before Denton pulled it back to 3–2 to set up a nervy finale. But Town showed real maturity. Connolly, twice denied by the flag, kept his focus and buried the fourth goal with composure under pressure — putting the result beyond any doubt.",
+    "**Zach Gatward** was the creative heartbeat throughout, providing two assists and going close himself on multiple occasions. **Joshua Connolly** was a constant thorn in Denton's side. A deserved, well-rounded win."
+  ]
+}
