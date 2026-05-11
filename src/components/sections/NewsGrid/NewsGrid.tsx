@@ -112,14 +112,15 @@ export function NewsListing({ articles, matchReports = [] }: NewsListingProps) {
       ? articles
       : articles.filter((a) => a.category === activeCategory);
 
-  // Build the combined items list based on category
-  const allItems: Array<{ type: "report"; data: MatchReportPreview } | { type: "article"; data: NewsArticle }> = [];
+  // Build the combined items list based on category, sorted by date descending
+  const allItems: Array<{ type: "report"; data: MatchReportPreview; date: string } | { type: "article"; data: NewsArticle; date: string }> = [];
   if (activeCategory === "all" || activeCategory === "match-report") {
-    matchReports.forEach((r) => allItems.push({ type: "report", data: r }));
+    matchReports.forEach((r) => allItems.push({ type: "report", data: r, date: r.date }));
   }
   if (activeCategory !== "match-report") {
-    filteredArticles.forEach((a) => allItems.push({ type: "article", data: a }));
+    filteredArticles.forEach((a) => allItems.push({ type: "article", data: a, date: a.publishedAt }));
   }
+  allItems.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   const totalPages = Math.max(1, Math.ceil(allItems.length / ITEMS_PER_PAGE));
   const paginatedItems = allItems.slice(

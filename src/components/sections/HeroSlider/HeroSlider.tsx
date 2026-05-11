@@ -5,10 +5,17 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { urlFor } from "@/lib/sanity";
-import type { HeroSlide } from "@/types";
+import type { HeroSlide, SanityImage } from "@/types";
 
 interface HeroSliderProps {
   slides: HeroSlide[];
+}
+
+function getObjectPosition(image: SanityImage): string {
+  if (image.hotspot) {
+    return `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`;
+  }
+  return "center center";
 }
 
 export function HeroSlider({ slides }: HeroSliderProps) {
@@ -25,7 +32,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
   }, [slides.length]);
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-dvh overflow-hidden">
       {/* Background Images */}
       {slides.length > 0 ? (
         <AnimatePresence mode="wait">
@@ -43,6 +50,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
               fill
               sizes="100vw"
               className="object-cover"
+              style={{ objectPosition: getObjectPosition(slides[currentIndex].image) }}
               priority={currentIndex === 0}
               fetchPriority={currentIndex === 0 ? "high" : "auto"}
             />
