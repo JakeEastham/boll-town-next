@@ -1,0 +1,354 @@
+{
+  "_id": "news-management-update-2025-26",
+  "_type": "newsArticle",
+  "title": "Management Update",
+  "slug": {
+    "_type": "slug",
+    "current": "management-update-2025-26"
+  },
+  "excerpt": "Bollington Town FC extend our heartfelt thanks to Jeff Eastham and Stuart Gatward for their outstanding service as management team — and announce we are now seeking applications for the roles of First Team Manager and Assistant Manager.",
+  "category": "announcements",
+  "publishedAt": "2026-05-11T12:00:00.000Z",
+  "featured": false,
+  "content": [
+    {
+      "_key": "b1",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b1s1",
+          "_type": "span",
+          "text": "Bollington Town FC would like to extend our heartfelt thanks to ",
+          "marks": []
+        },
+        {
+          "_key": "b1s2",
+          "_type": "span",
+          "text": "Jeff Eastham",
+          "marks": ["strong"]
+        },
+        {
+          "_key": "b1s3",
+          "_type": "span",
+          "text": " and ",
+          "marks": []
+        },
+        {
+          "_key": "b1s4",
+          "_type": "span",
+          "text": "Stuart Gatward",
+          "marks": ["strong"]
+        },
+        {
+          "_key": "b1s5",
+          "_type": "span",
+          "text": " for their outstanding dedication and commitment as our management team.",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b2",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b2s1",
+          "_type": "span",
+          "text": "During their tenure, the club has seen real progress in professionalism and standards across the board. Their efforts have made a lasting impact on this club, and we are incredibly grateful for everything they have contributed. We wish them both the very best in whatever lies ahead.",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b3",
+      "_type": "block",
+      "style": "h2",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b3s1",
+          "_type": "span",
+          "text": "A remarkable chapter",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b4",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b4s1",
+          "_type": "span",
+          "text": "When Jeff and Stuart took charge, they inherited a side in League 1 and immediately set about establishing the standards that would define their reign. In their debut season, the team finished third on points — a solid foundation for what was to come.",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b5",
+      "_type": "block",
+      "style": "h4",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b5s1",
+          "_type": "span",
+          "text": "Points (Season 2)",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b6",
+      "_type": "block",
+      "style": "blockquote",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b6s1",
+          "_type": "span",
+          "text": "70 points from 30 games",
+          "marks": ["strong"]
+        }
+      ]
+    },
+    {
+      "_key": "b7",
+      "_type": "block",
+      "style": "h4",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b7s1",
+          "_type": "span",
+          "text": "Season 2 Honours",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b8",
+      "_type": "block",
+      "style": "blockquote",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b8s1",
+          "_type": "span",
+          "text": "Double — League & Cup",
+          "marks": ["strong"]
+        }
+      ]
+    },
+    {
+      "_key": "b9",
+      "_type": "block",
+      "style": "h4",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b9s1",
+          "_type": "span",
+          "text": "Current Division",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b10",
+      "_type": "block",
+      "style": "blockquote",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b10s1",
+          "_type": "span",
+          "text": "Premier — Inaugural season",
+          "marks": ["strong"]
+        }
+      ]
+    },
+    {
+      "_key": "b11",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b11s1",
+          "_type": "span",
+          "text": "The second season was nothing short of remarkable — a league and cup double, recording an extraordinary 70 points from 30 games. That success earned the club promotion to the Premier Division, where this past season has seen us compete strongly and lay firm foundations heading into next year. The club is in a healthy position, and that is in no small part thanks to Jeff and Stuart's hard work.",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b12",
+      "_type": "block",
+      "style": "h2",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b12s1",
+          "_type": "span",
+          "text": "We're hiring — could you be our next manager?",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b13",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b13s1",
+          "_type": "span",
+          "text": "Bollington Town FC are now seeking applications for the roles of ",
+          "marks": []
+        },
+        {
+          "_key": "b13s2",
+          "_type": "span",
+          "text": "First Team Manager",
+          "marks": ["strong"]
+        },
+        {
+          "_key": "b13s3",
+          "_type": "span",
+          "text": " and ",
+          "marks": []
+        },
+        {
+          "_key": "b13s4",
+          "_type": "span",
+          "text": "Assistant Manager",
+          "marks": ["strong"]
+        },
+        {
+          "_key": "b13s5",
+          "_type": "span",
+          "text": ". If you have the ambition and experience to take this club to the next level, we would love to hear from you.",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b14",
+      "_type": "block",
+      "style": "h3",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b14s1",
+          "_type": "span",
+          "text": "Your application should include",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b15",
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b15s1",
+          "_type": "span",
+          "text": "Your previous managerial successes and achievements",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b16",
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b16s1",
+          "_type": "span",
+          "text": "A list of clubs you have previously managed",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b17",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b17s1",
+          "_type": "span",
+          "text": "Shortlisted candidates will be invited to meet with committee members to discuss their application in more detail. Full details on the process will be announced shortly.",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b18",
+      "_type": "block",
+      "style": "h3",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b18s1",
+          "_type": "span",
+          "text": "Send applications to",
+          "marks": []
+        }
+      ]
+    },
+    {
+      "_key": "b19",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [
+        {
+          "_key": "link1",
+          "_type": "link",
+          "href": "mailto:secretary@bollingtontownfc.co.uk",
+          "blank": false
+        }
+      ],
+      "children": [
+        {
+          "_key": "b19s1",
+          "_type": "span",
+          "text": "secretary@bollingtontownfc.co.uk",
+          "marks": ["link1"]
+        }
+      ]
+    },
+    {
+      "_key": "b20",
+      "_type": "block",
+      "style": "normal",
+      "markDefs": [],
+      "children": [
+        {
+          "_key": "b20s1",
+          "_type": "span",
+          "text": "We look forward to receiving applications and thank everyone in advance for their interest. Up the Town! 🔵🟡",
+          "marks": []
+        }
+      ]
+    }
+  ]
+}

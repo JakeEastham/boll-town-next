@@ -11,6 +11,26 @@ import { newsArticleBySlugQuery, latestNewsQuery } from "@/lib/sanity/queries";
 import { CategoryBadge, NewsCard } from "@/components/ui";
 import type { NewsArticle } from "@/types";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function groupStatBlocks(content: any[]): any[] {
+  const result: any[] = [];
+  let i = 0;
+  while (i < content.length) {
+    if (content[i]?.style === "h4" && content[i + 1]?.style === "blockquote") {
+      const group: any = { _type: "statGroup", _key: `sg-${i}`, stats: [] };
+      while (i < content.length && content[i]?.style === "h4" && content[i + 1]?.style === "blockquote") {
+        group.stats.push({ label: content[i], value: content[i + 1] });
+        i += 2;
+      }
+      result.push(group);
+    } else {
+      result.push(content[i]);
+      i++;
+    }
+  }
+  return result;
+}
+
 interface NewsArticlePageProps {
   params: Promise<{ slug: string }>;
 }
@@ -104,7 +124,7 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
             alt={article.title}
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover [object-position:center_30%]"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -142,7 +162,37 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
 
           {/* Content */}
           <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:uppercase prose-headings:tracking-wide prose-a:text-btfc-blue hover:prose-a:text-btfc-gold">
-            <PortableText value={article.content} />
+            <PortableText
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              value={groupStatBlocks(article.content) as any}
+              components={{
+                types: {
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  statGroup: ({ value }: { value: any }) => (
+                    <div className="not-prose grid grid-cols-3 gap-3 my-6">
+                      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                      {value.stats.map((stat: any, idx: number) => (
+                        <div key={idx} className="border-l-4 border-btfc-gold bg-neutral-50 pl-4 py-3 pr-4 rounded-r">
+                          <p className="text-xs font-display uppercase tracking-wider text-neutral-500 mb-1">
+                            {stat.label.children?.map((c: any) => c.text).join("")}
+                          </p>
+                          <p className="font-display text-btfc-navy font-bold text-base leading-snug">
+                            {stat.value.children?.map((c: any) => c.text).join("")}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  ),
+                },
+                block: {
+                  blockquote: ({ children }) => (
+                    <blockquote className="not-italic border-l-4 border-btfc-gold bg-neutral-50 pl-5 py-3 pr-4 rounded-r font-display text-btfc-navy">
+                      {children}
+                    </blockquote>
+                  ),
+                },
+              }}
+            />
           </div>
 
           {/* Related Players */}

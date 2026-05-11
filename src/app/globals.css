@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* =====================================================
    BOLLINGTON TOWN FC - GLOBAL STYLES
