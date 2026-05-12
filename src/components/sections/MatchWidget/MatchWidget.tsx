@@ -8,16 +8,13 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui";
 import { urlFor } from "@/lib/sanity";
-import { ClubFixtures } from "@/components/sections/FAFullTimeWidget/FAFullTimeWidget";
 import type { Match } from "@/types";
 
 interface NextMatchWidgetProps {
   match: Match | null;
-  /** Show FA Full-Time widget as fallback when no Sanity match exists */
-  showFallback?: boolean;
 }
 
-export function NextMatchWidget({ match, showFallback = true }: NextMatchWidgetProps) {
+export function NextMatchWidget({ match }: NextMatchWidgetProps) {
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -50,42 +47,41 @@ export function NextMatchWidget({ match, showFallback = true }: NextMatchWidgetP
     return () => clearInterval(interval);
   }, [match]);
 
-  // No Sanity match - show FA Full-Time fallback or empty state
+  // No upcoming match — season complete
   if (!match) {
-    if (showFallback) {
-      return (
-        <section className="py-16 bg-gradient-to-b from-btfc-navy to-btfc-navy-dark">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-8"
-            >
-              <h2 className="font-display text-3xl md:text-4xl text-white uppercase tracking-wider">
-                Upcoming Fixtures
-              </h2>
-            </motion.div>
-            <div className="max-w-2xl mx-auto">
-              <ClubFixtures title={false} />
-            </div>
-            <div className="text-center mt-6">
-              <Button href="/matches" variant="primary">
-                View All Fixtures
-              </Button>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
     return (
-      <section className="py-16 bg-btfc-navy">
-        <div className="container text-center text-white">
-          <h2 className="font-display text-3xl uppercase tracking-wider mb-4">
-            Next Match
-          </h2>
-          <p className="text-white/70">No upcoming matches scheduled</p>
+      <section className="py-16 bg-gradient-to-b from-btfc-navy to-btfc-navy-dark overflow-hidden">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <p className="text-btfc-gold text-sm uppercase tracking-widest mb-2">
+              2025/26 Season
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl text-white uppercase tracking-wider mb-8">
+              Season Complete
+            </h2>
+            <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-10">
+              <div className="text-6xl mb-6">🏆</div>
+              <p className="text-white text-lg leading-relaxed mb-3">
+                That&apos;s a wrap on the 2025/26 season for Bollington Town FC.
+              </p>
+              <p className="text-white/60 mb-8">
+                Stay posted for our pre-season schedule and news ahead of 2026/27.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button href="/matches" variant="primary">
+                  View Season Results
+                </Button>
+                <Button href="/news" variant="outline">
+                  Latest News
+                </Button>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     );

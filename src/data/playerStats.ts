@@ -9,7 +9,7 @@
  *  24/25  https://fulltime.thefa.com/displayTeam.html?divisionseason=80570566&teamID=312011849
  *  25/26  https://fulltime.thefa.com/displayTeam.html?divisionseason=793240729&teamID=312011849
  *
- * Last updated: February 2026 (25/26 season in progress)
+ * Last updated: May 2026 (25/26 season complete)
  * Names normalised to "Firstname Surname" format throughout.
  */
 
@@ -224,36 +224,36 @@ export const seasonPlayerStats: Record<string, PlayerSeasonStat[]> = {
     { name: "Callum Atkinson", apps: 5, goals: 2 },
     { name: "Conor Beaden", apps: 6, goals: 0 },
     { name: "Daniel Bishop", apps: 3, goals: 0 },
-    { name: "Maxwell Berkeley", apps: 3, goals: 0 },
+    { name: "Maxwell Berkeley", apps: 4, goals: 0 },
     { name: "Edward Browne", apps: 2, goals: 0 },
     { name: "Joshua Connolly", apps: 21, goals: 12 },
     { name: "Joseph Coombs", apps: 18, goals: 1 },
     { name: "Thomas Devonport", apps: 1, goals: 0 },
     { name: "Jack Dillon", apps: 1, goals: 0 },
-    { name: "Alfie Earith", apps: 27, goals: 12 },
+    { name: "Alfie Earith", apps: 28, goals: 12 },
     { name: "Luke Earl", apps: 3, goals: 1 },
-    { name: "Jake Eastham", apps: 27, goals: 0 },
+    { name: "Jake Eastham", apps: 28, goals: 0 },
     { name: "Callum Evans", apps: 14, goals: 1 },
     { name: "Joe Eyre", apps: 1, goals: 1 },
     { name: "Beau Gatward", apps: 24, goals: 1 },
-    { name: "Zach Gatward", apps: 9, goals: 0 },
+    { name: "Zach Gatward", apps: 10, goals: 0 },
     { name: "Sam Glover", apps: 14, goals: 1 },
-    { name: "Declan Hanks", apps: 18, goals: 1 },
-    { name: "Ally Harrison-Virani", apps: 21, goals: 4 },
+    { name: "Declan Hanks", apps: 19, goals: 2 },
+    { name: "Ally Harrison-Virani", apps: 22, goals: 5 },
     { name: "Jack Heppell", apps: 8, goals: 3 },
-    { name: "Ryan Hibbert", apps: 12, goals: 0 },
+    { name: "Ryan Hibbert", apps: 13, goals: 0 },
     { name: "Alexander Howarth", apps: 3, goals: 0 },
-    { name: "Matthew Joyce", apps: 26, goals: 0 },
+    { name: "Matthew Joyce", apps: 27, goals: 0 },
     { name: "Finn Manning", apps: 18, goals: 1 },
-    { name: "Philip Milsom", apps: 22, goals: 4 },
-    { name: "Zak James Mousa", apps: 20, goals: 6 },
+    { name: "Philip Milsom", apps: 23, goals: 5 },
+    { name: "Zak James Mousa", apps: 21, goals: 7 },
     { name: "Matthew Nelson", apps: 1, goals: 0 },
     { name: "Ted Palmer-Atkins", apps: 5, goals: 0 },
-    { name: "George Richardson", apps: 22, goals: 4 },
+    { name: "George Richardson", apps: 23, goals: 4 },
     { name: "Harris Rollaston", apps: 1, goals: 0 },
     { name: "Arjun Takiar", apps: 4, goals: 0 },
     { name: "James Whitehead", apps: 1, goals: 0 },
-    { name: "Daniel Williams", apps: 22, goals: 4 },
+    { name: "Daniel Williams", apps: 23, goals: 4 },
   ],
 };
 
