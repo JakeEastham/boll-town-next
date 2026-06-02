@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Trophy, Star, TrendingUp, Shield, ExternalLink } from "lucide-react";
+import { Trophy, TrendingUp, Shield, ExternalLink } from "lucide-react";
 import { allTimeStats } from "@/data/playerStats";
 
 const seasons = [
@@ -207,42 +207,44 @@ const seasons = [
   {
     id: "2025-26",
     label: "2025/26",
-    title: "Current Season",
-    subtitle: "Sixth Season — In Progress",
+    title: "Top Flight Debut",
+    subtitle: "Sixth Season",
     competition: "Cheshire Football League",
-    narrative: `As champions of League 1, Bollington Town enter the 2025/26 season with their sights set firmly on the next challenge. The squad that delivered last season's title has been retained and strengthened, and the ambition within the club has never been higher.\n\nThe story of this season is still being written. Check the fixtures and results pages for the latest from the campaign..`,
+    narrative: `Promoted as League 1 champions, Bollington Town entered the 2025/26 season facing the biggest challenge in the club's short history — competing in the top flight of the Cheshire Football League for the first time. Every game presented a step up in quality from anything the squad had previously encountered.\n\nFifteen wins and 63 goals scored reflected a side with genuine attacking quality at this level. A positive goal difference of +23 and a seventh-place finish in a debut top-flight season was a strong platform — and a sign of what this club is capable of building towards.`,
     stats: [
-      { label: "Played", value: "22+" },
-      { label: "Won", value: "—" },
-      { label: "Drawn", value: "—" },
-      { label: "Lost", value: "—" },
-      { label: "Goal Diff", value: "—" },
-      { label: "Points", value: "—" },
-      { label: "Final Position", value: "TBD" },
+      { label: "Played", value: "30" },
+      { label: "Won", value: "15" },
+      { label: "Drawn", value: "4" },
+      { label: "Lost", value: "11" },
+      { label: "Goals For", value: "63" },
+      { label: "Goals Against", value: "40" },
+      { label: "Goal Diff", value: "+23" },
+      { label: "Points", value: "49" },
+      { label: "Final Position", value: "7th" },
     ],
     highlights: [
-      "Season underway — building on last season's title win",
-      "Joshua Connolly leading scorer with 11 goals",
-      "Squad retained and strengthened ahead of the new challenge",
+      "First season competing in the top flight of the Cheshire Football League",
+      "63 goals scored — positive goal difference of +23",
+      "15 wins from 30 games at the highest level in club history",
+      "Seventh-place finish in debut top-flight season",
     ],
     topScorers: [
-      { name: "Joshua Connolly", goals: 11 },
-      { name: "Alfie Earith", goals: 10 },
-      { name: "Zak James Mousa", goals: 5 },
-      { name: "Daniel Williams", goals: 4 },
-      { name: "George Richardson", goals: 3 },
+      { name: "Joshua Connolly", goals: 12 },
+      { name: "Alfie Earith", goals: 12 },
+      { name: "Zak James Mousa", goals: 7 },
+      { name: "Ally Harrison-Virani", goals: 5 },
+      { name: "Philip Milsom", goals: 5 },
     ],
     topAppearances: [
-      { name: "Jake Eastham", apps: 23 },
-      { name: "Beau Gatward", apps: 23 },
-      { name: "Alfie Earith", apps: 22 },
-      { name: "Matthew Joyce", apps: 21 },
-      { name: "Philip Milsom", apps: 20 },
+      { name: "Alfie Earith", apps: 28 },
+      { name: "Jake Eastham", apps: 28 },
+      { name: "Matthew Joyce", apps: 27 },
+      { name: "Beau Gatward", apps: 24 },
+      { name: "Philip Milsom", apps: 23 },
     ],
     leagueTableUrl: "https://fulltime.thefa.com/index.html?selectedSeason=882113536&selectedFixtureGroupAgeGroup=0&selectedDivision=261815174&selectedCompetition=0",
-    icon: Star,
-    accent: "btfc-gold",
-    isCurrent: true,
+    icon: Shield,
+    accent: "btfc-blue",
   },
 ];
 
@@ -479,7 +481,7 @@ export default function ClubHistoryPage() {
               All-Time Records
             </h2>
             <p className="text-sm text-neutral-400 italic">
-              All competitive appearances. Data up to 7 March 2026.
+              All competitive appearances. Data up to May 2026 (25/26 season complete).
             </p>
           </div>
 

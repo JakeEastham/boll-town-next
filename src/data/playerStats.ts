@@ -218,10 +218,10 @@ export const seasonPlayerStats: Record<string, PlayerSeasonStat[]> = {
     { name: "Daniel Williams", apps: 11, goals: 4 },
   ],
 
-  // In progress — last updated 2 May 2026
+  // Season complete — last updated 2 May 2026 (may be missing final 2 matches: 02/05 vs Denton Town, 09/05 vs Golborne Sports)
   "2025-26": [
-    { name: "Ewan Allabush", apps: 1, goals: 1 },
-    { name: "Callum Atkinson", apps: 5, goals: 2 },
+    { name: "Ewan Allabush", apps: 1, goals: 0 },
+    { name: "Callum Atkinson", apps: 5, goals: 0 },
     { name: "Conor Beaden", apps: 6, goals: 0 },
     { name: "Daniel Bishop", apps: 3, goals: 0 },
     { name: "Maxwell Berkeley", apps: 4, goals: 0 },
