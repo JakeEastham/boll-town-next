@@ -29,8 +29,7 @@ export function NewsGrid({ articles, title = "Latest News", showViewAll = true }
     );
   }
 
-  const featuredArticle = articles[0];
-  const otherArticles = articles.slice(1, 5);
+  const visibleArticles = articles.slice(0, 4);
 
   return (
     <section className="py-16">
@@ -56,31 +55,18 @@ export function NewsGrid({ articles, title = "Latest News", showViewAll = true }
           </div>
 
           {/* Grid Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Featured Article */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <NewsCard article={featuredArticle} featured />
-            </motion.div>
-
-            {/* Other Articles */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {otherArticles.map((article, index) => (
-                <motion.div
-                  key={article._id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + index * 0.1 }}
-                >
-                  <NewsCard article={article} />
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {visibleArticles.map((article, index) => (
+              <motion.div
+                key={article._id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + index * 0.1 }}
+              >
+                <NewsCard article={article} />
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
