@@ -334,7 +334,7 @@ export default function ClubHistoryPage() {
                   </div>
 
                   {/* Season card */}
-                  <div className={`bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden ${season.isCurrent ? "ring-2 ring-btfc-gold" : ""}`}>
+                  <div className="bg-white rounded-2xl shadow-md border border-neutral-100 overflow-hidden">
                     {/* Card header */}
                     <div className="bg-btfc-navy px-6 py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div>
@@ -342,11 +342,6 @@ export default function ClubHistoryPage() {
                           <span className="font-display text-btfc-gold text-2xl tracking-wider">
                             {season.label}
                           </span>
-                          {season.isCurrent && (
-                            <span className="bg-btfc-gold text-btfc-navy text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
-                              Current
-                            </span>
-                          )}
                         </div>
                         <h3 className="font-display text-xl text-white uppercase tracking-wider">
                           {season.title}
@@ -412,11 +407,6 @@ export default function ClubHistoryPage() {
                       {/* Player Stats */}
                       {season.topScorers.length > 0 && (
                         <div className="mt-8 pt-8 border-t border-neutral-100">
-                          {season.isCurrent && (
-                            <p className="text-xs text-neutral-400 italic mb-4">
-                              Statistics up to 7 March 2026. Season in progress.
-                            </p>
-                          )}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                           {/* Top Scorers */}
                           <div>
