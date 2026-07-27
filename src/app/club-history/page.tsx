@@ -40,7 +40,7 @@ const seasons = [
       { name: "Nathan Edwards", apps: 14 },
       { name: "Declan Hanks", apps: 13 },
     ],
-    leagueTableUrl: "https://fulltime.thefa.com/displayTeam.html?divisionseason=320897402&teamID=961018307",
+    leagueTableUrl: "https://fulltime.thefa.com/displayTeam.html?divisionseason=423334312&teamID=961018307",
     icon: Trophy,
     accent: "btfc-gold",
   },
