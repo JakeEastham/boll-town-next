@@ -257,6 +257,30 @@ export const seasonPlayerStats: Record<string, PlayerSeasonStat[]> = {
   ],
 };
 
+// Pre-20/21 history not covered by FA Full-Time records, reconciled against
+// the club's own historical stats sheet. Additive only — topping players up
+// to the historical figure where FA Full-Time undercounts them, never
+// subtracting where FA Full-Time already has more. Folded into all-time
+// totals only — deliberately not a season shown in any per-season UI.
+export const legacyPlayerStats: PlayerSeasonStat[] = [
+  { name: "Matthew Joyce", apps: 3, goals: 0 },
+  { name: "Jake Eastham", apps: 2, goals: 0 },
+  { name: "Alfie Earith", apps: 2, goals: 0 },
+  { name: "Beau Gatward", apps: 1, goals: 0 },
+  { name: "Finn Manning", apps: 4, goals: 0 },
+  { name: "Ryan Hibbert", apps: 3, goals: 0 },
+  { name: "Joshua Connolly", apps: 1, goals: 0 },
+  { name: "Jack Heppell", apps: 3, goals: 0 },
+  { name: "George Richardson", apps: 3, goals: 0 },
+  { name: "Ally Harrison-Virani", apps: 3, goals: 0 },
+  { name: "Daniel Williams", apps: 1, goals: 0 },
+  { name: "Matthew Nelson", apps: 2, goals: 0 },
+  { name: "Harry Burgess-Hayde", apps: 1, goals: 0 },
+  { name: "Daniel Bishop", apps: 1, goals: 0 },
+  { name: "Joseph Coombs", apps: 3, goals: 0 },
+  { name: "Ted Palmer-Atkins", apps: 2, goals: 0 },
+];
+
 // ─── Computed all-time totals ─────────────────────────────────────────────────
 
 interface PlayerTotal {
@@ -268,7 +292,7 @@ interface PlayerTotal {
 function computeAllTime() {
   const map = new Map<string, PlayerTotal>();
 
-  for (const players of Object.values(seasonPlayerStats)) {
+  for (const players of [...Object.values(seasonPlayerStats), legacyPlayerStats]) {
     for (const p of players) {
       const key = p.name.toLowerCase();
       const existing = map.get(key);
