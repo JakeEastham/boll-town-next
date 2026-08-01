@@ -240,7 +240,7 @@ export function LeagueTable({
   className?: string;
   title?: string;
 }) {
-  const lrCode = detail ? "765215930" : "271392697";
+  const lrCode = detail ? "93735492" : "271392697";
   return (
     <FAFullTimeWidget
       type={detail ? "league-table-detail" : "league-table"}
@@ -261,7 +261,7 @@ export function TeamFixturesResults({
   return (
     <FAFullTimeWidget
       type="team-fixtures"
-      lrCode="496287738"
+      lrCode="621339226"
       title={title || "Fixtures & Results"}
       className={className}
     />
@@ -278,7 +278,7 @@ export function ClubFixtures({
   return (
     <FAFullTimeWidget
       type="club-fixtures"
-      lrCode="782424744"
+      lrCode="277492846"
       title={title === false ? false : (title || "Club Fixtures")}
       className={className}
     />
@@ -295,7 +295,7 @@ export function ClubResults({
   return (
     <FAFullTimeWidget
       type="club-results"
-      lrCode="460143057"
+      lrCode="745516013"
       title={title || "Club Results"}
       className={className}
     />
