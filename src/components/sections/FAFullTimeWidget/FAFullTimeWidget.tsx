@@ -3,12 +3,7 @@
 import { useEffect, useRef, useState, useId } from "react";
 import { Loader2, ExternalLink, AlertCircle } from "lucide-react";
 
-type WidgetType =
-  | "league-table"
-  | "league-table-detail"
-  | "team-fixtures"
-  | "club-fixtures"
-  | "club-results";
+type WidgetType = "league-table" | "league-table-detail" | "team-fixtures";
 
 interface FAFullTimeWidgetProps {
   type: WidgetType;
@@ -25,8 +20,6 @@ const widgetConfig: Record<
   "league-table": { defaultTitle: "League Table", width: "100%" },
   "league-table-detail": { defaultTitle: "League Table", width: "100%" },
   "team-fixtures": { defaultTitle: "Team Fixtures & Results", width: "100%" },
-  "club-fixtures": { defaultTitle: "Club Fixtures", width: "100%" },
-  "club-results": { defaultTitle: "Club Results", width: "100%" },
 };
 
 // Queue to manage sequential widget loading (FA script uses global variable)
@@ -263,40 +256,6 @@ export function TeamFixturesResults({
       type="team-fixtures"
       lrCode="621339226"
       title={title || "Fixtures & Results"}
-      className={className}
-    />
-  );
-}
-
-export function ClubFixtures({
-  className,
-  title,
-}: {
-  className?: string;
-  title?: string | false;
-}) {
-  return (
-    <FAFullTimeWidget
-      type="club-fixtures"
-      lrCode="277492846"
-      title={title === false ? false : (title || "Club Fixtures")}
-      className={className}
-    />
-  );
-}
-
-export function ClubResults({
-  className,
-  title,
-}: {
-  className?: string;
-  title?: string;
-}) {
-  return (
-    <FAFullTimeWidget
-      type="club-results"
-      lrCode="745516013"
-      title={title || "Club Results"}
       className={className}
     />
   );

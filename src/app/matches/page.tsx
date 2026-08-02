@@ -5,8 +5,7 @@ import { client } from "@/lib/sanity";
 import { teamsQuery } from "@/lib/sanity/queries";
 import {
   LeagueTable,
-  ClubFixtures,
-  ClubResults,
+  TeamFixturesResults,
 } from "@/components/sections";
 import type { Team } from "@/types";
 import { seasonPlayerStats } from "@/data/playerStats";
@@ -54,12 +53,9 @@ export default async function MatchesPage() {
           <LeagueTable detail title="Premier Division Table" />
         </section>
 
-        {/* Fixtures & Results Grid */}
+        {/* Fixtures & Results */}
         <section className="mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <ClubFixtures title="Upcoming Fixtures" />
-            <ClubResults title="Recent Results" />
-          </div>
+          <TeamFixturesResults title="Fixtures & Results" />
         </section>
 
         {/* Season Stats */}
