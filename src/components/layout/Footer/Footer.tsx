@@ -70,14 +70,14 @@ export function Footer() {
             </Link>
             <p className="text-white/70 mb-6 max-w-sm">
               A community football club based in Bollington, Macclesfield, Cheshire.
-              Established 2021, playing in the Cheshire Football League.
+              Established 2021, playing in the Cheshire Football League, Premier division.
             </p>
 
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-white/70">
                 <MapPin className="w-5 h-5 shrink-0 mt-0.5" />
-                <span>All Hallows Catholic College, Macclesfield, Cheshire</span>
+                <span>Church Lane (New Mills AFC), New Mills, Derbyshire</span>
               </div>
               <a
                 href="mailto:secretary@bollingtontownfc.co.uk"

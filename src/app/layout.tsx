@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Roboto_Condensed, Oswald } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header, Footer } from "@/components/layout";
+
+const GA_MEASUREMENT_ID = "G-FYN77D56Z3";
 
 const robotoCondensed = Roboto_Condensed({
   variable: "--font-roboto-condensed",
@@ -80,6 +83,18 @@ export default function RootLayout({
       <body
         className={`${robotoCondensed.variable} ${oswald.variable} antialiased`}
       >
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -92,11 +107,11 @@ export default function RootLayout({
               logo: "https://bollingtontownfc.co.uk/images/logo.png",
               location: {
                 "@type": "Place",
-                name: "All Hallows Catholic College",
+                name: "Church Lane (New Mills AFC)",
                 address: {
                   "@type": "PostalAddress",
-                  addressLocality: "Macclesfield",
-                  addressRegion: "Cheshire",
+                  addressLocality: "New Mills",
+                  addressRegion: "Derbyshire",
                   addressCountry: "GB",
                 },
               },

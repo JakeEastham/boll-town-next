@@ -62,7 +62,7 @@ export default async function GetInvolvedPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-btfc-gold rounded-full" />
-                  Regular training sessions with UEFA B Qualified coach
+                  Regular training sessions with UEFA B Qualified coaches
                 </li>
               </ul>
               <a
@@ -175,11 +175,11 @@ export default async function GetInvolvedPage() {
                   <MapPin className="w-6 h-6 text-btfc-gold shrink-0 mt-1" />
                   <div>
                     <h3 className="font-display text-lg text-btfc-navy uppercase tracking-wider mb-2">
-                      All Hallows Catholic College
+                      Church Lane (New Mills AFC)
                     </h3>
                     <p className="text-neutral-600">
-                      Macclesfield<br />
-                      Cheshire
+                      New Mills<br />
+                      Derbyshire
                     </p>
                   </div>
                 </div>
@@ -193,14 +193,14 @@ export default async function GetInvolvedPage() {
                   </a>
                 </div>
                 <p className="text-sm text-neutral-500">
-                  Home matches are played at All Hallows Catholic College. Check the
+                  Home matches are played at Church Lane (New Mills AFC). Check the
                   fixtures page for upcoming matches.
                 </p>
               </div>
             </div>
             <div className="h-80 lg:h-auto rounded-xl overflow-hidden bg-neutral-200">
               <iframe
-                src="https://www.google.com/maps?q=All+Hallows+Catholic+College,+Macclesfield,+Cheshire&output=embed"
+                src="https://www.google.com/maps?q=Church+Lane,+New+Mills,+Derbyshire&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

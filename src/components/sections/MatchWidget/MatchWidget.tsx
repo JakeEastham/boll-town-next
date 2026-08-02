@@ -8,13 +8,67 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui";
 import { urlFor } from "@/lib/sanity";
-import type { Match } from "@/types";
+import type { Match, SanityImage } from "@/types";
+
+// Sanity Match, or the lighter shape scraped from FA Full-Time when no
+// Sanity match is scheduled (see src/lib/faNextFixture.ts)
+type NextMatch = Pick<Match, "date" | "isHome" | "opponent" | "venue"> &
+  Partial<Pick<Match, "opponentLogo" | "competition">>;
 
 interface NextMatchWidgetProps {
-  match: Match | null;
+  match: NextMatch | null;
+  isProvisional?: boolean;
 }
 
-export function NextMatchWidget({ match }: NextMatchWidgetProps) {
+// Same footprint for both crests so the row aligns; BTFC's badge has its own
+// colour and stands on transparent, opponent crests sit on a white disc for contrast.
+function TeamCrest({
+  isBtfc,
+  opponentLogo,
+  opponentName,
+}: {
+  isBtfc: boolean;
+  opponentLogo?: SanityImage;
+  opponentName: string;
+}) {
+  if (isBtfc) {
+    return (
+      <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 flex items-center justify-center">
+        <Image
+          src="/images/logo.png"
+          alt="Bollington Town FC"
+          width={96}
+          height={96}
+          className="object-contain"
+        />
+      </div>
+    );
+  }
+
+  if (!opponentLogo) {
+    return (
+      <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 flex items-center justify-center">
+        <span className="font-display text-xl text-white">
+          {opponentName.slice(0, 3).toUpperCase()}
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-lg">
+      <Image
+        src={urlFor(opponentLogo).width(60).height(60).url()}
+        alt={opponentName}
+        width={60}
+        height={60}
+        className="object-contain"
+      />
+    </div>
+  );
+}
+
+export function NextMatchWidget({ match, isProvisional }: NextMatchWidgetProps) {
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
@@ -113,29 +167,7 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
             <div className="flex items-center justify-between gap-4 md:gap-8 mb-8">
               {/* Home Team */}
               <div className="flex-1 text-center">
-                <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-lg">
-                  {isHome ? (
-                    <Image
-                      src="/images/logo.png"
-                      alt="Bollington Town FC"
-                      width={60}
-                      height={60}
-                      className="object-contain"
-                    />
-                  ) : match.opponentLogo ? (
-                    <Image
-                      src={urlFor(match.opponentLogo).width(60).height(60).url()}
-                      alt={match.opponent}
-                      width={60}
-                      height={60}
-                      className="object-contain"
-                    />
-                  ) : (
-                    <span className="font-display text-xl text-btfc-navy">
-                      {match.opponent.slice(0, 3).toUpperCase()}
-                    </span>
-                  )}
-                </div>
+                <TeamCrest isBtfc={isHome} opponentLogo={match.opponentLogo} opponentName={match.opponent} />
                 <h3 className="font-display text-lg md:text-xl text-white uppercase tracking-wide">
                   {isHome ? "Bollington Town" : match.opponent}
                 </h3>
@@ -149,29 +181,7 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
 
               {/* Away Team */}
               <div className="flex-1 text-center">
-                <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-lg">
-                  {!isHome ? (
-                    <Image
-                      src="/images/logo.png"
-                      alt="Bollington Town FC"
-                      width={60}
-                      height={60}
-                      className="object-contain"
-                    />
-                  ) : match.opponentLogo ? (
-                    <Image
-                      src={urlFor(match.opponentLogo).width(60).height(60).url()}
-                      alt={match.opponent}
-                      width={60}
-                      height={60}
-                      className="object-contain"
-                    />
-                  ) : (
-                    <span className="font-display text-xl text-btfc-navy">
-                      {match.opponent.slice(0, 3).toUpperCase()}
-                    </span>
-                  )}
-                </div>
+                <TeamCrest isBtfc={!isHome} opponentLogo={match.opponentLogo} opponentName={match.opponent} />
                 <h3 className="font-display text-lg md:text-xl text-white uppercase tracking-wide">
                   {!isHome ? "Bollington Town" : match.opponent}
                 </h3>
@@ -217,6 +227,11 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
             <Button href="/matches" variant="primary">
               View All Fixtures
             </Button>
+            {isProvisional && (
+              <p className="text-white/40 text-xs mt-4">
+                Via FA Full-Time — details may change
+              </p>
+            )}
           </div>
         </motion.div>
       </div>
