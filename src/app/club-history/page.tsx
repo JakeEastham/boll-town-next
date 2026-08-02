@@ -246,6 +246,26 @@ const seasons = [
     icon: Shield,
     accent: "btfc-blue",
   },
+  {
+    id: "2026-27",
+    label: "2026/27",
+    title: "A New Era",
+    subtitle: "Seventh Season",
+    competition: "Cheshire Football League — Premier Division",
+    narrative: `The 2026/27 season brings a new era for Bollington Town FC. Following the departure of Jeff Eastham and Stuart Gatward — thanked for their outstanding service leading the club through its rise up the football pyramid — the reins have been handed to Paul Cordock as First Team Manager, with Will joining as his Assistant. Between them they bring fresh ideas and renewed energy to a squad determined to build on last season's top-flight debut.\n\nThe club also moves to a new home for 2026/27, with matches now played at Church Lane, the home of New Mills AFC — a fresh chapter both on and off the pitch.\n\nWith the squad strengthened by new additions over the summer and a management team eager to make its mark, expectations are high heading into the new campaign. After finishing seventh in a tough debut season in the Cheshire Football League Premier Division, this promises to be a big season for the club.`,
+    stats: [],
+    highlights: [
+      "New management team: Paul Cordock (First Team Manager) and Will (Assistant Manager)",
+      "New home pitch: Church Lane, New Mills AFC",
+      "Squad strengthened with new signings over the summer",
+      "Building on a top-flight debut — high hopes for the season ahead",
+    ],
+    topScorers: [],
+    topAppearances: [],
+    leagueTableUrl: "https://fulltime.thefa.com/index.html?divisionseason=423334312",
+    icon: TrendingUp,
+    accent: "btfc-gold",
+  },
 ];
 
 // Computed from src/data/playerStats.ts — all seasons 2020/21 – 2025/26
@@ -377,19 +397,21 @@ export default function ClubHistoryPage() {
 
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {/* Stats */}
-                        <div>
-                          <h4 className="font-display text-sm text-btfc-navy uppercase tracking-wider mb-4">
-                            Season Statistics
-                          </h4>
-                          <div className="flex flex-wrap gap-2">
-                            {season.stats.map((stat) => (
-                              <StatBadge key={stat.label} label={stat.label} value={stat.value} />
-                            ))}
+                        {season.stats.length > 0 && (
+                          <div>
+                            <h4 className="font-display text-sm text-btfc-navy uppercase tracking-wider mb-4">
+                              Season Statistics
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {season.stats.map((stat) => (
+                                <StatBadge key={stat.label} label={stat.label} value={stat.value} />
+                              ))}
+                            </div>
                           </div>
-                        </div>
+                        )}
 
                         {/* Highlights */}
-                        <div>
+                        <div className={season.stats.length === 0 ? "lg:col-span-2" : undefined}>
                           <h4 className="font-display text-sm text-btfc-navy uppercase tracking-wider mb-4">
                             Season Highlights
                           </h4>
