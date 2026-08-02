@@ -17,13 +17,20 @@ export async function getFANextFixture(): Promise<FANextFixture | null> {
   try {
     const stamp = format(new Date(), "yyyyMMddHHmm");
     const res = await fetch(
-      `https://fulltime.thefa.com/js/cs1.html?cs=${FA_LR_CODE}&random=${stamp}`
+      `https://fulltime.thefa.com/js/cs1.html?cs=${FA_LR_CODE}&random=${stamp}`,
+      { headers: { "User-Agent": "Mozilla/5.0" } }
     );
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.warn(`[faNextFixture] FA request failed: ${res.status}`);
+      return null;
+    }
 
     const raw = await res.text();
     const innerHtmlMatch = raw.match(/innerHTML\s*=\s*'([\s\S]*)';\s*$/);
-    if (!innerHtmlMatch) return null;
+    if (!innerHtmlMatch) {
+      console.warn("[faNextFixture] Could not parse FA response", raw.slice(0, 300));
+      return null;
+    }
     const html = innerHtmlMatch[1];
 
     const tokenRe =
@@ -58,7 +65,8 @@ export async function getFANextFixture(): Promise<FANextFixture | null> {
       };
     }
     return null;
-  } catch {
+  } catch (err) {
+    console.warn("[faNextFixture] fetch/parse threw", err);
     return null;
   }
 }
