@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { format, parse, isFuture, differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from "date-fns";
@@ -35,11 +35,14 @@ function parseFANextFixture(container: HTMLElement): NextMatch | null {
   let lastDate: string | null = null;
 
   for (const row of rows) {
-    const style = row.getAttribute("style") || "";
-    if (style.includes("#E6FAFF")) {
-      lastDate = row.textContent?.replace(/\s+/g, " ").trim() || null;
+    // Date header: style lives on the child <td>, not the <tr> itself
+    const dateCell = row.querySelector('td[style*="#E6FAFF"]');
+    if (dateCell) {
+      lastDate = dateCell.textContent?.replace(/\s+/g, " ").trim() || null;
       continue;
     }
+    // Fixture row: style is on the <tr> itself
+    const style = row.getAttribute("style") || "";
     if (!style.includes("#b3f0ff") || !lastDate) continue;
 
     const anchors = Array.from(row.querySelectorAll("a")).map(
@@ -121,13 +124,18 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
   });
   const [faFixture, setFaFixture] = useState<NextMatch | null>(null);
   const [faChecked, setFaChecked] = useState(false);
-  const faContainerRef = useRef<HTMLDivElement>(null);
 
-  // No Sanity match — try to find the next fixture from FA Full-Time instead
+  // No Sanity match — try to find the next fixture from FA Full-Time instead.
+  // The scratch container lives entirely outside React (created/removed here,
+  // never rendered in JSX) so FA's direct DOM writes can't collide with
+  // React's own reconciliation of this component's tree.
   useEffect(() => {
     if (match) return;
-    const container = faContainerRef.current;
-    if (!container) return;
+
+    const container = document.createElement("div");
+    container.id = `lrep${FA_LR_CODE}`;
+    container.style.display = "none";
+    document.body.appendChild(container);
 
     (window as unknown as Record<string, string>).lrcode = FA_LR_CODE;
     const script = document.createElement("script");
@@ -154,6 +162,7 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
       observer.disconnect();
       clearTimeout(timeout);
       script.remove();
+      container.remove();
     };
   }, [match]);
 
@@ -190,7 +199,6 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
   if (!effectiveMatch && !faChecked) {
     return (
       <section className="py-16 bg-gradient-to-b from-btfc-navy to-btfc-navy-dark overflow-hidden">
-        <div ref={faContainerRef} id={`lrep${FA_LR_CODE}`} style={{ display: "none" }} />
         <div className="container text-center">
           <p className="text-white/50 text-sm">Loading next fixture...</p>
         </div>
@@ -202,7 +210,6 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
   if (!effectiveMatch) {
     return (
       <section className="py-16 bg-gradient-to-b from-btfc-navy to-btfc-navy-dark overflow-hidden">
-        <div ref={faContainerRef} id={`lrep${FA_LR_CODE}`} style={{ display: "none" }} />
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
