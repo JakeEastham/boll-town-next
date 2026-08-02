@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { format, differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from "date-fns";
+import { format, parse, isFuture, differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from "date-fns";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui";
@@ -11,13 +11,57 @@ import { urlFor } from "@/lib/sanity";
 import type { Match, SanityImage } from "@/types";
 
 // Sanity Match, or the lighter shape scraped from FA Full-Time when no
-// Sanity match is scheduled (see src/lib/faNextFixture.ts)
+// Sanity match is scheduled
 type NextMatch = Pick<Match, "date" | "isHome" | "opponent" | "venue"> &
   Partial<Pick<Match, "opponentLogo" | "competition">>;
 
 interface NextMatchWidgetProps {
   match: NextMatch | null;
-  isProvisional?: boolean;
+}
+
+// BTFC fixtures/results widget lrcode (src/components/sections/FAFullTimeWidget)
+const FA_LR_CODE = "621339226";
+
+// ponytail: scrapes FA Full-Time's undocumented widget markup as a fallback
+// when no Sanity match is scheduled. Must run client-side — FA's server
+// blocks connections from CI/cloud datacenter IPs (confirmed: GitHub Actions'
+// build-time fetch to this endpoint hung until ConnectTimeoutError), and the
+// endpoint sends no CORS header so even a browser-side fetch() would be
+// blocked. A <script src> tag sidesteps CORS the same way FAFullTimeWidget
+// already does. If FA changes their markup this just finds nothing and the
+// homepage falls back to "Season Complete".
+function parseFANextFixture(container: HTMLElement): NextMatch | null {
+  const rows = Array.from(container.querySelectorAll("tr"));
+  let lastDate: string | null = null;
+
+  for (const row of rows) {
+    const style = row.getAttribute("style") || "";
+    if (style.includes("#E6FAFF")) {
+      lastDate = row.textContent?.replace(/\s+/g, " ").trim() || null;
+      continue;
+    }
+    if (!style.includes("#b3f0ff") || !lastDate) continue;
+
+    const anchors = Array.from(row.querySelectorAll("a")).map(
+      (a) => a.textContent?.replace(/\s+/g, " ").trim() || ""
+    );
+    if (anchors.length < 7) continue;
+
+    const [, home, homeScore, , awayScore, away, venue] = anchors;
+    if (homeScore || awayScore) continue; // already played or postponed
+
+    const fixtureDate = parse(lastDate, "EEE dd MMM yyyy HH:mm", new Date());
+    if (!isFuture(fixtureDate)) continue;
+
+    const isHome = home === "Bollington Town";
+    return {
+      opponent: isHome ? away : home,
+      isHome,
+      date: fixtureDate.toISOString(),
+      venue: venue || undefined,
+    };
+  }
+  return null;
 }
 
 // Same footprint for both crests so the row aligns; BTFC's badge has its own
@@ -68,18 +112,58 @@ function TeamCrest({
   );
 }
 
-export function NextMatchWidget({ match, isProvisional }: NextMatchWidgetProps) {
+export function NextMatchWidget({ match }: NextMatchWidgetProps) {
   const [countdown, setCountdown] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
+  const [faFixture, setFaFixture] = useState<NextMatch | null>(null);
+  const [faChecked, setFaChecked] = useState(false);
+  const faContainerRef = useRef<HTMLDivElement>(null);
+
+  // No Sanity match — try to find the next fixture from FA Full-Time instead
+  useEffect(() => {
+    if (match) return;
+    const container = faContainerRef.current;
+    if (!container) return;
+
+    (window as unknown as Record<string, string>).lrcode = FA_LR_CODE;
+    const script = document.createElement("script");
+    script.src = `https://fulltime.thefa.com/client/api/cs1.js?_=${Date.now()}`;
+    script.async = false;
+    document.body.appendChild(script);
+
+    const observer = new MutationObserver(() => {
+      const parsed = parseFANextFixture(container);
+      if (parsed) {
+        setFaFixture(parsed);
+        setFaChecked(true);
+        observer.disconnect();
+      }
+    });
+    observer.observe(container, { childList: true, subtree: true });
+
+    const timeout = setTimeout(() => {
+      observer.disconnect();
+      setFaChecked(true);
+    }, 8000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timeout);
+      script.remove();
+    };
+  }, [match]);
+
+  const effectiveMatch = match || faFixture;
+  const isProvisional = !match && !!faFixture;
 
   useEffect(() => {
-    if (!match) return;
+    if (!effectiveMatch) return;
 
-    const matchDate = new Date(match.date);
+    const matchDate = new Date(effectiveMatch.date);
 
     const updateCountdown = () => {
       const now = new Date();
@@ -99,12 +183,26 @@ export function NextMatchWidget({ match, isProvisional }: NextMatchWidgetProps) 
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [match]);
+  }, [effectiveMatch]);
 
-  // No upcoming match — season complete
-  if (!match) {
+  // No Sanity match, and still waiting to hear back from FA — avoid flashing
+  // "Season Complete" before we know whether a fixture is actually there.
+  if (!effectiveMatch && !faChecked) {
     return (
       <section className="py-16 bg-gradient-to-b from-btfc-navy to-btfc-navy-dark overflow-hidden">
+        <div ref={faContainerRef} id={`lrep${FA_LR_CODE}`} style={{ display: "none" }} />
+        <div className="container text-center">
+          <p className="text-white/50 text-sm">Loading next fixture...</p>
+        </div>
+      </section>
+    );
+  }
+
+  // No upcoming match — season complete
+  if (!effectiveMatch) {
+    return (
+      <section className="py-16 bg-gradient-to-b from-btfc-navy to-btfc-navy-dark overflow-hidden">
+        <div ref={faContainerRef} id={`lrep${FA_LR_CODE}`} style={{ display: "none" }} />
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -141,8 +239,8 @@ export function NextMatchWidget({ match, isProvisional }: NextMatchWidgetProps) 
     );
   }
 
-  const isHome = match.isHome;
-  const matchDate = new Date(match.date);
+  const isHome = effectiveMatch.isHome;
+  const matchDate = new Date(effectiveMatch.date);
 
   return (
     <section className="py-16 bg-gradient-to-b from-btfc-navy to-btfc-navy-dark overflow-hidden">
@@ -155,7 +253,7 @@ export function NextMatchWidget({ match, isProvisional }: NextMatchWidgetProps) 
         >
           {/* Section Header */}
           <p className="text-btfc-gold text-sm uppercase tracking-widest mb-2">
-            {match.competition?.name || "League Match"}
+            {effectiveMatch.competition?.name || "League Match"}
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-white uppercase tracking-wider mb-8">
             Next Match
@@ -167,9 +265,9 @@ export function NextMatchWidget({ match, isProvisional }: NextMatchWidgetProps) 
             <div className="flex items-center justify-between gap-4 md:gap-8 mb-8">
               {/* Home Team */}
               <div className="flex-1 text-center">
-                <TeamCrest isBtfc={isHome} opponentLogo={match.opponentLogo} opponentName={match.opponent} />
+                <TeamCrest isBtfc={isHome} opponentLogo={effectiveMatch.opponentLogo} opponentName={effectiveMatch.opponent} />
                 <h3 className="font-display text-lg md:text-xl text-white uppercase tracking-wide">
-                  {isHome ? "Bollington Town" : match.opponent}
+                  {isHome ? "Bollington Town" : effectiveMatch.opponent}
                 </h3>
                 <span className="text-sm text-white/50">{isHome ? "Home" : "Away"}</span>
               </div>
@@ -181,9 +279,9 @@ export function NextMatchWidget({ match, isProvisional }: NextMatchWidgetProps) 
 
               {/* Away Team */}
               <div className="flex-1 text-center">
-                <TeamCrest isBtfc={!isHome} opponentLogo={match.opponentLogo} opponentName={match.opponent} />
+                <TeamCrest isBtfc={!isHome} opponentLogo={effectiveMatch.opponentLogo} opponentName={effectiveMatch.opponent} />
                 <h3 className="font-display text-lg md:text-xl text-white uppercase tracking-wide">
-                  {!isHome ? "Bollington Town" : match.opponent}
+                  {!isHome ? "Bollington Town" : effectiveMatch.opponent}
                 </h3>
                 <span className="text-sm text-white/50">{!isHome ? "Home" : "Away"}</span>
               </div>
@@ -197,8 +295,8 @@ export function NextMatchWidget({ match, isProvisional }: NextMatchWidgetProps) 
               <p className="text-btfc-gold text-2xl font-display">
                 {format(matchDate, "HH:mm")} Kick-off
               </p>
-              {match.venue && (
-                <p className="text-white/50 text-sm mt-2">{match.venue}</p>
+              {effectiveMatch.venue && (
+                <p className="text-white/50 text-sm mt-2">{effectiveMatch.venue}</p>
               )}
             </div>
 

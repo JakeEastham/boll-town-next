@@ -9,7 +9,6 @@ import {
   sponsorsQuery,
   videoSponsorQuery,
 } from "@/lib/sanity/queries";
-import { getFANextFixture } from "@/lib/faNextFixture";
 import {
   HeroSlider,
   NextMatchWidget,
@@ -36,14 +35,11 @@ async function getHomePageData() {
       client.fetch<Sponsor[]>(videoSponsorQuery),
     ]);
 
-  // Sanity has no scheduled match — fall back to FA Full-Time's fixture list
-  const faFixture = nextMatch ? null : await getFANextFixture();
-
-  return { siteSettings, nextMatch, faFixture, latestNews, latestMatchReport, latestHighlight, players, sponsors, videoSponsor };
+  return { siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors, videoSponsor };
 }
 
 export default async function HomePage() {
-  const { siteSettings, nextMatch, faFixture, latestNews, latestMatchReport, latestHighlight, players, sponsors, videoSponsor } =
+  const { siteSettings, nextMatch, latestNews, latestMatchReport, latestHighlight, players, sponsors, videoSponsor } =
     await getHomePageData();
 
   return (
@@ -52,7 +48,7 @@ export default async function HomePage() {
       <HeroSlider slides={siteSettings?.heroSlides || []} />
 
       {/* Next Match */}
-      <NextMatchWidget match={nextMatch || faFixture} isProvisional={!nextMatch && !!faFixture} />
+      <NextMatchWidget match={nextMatch} />
 
       {/* Latest Match Report */}
       <LatestMatchReport report={latestMatchReport} />
