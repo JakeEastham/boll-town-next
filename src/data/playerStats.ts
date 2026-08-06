@@ -8,8 +8,9 @@
  *  23/24  https://fulltime.thefa.com/displayTeam.html?divisionseason=875724253&teamID=312011849
  *  24/25  https://fulltime.thefa.com/displayTeam.html?divisionseason=80570566&teamID=312011849
  *  25/26  https://fulltime.thefa.com/displayTeam.html?divisionseason=793240729&teamID=312011849
+ *  26/27  https://fulltime.thefa.com/index.html?divisionseason=423334312
  *
- * Last updated: May 2026 (25/26 season complete)
+ * Last updated: 6 August 2026 (26/27 season in progress)
  * Names normalised to "Firstname Surname" format throughout.
  */
 
@@ -254,6 +255,26 @@ export const seasonPlayerStats: Record<string, PlayerSeasonStat[]> = {
     { name: "Arjun Takiar", apps: 4, goals: 0 },
     { name: "James Whitehead", apps: 1, goals: 0 },
     { name: "Daniel Williams", apps: 25, goals: 4 },
+  ],
+
+  // In progress — last updated 6 August 2026 (v Poynton, 1-1, 04/08/26)
+  "2026-27": [
+    { name: "Alfie Earith", apps: 1, goals: 0 },
+    { name: "Arjun Takiar", apps: 1, goals: 0 },
+    { name: "Daniel Williams", apps: 1, goals: 0 },
+    { name: "Declan Hanks", apps: 1, goals: 0 },
+    { name: "Finn Manning", apps: 1, goals: 0 },
+    { name: "George Richardson", apps: 1, goals: 0 },
+    { name: "Jack Heppell", apps: 1, goals: 1 },
+    { name: "Jacob Callum Hodgson", apps: 1, goals: 0 },
+    { name: "Jake Bowers", apps: 1, goals: 0 },
+    { name: "Jake Eastham", apps: 1, goals: 0 },
+    { name: "Joshua Connolly", apps: 1, goals: 0 },
+    { name: "Matthew Joyce", apps: 1, goals: 0 },
+    { name: "Maxwell Berkeley", apps: 1, goals: 0 },
+    { name: "Muhammad Abdullah Butt", apps: 1, goals: 0 },
+    { name: "Philip Milsom", apps: 1, goals: 0 },
+    { name: "Ryan Hibbert", apps: 1, goals: 0 },
   ],
 };
 

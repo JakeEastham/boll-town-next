@@ -10,7 +10,7 @@ import {
 import type { Team } from "@/types";
 import { seasonPlayerStats } from "@/data/playerStats";
 
-const CURRENT_SEASON = "2025-26";
+const CURRENT_SEASON = "2026-27";
 const currentSeason = seasonPlayerStats[CURRENT_SEASON] ?? [];
 const topScorers = [...currentSeason]
   .filter((p) => p.goals > 0)

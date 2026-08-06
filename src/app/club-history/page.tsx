@@ -268,7 +268,7 @@ const seasons = [
   },
 ];
 
-// Computed from src/data/playerStats.ts — all seasons 2020/21 – 2025/26
+// Computed from src/data/playerStats.ts — all seasons 2020/21 – 2026/27
 const allTimeScorers = allTimeStats.byGoals.slice(0, 10);
 const allTimeAppearances = allTimeStats.byApps.slice(0, 10);
 
@@ -493,7 +493,7 @@ export default function ClubHistoryPage() {
               All-Time Records
             </h2>
             <p className="text-sm text-neutral-400 italic">
-              All competitive appearances. Data up to May 2026 (25/26 season complete).
+              All competitive appearances. Data up to 6 August 2026 (26/27 season in progress).
             </p>
           </div>
 

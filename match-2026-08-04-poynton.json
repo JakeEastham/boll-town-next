@@ -1,0 +1,356 @@
+{
+  "_id": "match-2026-08-04-poynton",
+  "_type": "match",
+  "date": "2026-08-04T18:30:00.000Z",
+  "kickoff": "18:30",
+  "competition": {
+    "_type": "reference",
+    "_ref": "7fb0b970-d719-4e6f-a382-41786b8fe5d9"
+  },
+  "team": {
+    "_type": "reference",
+    "_ref": "0d997d69-27d3-4cd5-9c77-a9d496bebd26"
+  },
+  "opponent": "Poynton",
+  "isHome": true,
+  "venue": "Church Lane (New Mills AFC)",
+  "status": "fulltime",
+  "homeScore": 1,
+  "awayScore": 1,
+  "homeScorers": [
+    {
+      "_key": "hs1",
+      "name": "Jack Heppell",
+      "minutes": ["89'"]
+    }
+  ],
+  "awayScorers": [],
+  "homeLineup": [
+    {
+      "_key": "hl1",
+      "badgeType": "sub",
+      "badgeText": "Sub 61'",
+      "customName": "Jake Bowers"
+    },
+    {
+      "_key": "hl2",
+      "badgeType": "sub",
+      "badgeText": "Sub 61'",
+      "customName": "Joshua Connolly"
+    },
+    {
+      "_key": "hl3",
+      "badgeType": "sub",
+      "badgeText": "Sub 88'",
+      "customName": "Alfie Earith"
+    },
+    {
+      "_key": "hl4",
+      "badgeType": "yellow",
+      "badgeText": "🟨 65'",
+      "customName": "Jake Eastham"
+    },
+    {
+      "_key": "hl5",
+      "badgeType": "none",
+      "customName": "Declan Hanks"
+    },
+    {
+      "_key": "hl6",
+      "badgeType": "yellow",
+      "badgeText": "🟨 22'",
+      "customName": "Ryan Hibbert"
+    },
+    {
+      "_key": "hl7",
+      "badgeType": "none",
+      "customName": "Matthew Joyce"
+    },
+    {
+      "_key": "hl8",
+      "badgeType": "none",
+      "customName": "Finn Manning"
+    },
+    {
+      "_key": "hl9",
+      "badgeType": "none",
+      "customName": "Philip Milsom"
+    },
+    {
+      "_key": "hl10",
+      "badgeType": "sub",
+      "badgeText": "Sub 86'",
+      "customName": "George Richardson"
+    },
+    {
+      "_key": "hl11",
+      "badgeType": "sub",
+      "badgeText": "Sub 72'",
+      "customName": "Daniel Williams"
+    }
+  ],
+  "homeSubs": [
+    {
+      "_key": "hsu1",
+      "badgeType": "sub-on",
+      "badgeText": "On 61'",
+      "customName": "Maxwell Berkeley"
+    },
+    {
+      "_key": "hsu2",
+      "badgeType": "sub-on",
+      "badgeText": "On 61'",
+      "customName": "Muhammad Abdullah Butt"
+    },
+    {
+      "_key": "hsu3",
+      "badgeType": "goal",
+      "badgeText": "⚽ 89'",
+      "badge2Type": "sub-on",
+      "badge2Text": "On 72'",
+      "customName": "Jack Heppell"
+    },
+    {
+      "_key": "hsu4",
+      "badgeType": "red",
+      "badgeText": "🟥 90+3'",
+      "badge2Type": "sub-on",
+      "badge2Text": "On 86'",
+      "customName": "Jacob Callum Hodgson"
+    },
+    {
+      "_key": "hsu5",
+      "badgeType": "sub-on",
+      "badgeText": "On 88'",
+      "customName": "Arjun Takiar"
+    }
+  ],
+  "awayLineup": [],
+  "awaySubs": [],
+  "reportHeadline": "Town share the points in a dramatic new-home opener against",
+  "reportHeadlineEmphasis": "Poynton",
+  "reportIntro": "Bollington Town began life at their new home of Church Lane with a dramatic 1-1 draw against Poynton, twice denied by a resolute visiting side before substitute Jack Heppell's 89th-minute leveller salvaged a point on an afternoon that saw red cards at both ends — Poynton reduced to ten around the hour mark before Jacob Callum Hodgson was sent off for Town deep into stoppage time.",
+  "firstHalfEvents": [
+    {
+      "_key": "fh1",
+      "minute": "1'",
+      "type": "chance",
+      "title": "Early Free-Kick",
+      "description": "Poynton were penalised for a handball in midfield inside the opening minute, handing Town an early free-kick to settle into the game."
+    },
+    {
+      "_key": "fh2",
+      "minute": "5'",
+      "type": "chance",
+      "title": "Hanks Goes Close in 1v1",
+      "description": "**Declan Hanks** found himself clean through one-on-one with the Poynton keeper but couldn't find a way past him — an early sign of Town's attacking intent."
+    },
+    {
+      "_key": "fh3",
+      "minute": "6'",
+      "type": "chance",
+      "title": "Bowers Free-Kick Off Target",
+      "description": "A handball outside their own box gave Town another free-kick, but **Jake Bowers**' effort from range drifted off target."
+    },
+    {
+      "_key": "fh4",
+      "minute": "8'",
+      "type": "chance",
+      "title": "Bowers Strike from the Edge of the Box",
+      "description": "Town forced an early corner that was only partially cleared, and **Jake Bowers** met the loose ball with a strike from the edge of the box, but his effort was cleared without seriously testing the keeper."
+    },
+    {
+      "_key": "fh5",
+      "minute": "12'",
+      "type": "chance",
+      "title": "Connolly Wins a Corner",
+      "description": "**Joshua Connolly** created another opening down the flank, forcing a second corner for Town inside the first quarter of an hour."
+    },
+    {
+      "_key": "fh6",
+      "minute": "13'",
+      "type": "save",
+      "title": "Bowers Effort Saved",
+      "description": "The resulting corner was met by **Jake Bowers**, whose shot was well held by the Poynton goalkeeper."
+    },
+    {
+      "_key": "fh7",
+      "minute": "14'",
+      "type": "chance",
+      "title": "Richardson Chance",
+      "description": "**George Richardson** had Town's next sight of goal, though the opportunity went begging as Poynton held firm."
+    },
+    {
+      "_key": "fh8",
+      "minute": "21'",
+      "type": "chance",
+      "title": "Hanks Crowded Out",
+      "description": "**Declan Hanks** was inches from breaking the deadlock, blocked out by two Poynton defenders at the last moment."
+    },
+    {
+      "_key": "fh9",
+      "minute": "22'",
+      "type": "chance",
+      "title": "Hibbert Booked in Midfield Coming-Together",
+      "description": "**Ryan Hibbert** was shown a yellow card after a mistimed tackle sparked an altercation with a Poynton player, with the free-kick still going Town's way despite the caution."
+    },
+    {
+      "_key": "fh10",
+      "minute": "27'",
+      "type": "chance",
+      "title": "Poynton Player Booked for Foul on Hibbert",
+      "description": "The tables turned five minutes later when a Poynton player was booked for an illegal challenge on **Ryan Hibbert**, Town coming away with a goal-kick from the passage of play."
+    },
+    {
+      "_key": "fh11",
+      "minute": "32'",
+      "type": "save",
+      "title": "Joyce Denies Poynton",
+      "description": "Poynton tested **Matthew Joyce** with a long-range effort that the Town keeper did well to save, before the visitors shoved **Jake Bowers** off the ball moments later — no card shown, but another free-kick given to Town."
+    },
+    {
+      "_key": "fh12",
+      "minute": "38'",
+      "type": "chance",
+      "title": "Richardson Chance Gathered by Keeper",
+      "description": "**George Richardson** was again denied a clear sight of goal, the Poynton keeper gathering at his feet before he could get a shot away."
+    },
+    {
+      "_key": "fh14",
+      "minute": "43'",
+      "type": "chance",
+      "title": "Bowers Free-Kick Wide",
+      "description": "Excellent tackling and midfield graft from **Jake Eastham** teed up **George Richardson**, who was scythed down by a mistimed challenge just outside the box. **Jake Bowers** stepped up to the resulting free-kick but dragged his effort wide of the target."
+    }
+  ],
+  "secondHalfEvents": [
+    {
+      "_key": "sh1",
+      "minute": "51'",
+      "type": "chance",
+      "title": "Poynton Free-Kick",
+      "description": "Poynton were awarded a free-kick as the second half got underway, though Town's defence stood firm."
+    },
+    {
+      "_key": "sh2",
+      "minute": "53'",
+      "type": "chance",
+      "title": "Town Free-Kick Comes to Nothing",
+      "description": "Town had a free-kick of their own in a promising area moments later but couldn't make the opportunity count."
+    },
+    {
+      "_key": "sh2b",
+      "minute": "60'",
+      "type": "chance",
+      "title": "Poynton Reduced to Ten",
+      "description": "Poynton had a player sent off around the hour mark, leaving them to play out the remainder of the game a man light."
+    },
+    {
+      "_key": "sh3",
+      "minute": "60'",
+      "type": "chance",
+      "title": "Connolly Receives Treatment",
+      "description": "Play was halted as **Joshua Connolly** needed treatment for an injury, a stoppage that would ultimately end his afternoon."
+    },
+    {
+      "_key": "sh4",
+      "minute": "61'",
+      "type": "chance",
+      "title": "Double Change for Town",
+      "description": "**Jake Bowers** and **Joshua Connolly** were both withdrawn, with **Maxwell Berkeley** and **Muhammad Abdullah Butt** introduced to freshen things up."
+    },
+    {
+      "_key": "sh5",
+      "minute": "65'",
+      "type": "chance",
+      "title": "Eastham Booked",
+      "description": "**Jake Eastham** was shown a yellow card following a mistimed tackle, some hard luck after a fine afternoon of tackling and midfield work."
+    },
+    {
+      "_key": "sh6",
+      "minute": "66'",
+      "type": "opponent-goal",
+      "title": "Poynton Take the Lead",
+      "description": "Poynton broke the deadlock against the run of play to make it 0–1, stunning the home crowd on Town's first outing at Church Lane."
+    },
+    {
+      "_key": "sh7",
+      "minute": "69'",
+      "type": "save",
+      "title": "Milsom Header Saved",
+      "description": "**Daniel Williams** won a corner that **Alfie Earith** delivered into the box, and **Philip Milsom** rose highest to head goalwards — only to be denied by a good save from the Poynton keeper."
+    },
+    {
+      "_key": "sh8",
+      "minute": "71'",
+      "type": "chance",
+      "title": "Poynton Free-Kick",
+      "description": "Poynton had another free-kick in a dangerous area, but Town's backline dealt with the danger."
+    },
+    {
+      "_key": "sh9",
+      "minute": "72'",
+      "type": "chance",
+      "title": "Heppell Introduced",
+      "description": "**Daniel Williams** made way for **Jack Heppell**, a substitution that would prove decisive."
+    },
+    {
+      "_key": "sh10",
+      "minute": "76'",
+      "type": "chance",
+      "title": "Butt Header Just Wide",
+      "description": "**Muhammad Abdullah Butt** rose well at the back post but couldn't quite direct his header on target — a close call as Town pushed for an equaliser."
+    },
+    {
+      "_key": "sh11",
+      "minute": "86'",
+      "type": "chance",
+      "title": "Hodgson On for Richardson",
+      "description": "**George Richardson** made way for **Jacob Callum Hodgson** as Town searched for fresh legs in the hunt for a leveller."
+    },
+    {
+      "_key": "sh12",
+      "minute": "88'",
+      "type": "chance",
+      "title": "Takiar Replaces Earith",
+      "description": "**Arjun Takiar** was introduced in place of **Alfie Earith** as Town continued to chase a late equaliser."
+    },
+    {
+      "_key": "sh13",
+      "minute": "89'",
+      "type": "goal",
+      "title": "Goal — Jack Heppell",
+      "description": "Town got their reward. **Declan Hanks** picked out **Jack Heppell** with a well-weighted pass, and the substitute made no mistake to level the scores. 1–1, and Church Lane erupted for Town's first goal at their new home."
+    },
+    {
+      "_key": "sh14",
+      "minute": "90+3'",
+      "type": "chance",
+      "title": "Hodgson Sent Off",
+      "description": "A dramatic stoppage time saw a Poynton player go down under a challenge from **Jacob Callum Hodgson**, with the referee brandishing a straight red card for violent conduct. Town saw out the remaining moments a man light to secure a point on their new home ground."
+    }
+  ],
+  "matchStats": [
+    {
+      "_key": "stat1",
+      "label": "Goals Scored",
+      "value": "1"
+    },
+    {
+      "_key": "stat2",
+      "label": "Goals Conceded",
+      "value": "1"
+    },
+    {
+      "_key": "stat3",
+      "label": "Result",
+      "value": "Draw"
+    }
+  ],
+  "pullQuote": "A red card, a stoppage-time leveller, and a new home to remember — Town's first day of the new era had it all.",
+  "matchVerdict": [
+    "Bollington Town's first competitive outing at Church Lane was a fitting curtain-raiser for the new era — combative, eventful, and ultimately deadlocked. Town were the sharper side for long spells of the first half, forcing a string of corners and half-chances through **Jake Bowers**, **Declan Hanks** and **George Richardson**, but couldn't find a breakthrough despite going in level at the break having weathered two bookings of their own around a spirited midfield battle with **Ryan Hibbert** at the heart of it.",
+    "Poynton were reduced to ten men around the hour mark, yet still found a way to make the breakthrough on 66' against the run of play — forcing Town to chase the game with the introduction of fresh legs off the bench. Town's persistence paid off in the closing stages when **Declan Hanks** picked out substitute **Jack Heppell**, who finished coolly to level the scores with virtually his final touch of a productive cameo.",
+    "The drama wasn't done — **Jacob Callum Hodgson**, on for barely four minutes, was shown a straight red card deep into stoppage time, levelling the numbers back up and leaving Town to see out the closing moments with ten men themselves. A point apiece felt about right on the balance of play, and a memorable way to christen the new ground."
+  ]
+}
