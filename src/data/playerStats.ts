@@ -10,7 +10,7 @@
  *  25/26  https://fulltime.thefa.com/displayTeam.html?divisionseason=793240729&teamID=312011849
  *  26/27  https://fulltime.thefa.com/index.html?divisionseason=423334312
  *
- * Last updated: 6 August 2026 (26/27 season in progress)
+ * Last updated: 9 August 2026 (26/27 season in progress)
  * Names normalised to "Firstname Surname" format throughout.
  */
 
@@ -257,24 +257,27 @@ export const seasonPlayerStats: Record<string, PlayerSeasonStat[]> = {
     { name: "Daniel Williams", apps: 25, goals: 4 },
   ],
 
-  // In progress — last updated 6 August 2026 (v Poynton, 1-1, 04/08/26)
+  // In progress — last updated 9 August 2026 (v St Helens Reserves (A), won 2-1, 08/08/26)
   "2026-27": [
-    { name: "Alfie Earith", apps: 1, goals: 0 },
-    { name: "Arjun Takiar", apps: 1, goals: 0 },
+    { name: "Alexander Howarth", apps: 1, goals: 0 },
+    { name: "Alfie Earith", apps: 2, goals: 0 },
+    { name: "Arjun Takiar", apps: 2, goals: 0 },
     { name: "Daniel Williams", apps: 1, goals: 0 },
-    { name: "Declan Hanks", apps: 1, goals: 0 },
-    { name: "Finn Manning", apps: 1, goals: 0 },
-    { name: "George Richardson", apps: 1, goals: 0 },
+    { name: "Declan Hanks", apps: 2, goals: 1 },
+    { name: "Finn Manning", apps: 2, goals: 0 },
+    { name: "George Richardson", apps: 2, goals: 1 },
     { name: "Jack Heppell", apps: 1, goals: 1 },
-    { name: "Jacob Callum Hodgson", apps: 1, goals: 0 },
+    { name: "Jack Toft", apps: 1, goals: 0 },
+    { name: "Jacob Hodgson", apps: 1, goals: 0 },
     { name: "Jake Bowers", apps: 1, goals: 0 },
-    { name: "Jake Eastham", apps: 1, goals: 0 },
+    { name: "Jake Eastham", apps: 2, goals: 0 },
     { name: "Joshua Connolly", apps: 1, goals: 0 },
-    { name: "Matthew Joyce", apps: 1, goals: 0 },
-    { name: "Maxwell Berkeley", apps: 1, goals: 0 },
-    { name: "Muhammad Abdullah Butt", apps: 1, goals: 0 },
+    { name: "Matthew Joyce", apps: 2, goals: 0 },
+    { name: "Maxwell Berkeley", apps: 2, goals: 0 },
+    { name: "Muhammad Abdullah Butt", apps: 2, goals: 0 },
     { name: "Philip Milsom", apps: 1, goals: 0 },
-    { name: "Ryan Hibbert", apps: 1, goals: 0 },
+    { name: "Ruben Adrio", apps: 1, goals: 0 },
+    { name: "Ryan Hibbert", apps: 2, goals: 0 },
   ],
 };
 

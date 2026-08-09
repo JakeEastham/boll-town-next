@@ -1,0 +1,310 @@
+{
+  "_id": "match-2026-08-08-st-helens-reserves",
+  "_type": "match",
+  "date": "2026-08-08T14:00:00.000Z",
+  "kickoff": "14:00",
+  "competition": {
+    "_type": "reference",
+    "_ref": "7fb0b970-d719-4e6f-a382-41786b8fe5d9"
+  },
+  "team": {
+    "_type": "reference",
+    "_ref": "0d997d69-27d3-4cd5-9c77-a9d496bebd26"
+  },
+  "opponent": "St Helens Reserves",
+  "isHome": false,
+  "venue": "FC St Helens",
+  "status": "fulltime",
+  "homeScore": 1,
+  "awayScore": 2,
+  "homeScorers": [],
+  "awayScorers": [
+    {
+      "_key": "as1",
+      "name": "Declan Hanks",
+      "minutes": ["1'"]
+    },
+    {
+      "_key": "as2",
+      "name": "George Richardson",
+      "minutes": ["60'"]
+    }
+  ],
+  "homeLineup": [],
+  "homeSubs": [],
+  "awayLineup": [
+    {
+      "_key": "al1",
+      "badgeType": "none",
+      "customName": "Matthew Joyce"
+    },
+    {
+      "_key": "al2",
+      "badgeType": "none",
+      "customName": "Alfie Earith"
+    },
+    {
+      "_key": "al3",
+      "badgeType": "none",
+      "customName": "Arjun Takiar"
+    },
+    {
+      "_key": "al4",
+      "badgeType": "none",
+      "customName": "Alexander Howarth"
+    },
+    {
+      "_key": "al5",
+      "badgeType": "none",
+      "customName": "Finn Manning"
+    },
+    {
+      "_key": "al6",
+      "badgeType": "goal",
+      "badgeText": "⚽ 60'",
+      "badge2Type": "yellow",
+      "badge2Text": "🟨 90'",
+      "customName": "George Richardson"
+    },
+    {
+      "_key": "al7",
+      "badgeType": "none",
+      "customName": "Jake Eastham"
+    },
+    {
+      "_key": "al8",
+      "badgeType": "sub",
+      "badgeText": "Sub 78'",
+      "customName": "Maxwell Berkeley"
+    },
+    {
+      "_key": "al9",
+      "badgeType": "sub",
+      "badgeText": "Sub 55'",
+      "customName": "Ruben Adrio"
+    },
+    {
+      "_key": "al10",
+      "badgeType": "goal",
+      "badgeText": "⚽ 1'",
+      "customName": "Declan Hanks"
+    },
+    {
+      "_key": "al11",
+      "badgeType": "none",
+      "customName": "Muhammad Abdullah Butt"
+    }
+  ],
+  "awaySubs": [
+    {
+      "_key": "asu1",
+      "badgeType": "sub-on",
+      "badgeText": "On 55'",
+      "customName": "Jack Toft"
+    },
+    {
+      "_key": "asu2",
+      "badgeType": "sub-on",
+      "badgeText": "On 78'",
+      "customName": "Ryan Hibbert"
+    }
+  ],
+  "reportHeadline": "Bolly score inside a minute and hold on for a battling",
+  "reportHeadlineEmphasis": "away win at St Helens Reserves",
+  "reportIntro": "Bollington Town made the perfect start to their trip to St Helens, Declan Hanks heading home inside the first minutes, and held their nerve after the hosts leveled to see out a 2-1 win courtesy of a second-half goal from George Richardson.",
+  "firstHalfEvents": [
+    {
+      "_key": "fh1",
+      "minute": "1'",
+      "type": "goal",
+      "title": "Goal — Declan Hanks",
+      "description": "The perfect start for Town. **Ruben Adrio** whipped a cross into the box and **Declan Hanks** rose to head home, giving Town the lead inside the opening minute."
+    },
+    {
+      "_key": "fh2",
+      "minute": "6'",
+      "type": "chance",
+      "title": "Richardson Cross Goes Begging",
+      "description": "**George Richardson** picked out the box with a dangerous cross, but neither **Declan Hanks** nor **Ruben Adrio** could get on the end of it to double the lead."
+    },
+    {
+      "_key": "fh3",
+      "minute": "8'",
+      "type": "chance",
+      "title": "Howarth Free-Kick",
+      "description": "The hosts were penalised for a foul, and **Alexander Howarth** stepped up to take the resulting Town free-kick."
+    },
+    {
+      "_key": "fh4",
+      "minute": "12'",
+      "type": "chance",
+      "title": "Richardson Ball Deflected",
+      "description": "**George Richardson** threaded another ball into the box, but it was deflected away before Town could threaten again."
+    },
+    {
+      "_key": "fh5",
+      "minute": "14'",
+      "type": "chance",
+      "title": "Berkeley Shot Blocked",
+      "description": "**Max Berkeley** had a shot on goal charged down by the opposition centre-back, denying Town the chance to extend their lead."
+    },
+    {
+      "_key": "fh6",
+      "minute": "16'",
+      "type": "opponent-goal",
+      "title": "St Helens Reserves Level",
+      "description": "The hosts hit back to make it 1-1, cancelling out Town's early breakthrough."
+    },
+    {
+      "_key": "fh7",
+      "minute": "18'",
+      "type": "chance",
+      "title": "Richardson Chance",
+      "description": "**George Richardson** had another sight of goal as Town looked to regain the initiative."
+    },
+    {
+      "_key": "fh8",
+      "minute": "20'",
+      "type": "chance",
+      "title": "Free-Kick for a Foul on Hanks",
+      "description": "**Declan Hanks** was fouled to win Town a free-kick in a promising area."
+    },
+    {
+      "_key": "fh9",
+      "minute": "27'",
+      "type": "chance",
+      "title": "Hanks Flagged Offside",
+      "description": "**Declan Hanks** had the ball in a dangerous area but was pulled up for offside."
+    },
+    {
+      "_key": "fh10",
+      "minute": "31'",
+      "type": "chance",
+      "title": "Manning Long Shot",
+      "description": "**Finn Manning** whips a cross into the box, but **Muhammad Abdullah** couldn't quite connect with the ball in the box to turn it goalwards."
+    },
+    {
+      "_key": "fh11",
+      "minute": "34'",
+      "type": "chance",
+      "title": "Howarth Foul Gives Free-Kick Away",
+      "description": "**Alexander Howarth** conceded a free-kick with a foul, handing possession back to the hosts."
+    },
+    {
+      "_key": "fh12",
+      "minute": "39'",
+      "type": "chance",
+      "title": "Opposition Booked for Foul on Howarth",
+      "description": "A St Helens Reserves player was shown a yellow card for a foul on **Alexander Howarth**, with Town awarded the free-kick."
+    },
+    {
+      "_key": "fh13",
+      "minute": "41'",
+      "type": "chance",
+      "title": "Stoppage for Joyce Injury",
+      "description": "Play was halted as **Matthew Joyce** received treatment before being able to continue."
+    },
+    {
+      "_key": "fh14",
+      "minute": "45+2'",
+      "type": "chance",
+      "title": "Hanks Goes Close",
+      "description": "**Declan Hanks** had a late sight of goal as the first half drew to a close, but couldn't force it home before the break."
+    }
+  ],
+  "secondHalfEvents": [
+    {
+      "_key": "sh1",
+      "minute": "47'",
+      "type": "save",
+      "title": "Joyce Saves Well",
+      "description": "**Matthew Joyce** was called into action early in the second half, saving a direct shot on goal from the hosts."
+    },
+    {
+      "_key": "sh2",
+      "minute": "49'",
+      "type": "chance",
+      "title": "Corner Comes to Nothing",
+      "description": "Town won a corner but couldn't turn it into a clear chance."
+    },
+    {
+      "_key": "sh3",
+      "minute": "53'",
+      "type": "save",
+      "title": "Adrio Effort Saved",
+      "description": "**Ruben Adrio** curled a cross-shot in from 20 yards, well held by the St Helens Reserves keeper."
+    },
+    {
+      "_key": "sh4",
+      "minute": "54'",
+      "type": "save",
+      "title": "Joyce and Richardson Denied",
+      "description": "**Matthew Joyce** made another save at the other end before **George Richardson** was denied by the keeper moments later after a close-range effort."
+    },
+    {
+      "_key": "sh5",
+      "minute": "55'",
+      "type": "chance",
+      "title": "Toft Replaces Adrio",
+      "description": "**Jack Toft** was introduced in place of **Ruben Adrio**, whose early assist had set Town on their way."
+    },
+    {
+      "_key": "sh6",
+      "minute": "60'",
+      "type": "goal",
+      "title": "Goal — George Richardson",
+      "description": "Town restored their lead. **Finn Manning** picked out **George Richardson** with a cross into the box, and he finished well to make it 1-2."
+    },
+    {
+      "_key": "sh7",
+      "minute": "78'",
+      "type": "chance",
+      "title": "Hibbert On for Berkeley",
+      "description": "**Ryan Hibbert** replaced **Max Berkeley** as Town looked to see the game out."
+    },
+    {
+      "_key": "sh8",
+      "minute": "79'",
+      "type": "chance",
+      "title": "Stoppage for Takiar Injury",
+      "description": "Play was halted for treatment to **Arjun Takiar**."
+    },
+    {
+      "_key": "sh9",
+      "minute": "88'",
+      "type": "save",
+      "title": "Abdullah Effort Deflected",
+      "description": "**Muhammad Abdullah** forced a smart save out of the keeper, failing to convert as good 1-1 opportunity."
+    },
+    {
+      "_key": "sh10",
+      "minute": "90'",
+      "type": "chance",
+      "title": "Richardson Fouled, No Penalty — Booked for Diving",
+      "description": "**George Richardson** went down under a challenge in the box, but referee waved away penalty appeals and instead booked Richardson for diving as Town saw out the closing stages."
+    }
+  ],
+  "matchStats": [
+    {
+      "_key": "stat1",
+      "label": "Goals Scored",
+      "value": "2"
+    },
+    {
+      "_key": "stat2",
+      "label": "Goals Conceded",
+      "value": "1"
+    },
+    {
+      "_key": "stat3",
+      "label": "Result",
+      "value": "Win"
+    }
+  ],
+  "pullQuote": "A goal inside sixty seconds, a leveller absorbed, and a late winner held onto — Bolly start game-week 2 with three points on the road.",
+  "matchVerdict": [
+    "Bollington Town could not have asked for a better start at St Helens Reserves, **Declan Hanks** heading home a **Ruben Adrio** cross inside the first minute to settle the visitors into the game. Town continued to look the sharper side through **George Richardson** and **Max Berkeley**, but the hosts hit back on 16' to level the scores and set up a scrappier contest for the remainder of the half.",
+    "The second half followed a similar pattern, with **Matthew Joyce** called upon to make a couple of important saves as St Helens Reserves searched for a way back in front. Town found their decisive moment on 60' when **Finn Manning** picked out substitute-to-be **George Richardson** in the box, the midfielder finishing smartly to restore the lead.",
+    "From there Town managed the game well, seeing out a battling win. Three points on the road is a solid platform to build on in game-week 2 of the Cheshire Premier League."
+  ]
+}
