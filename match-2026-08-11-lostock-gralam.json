@@ -1,0 +1,311 @@
+{
+  "_id": "match-2026-08-11-lostock-gralam",
+  "_type": "match",
+  "date": "2026-08-11T19:30:00.000Z",
+  "kickoff": "19:30",
+  "competition": {
+    "_type": "reference",
+    "_ref": "7fb0b970-d719-4e6f-a382-41786b8fe5d9"
+  },
+  "team": {
+    "_type": "reference",
+    "_ref": "0d997d69-27d3-4cd5-9c77-a9d496bebd26"
+  },
+  "opponent": "Lostock Gralam",
+  "isHome": true,
+  "venue": "Church Lane (New Mills AFC)",
+  "status": "fulltime",
+  "homeScore": 2,
+  "awayScore": 2,
+  "homeScorers": [
+    {
+      "_key": "hs1",
+      "name": "Daniel Williams",
+      "minutes": ["59'"]
+    },
+    {
+      "_key": "hs2",
+      "name": "Muhammad Abdullah Butt",
+      "minutes": ["82'"]
+    }
+  ],
+  "awayScorers": [],
+  "homeLineup": [
+    {
+      "_key": "hl1",
+      "badgeType": "none",
+      "customName": "Jake Bowers"
+    },
+    {
+      "_key": "hl2",
+      "badgeType": "sub",
+      "badgeText": "Sub 63'",
+      "customName": "Joshua Connolly"
+    },
+    {
+      "_key": "hl3",
+      "badgeType": "none",
+      "customName": "Alfie Earith"
+    },
+    {
+      "_key": "hl4",
+      "badgeType": "none",
+      "customName": "Jake Eastham"
+    },
+    {
+      "_key": "hl5",
+      "badgeType": "none",
+      "customName": "Declan Hanks"
+    },
+    {
+      "_key": "hl6",
+      "badgeType": "sub",
+      "badgeText": "Sub 63'",
+      "customName": "Jack Heppell"
+    },
+    {
+      "_key": "hl7",
+      "badgeType": "sub",
+      "badgeText": "Sub 7'",
+      "customName": "Ryan Hibbert"
+    },
+    {
+      "_key": "hl8",
+      "badgeType": "none",
+      "customName": "Matthew Joyce"
+    },
+    {
+      "_key": "hl9",
+      "badgeType": "yellow",
+      "badgeText": "🟨 32'",
+      "customName": "Finn Manning"
+    },
+    {
+      "_key": "hl10",
+      "badgeType": "none",
+      "customName": "Philip Milsom"
+    },
+    {
+      "_key": "hl11",
+      "badgeType": "none",
+      "customName": "George Richardson"
+    }
+  ],
+  "homeSubs": [
+    {
+      "_key": "hsu1",
+      "badgeType": "sub-on",
+      "badgeText": "On 63'",
+      "customName": "Maxwell Berkeley"
+    },
+    {
+      "_key": "hsu2",
+      "badgeType": "goal",
+      "badgeText": "⚽ 82'",
+      "badge2Type": "sub-on",
+      "badge2Text": "On 63'",
+      "customName": "Muhammad Abdullah Butt"
+    },
+    {
+      "_key": "hsu3",
+      "badgeType": "goal",
+      "badgeText": "⚽ 59'",
+      "badge2Type": "sub-on",
+      "badge2Text": "On 7'",
+      "customName": "Daniel Williams"
+    }
+  ],
+  "awayLineup": [],
+  "awaySubs": [],
+  "reportHeadline": "Bolly fight back from two down but have to settle for a share of the spoils against",
+  "reportHeadlineEmphasis": "Lostock Gralam",
+  "reportIntro": "Bollington Town created enough to have won this one twice over, but had to settle for a 2-2 draw against Lostock Gralam at Church Lane after twice falling behind, Daniel Williams and second-half substitute Muhammad Abdullah Butt cancelling out a two-goal deficit before a string of late chances went unrewarded.",
+  "firstHalfEvents": [
+    {
+      "_key": "fh1",
+      "minute": "6'",
+      "type": "chance",
+      "title": "Injury Stoppage",
+      "description": "Play was halted for an injury inside the opening ten minutes."
+    },
+    {
+      "_key": "fh3",
+      "minute": "7'",
+      "type": "chance",
+      "title": "Hibbert Off Injured, Williams On",
+      "description": "**Ryan Hibbert** couldn't continue and was replaced by **Daniel Williams**, an early change that would go on to pay off."
+    },
+    {
+      "_key": "fh4",
+      "minute": "21'",
+      "type": "save",
+      "title": "Richardson Header Saved",
+      "description": "**Jake Bowers** swung in a corner and **George Richardson** rose to head goalwards, but the Lostock Gralam keeper was equal to it."
+    },
+    {
+      "_key": "fh5",
+      "minute": "25'",
+      "type": "opponent-goal",
+      "title": "Lostock Gralam Take the Lead",
+      "description": "The visitors broke the deadlock to make it 0-1."
+    },
+    {
+      "_key": "fh6",
+      "minute": "30'",
+      "type": "chance",
+      "title": "Bowers Free-Kick from a Foul on Hanks",
+      "description": "**Declan Hanks** was fouled to win a free-kick, but **Jake Bowers**' delivery couldn't find an ideal spot in the box."
+    },
+    {
+      "_key": "fh7",
+      "minute": "32'",
+      "type": "chance",
+      "title": "Manning Booked for Diving",
+      "description": "**Finn Manning** was shown a yellow card for an alleged dive in the Lostock Gralam box."
+    },
+    {
+      "_key": "fh8",
+      "minute": "34'",
+      "type": "chance",
+      "title": "Bowers Free-Kick Header Off the Bar",
+      "description": "A foul on **George Richardson** just outside the box gave **Jake Bowers** another free-kick, this one crashing back off the crossbar from a header."
+    },
+    {
+      "_key": "fh9",
+      "minute": "35'",
+      "type": "chance",
+      "title": "Multiple Chances in the Box",
+      "description": "Town created several openings inside the box, but neither **Declan Hanks** nor **Philip Milsom** could capitalise."
+    },
+    {
+      "_key": "fh10",
+      "minute": "36'",
+      "type": "chance",
+      "title": "Bowers Free-Kick Over the Bar",
+      "description": "**Jake Bowers** had another dead-ball effort, this one drifting just over the crossbar."
+    },
+    {
+      "_key": "fh11",
+      "minute": "38'",
+      "type": "save",
+      "title": "Richardson Effort Deflected",
+      "description": "**George Richardson** drove 20 yards through midfield and into the box, but his shot was deflected behind by the keeper."
+    },
+    {
+      "_key": "fh12",
+      "minute": "41'",
+      "type": "chance",
+      "title": "Opposition Booked for Challenge on Eastham",
+      "description": "A Lostock Gralam player was shown a yellow card for a reckless two-footed challenge on **Jake Eastham**, with **Alfie Earith** taking the resulting free-kick."
+    },
+    {
+      "_key": "fh13",
+      "minute": "45+1'",
+      "type": "chance",
+      "title": "Bowers Stamped On, Opposition Booked",
+      "description": "**Jake Bowers** was on the end of a stamp from a Lostock Gralam player, who was booked for the challenge. The resulting free-kick came to nothing."
+    },
+    {
+      "_key": "fh14",
+      "minute": "45+5'",
+      "type": "chance",
+      "title": "Hanks Cross Unsuccessful",
+      "description": "**Declan Hanks** put a cross into the box as the half drew to a close, but it couldn't be turned into a chance."
+    }
+  ],
+  "secondHalfEvents": [
+    {
+      "_key": "sh1",
+      "minute": "47'",
+      "type": "save",
+      "title": "Richardson Effort Held",
+      "description": "A Town corner was met by **George Richardson**, whose shot went straight into the keeper's hands."
+    },
+    {
+      "_key": "sh2",
+      "minute": "51'",
+      "type": "opponent-goal",
+      "title": "Lostock Gralam Double Their Lead",
+      "description": "The visitors extended their advantage to make it 0-2."
+    },
+    {
+      "_key": "sh3",
+      "minute": "59'",
+      "type": "goal",
+      "title": "Goal — Daniel Williams",
+      "description": "Town halved the deficit. **Jake Bowers** and **Jack Heppell** combined to release **Daniel Williams**, who drove home from 20 yards to make it 1-2."
+    },
+    {
+      "_key": "sh4",
+      "minute": "61'",
+      "type": "save",
+      "title": "Joyce Save",
+      "description": "**Matthew Joyce** produced a good save at the other end, forcing Lostock Gralam into a corner that came to nothing."
+    },
+    {
+      "_key": "sh5",
+      "minute": "63'",
+      "type": "chance",
+      "title": "Double Change for Town",
+      "description": "**Jack Heppell** and **Joshua Connolly** were withdrawn, with **Muhammad Abdullah Butt** and **Maxwell Berkeley** introduced."
+    },
+    {
+      "_key": "sh6",
+      "minute": "67'",
+      "type": "chance",
+      "title": "Berkeley Long Shot Wins a Corner",
+      "description": "**Maxwell Berkeley** fired just over the crossbar from long range, winning a corner. **Jake Bowers** won a second corner for Town moments later."
+    },
+    {
+      "_key": "sh7",
+      "minute": "75'",
+      "type": "save",
+      "title": "Milsom Effort on Target",
+      "description": "**Philip Milsom** forced a save from the Lostock Gralam keeper with a shot on target."
+    },
+    {
+      "_key": "sh8",
+      "minute": "78'",
+      "type": "chance",
+      "title": "Williams Goes Close",
+      "description": "**Daniel Williams** had a near chance after a corner was cropped back into the box."
+    },
+    {
+      "_key": "sh9",
+      "minute": "82'",
+      "type": "goal",
+      "title": "Goal — Muhammad Abdullah Butt",
+      "description": "Town drew level. **George Richardson** picked out substitute **Muhammad Abdullah Butt** with a pass in the box, and he finished well to make it 2-2."
+    },
+    {
+      "_key": "sh10",
+      "minute": "85'",
+      "type": "chance",
+      "title": "Another Chance for the Winner",
+      "description": "Town pushed on for a winner and had another sight of goal, but it wasn't to be."
+    }
+  ],
+  "matchStats": [
+    {
+      "_key": "stat1",
+      "label": "Goals Scored",
+      "value": "2"
+    },
+    {
+      "_key": "stat2",
+      "label": "Goals Conceded",
+      "value": "2"
+    },
+    {
+      "_key": "stat3",
+      "label": "Result",
+      "value": "Draw"
+    }
+  ],
+  "pullQuote": "Bolly shaded the chances column from start to finish — a draw from 2-0 down is no disgrace, but this was one that got away.",
+  "matchVerdict": [
+    "Town were forced into an early reshuffle when **Ryan Hibbert** was replaced by **Daniel Williams** after an injury stoppage inside the first ten minutes. Bolly weren't at their fluent best over a scrappy first half, but still had their moments, **Jake Bowers** rattling the crossbar from a free-kick and **George Richardson** twice denied, before falling behind against the run of play on 25' to trail 0-1 at the break.",
+    "Lostock Gralam extended their lead early in the second half to make it 0-2, but Bolly responded by taking the game by the scruff of the neck. Town were relentless from there, **Jake Bowers** and **Jack Heppell** combining to release **Daniel Williams** for a well-struck finish from 20 yards to make it 1-2, before a double change on the hour mark brought fresh legs in **Muhammad Abdullah Butt** and **Maxwell Berkeley**. Chances kept coming at both ends, with **Matthew Joyce** doing well between the sticks and **Philip Milsom** and **Daniel Williams** both going close, but the third goal Town's pressure deserved wouldn't come.",
+    "**George Richardson** found substitute **Muhammad Abdullah Butt** to level it up on 82', and Town continued to push for a winner in the closing stages without finding one. On the balance of chances Bolly should have had all three points, but after being 2-0 down at Church Lane, a share of the spoils is a fair return."
+  ]
+}
