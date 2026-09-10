@@ -10,7 +10,7 @@
  *  25/26  https://fulltime.thefa.com/displayTeam.html?divisionseason=793240729&teamID=312011849
  *  26/27  https://fulltime.thefa.com/index.html?divisionseason=423334312
  *
- * Last updated: 28 August 2026 (26/27 season in progress)
+ * Last updated: 29 August 2026 (26/27 season in progress)
  * Names normalised to "Firstname Surname" format throughout.
  */
 
@@ -261,29 +261,29 @@ export const seasonPlayerStats: Record<string, PlayerSeasonStat[]> = {
   "2026-27": [
     { name: "Abdoul Seye", apps: 2, goals: 0 },
     { name: "Alexander Howarth", apps: 1, goals: 0 },
-    { name: "Alfie Earith", apps: 6, goals: 2 },
+    { name: "Alfie Earith", apps: 7, goals: 3 },
     { name: "Ally Harrison-Virani", apps: 1, goals: 0 },
     { name: "Arjun Takiar", apps: 2, goals: 0 },
     { name: "Augustus Benne", apps: 1, goals: 0 },
-    { name: "Daniel Williams", apps: 4, goals: 1 },
-    { name: "Declan Hanks", apps: 6, goals: 1 },
-    { name: "Finn Manning", apps: 6, goals: 0 },
-    { name: "George Richardson", apps: 6, goals: 1 },
+    { name: "Daniel Williams", apps: 5, goals: 1 },
+    { name: "Declan Hanks", apps: 7, goals: 1 },
+    { name: "Finn Manning", apps: 7, goals: 0 },
+    { name: "George Richardson", apps: 7, goals: 1 },
     { name: "Georgie Kilroe", apps: 1, goals: 0 },
-    { name: "Ivan Otono", apps: 2, goals: 1 },
+    { name: "Ivan Otono", apps: 3, goals: 1 },
     { name: "Jack Heppell", apps: 2, goals: 1 },
     { name: "Jack Toft", apps: 3, goals: 0 },
-    { name: "Jacob Hodgson", apps: 2, goals: 0 },
-    { name: "Jake Bowers", apps: 4, goals: 0 },
-    { name: "Jake Eastham", apps: 6, goals: 0 },
-    { name: "Joshua Connolly", apps: 5, goals: 0 },
+    { name: "Jacob Hodgson", apps: 3, goals: 0 },
+    { name: "Jake Bowers", apps: 5, goals: 0 },
+    { name: "Jake Eastham", apps: 7, goals: 0 },
+    { name: "Joshua Connolly", apps: 6, goals: 0 },
     { name: "Leon Bergin", apps: 1, goals: 0 },
-    { name: "Matthew Joyce", apps: 6, goals: 0 },
+    { name: "Matthew Joyce", apps: 7, goals: 0 },
     { name: "Maxwell Berkeley", apps: 6, goals: 0 },
-    { name: "Mouhamadou Bamba Seye", apps: 2, goals: 0 },
-    { name: "Muhammad Abdullah Butt", apps: 4, goals: 1 },
-    { name: "Nelson Onwusiri", apps: 1, goals: 1 },
-    { name: "Philip Milsom", apps: 5, goals: 2 },
+    { name: "Mouhamadou Bamba Seye", apps: 3, goals: 0 },
+    { name: "Muhammad Abdullah Butt", apps: 5, goals: 2 },
+    { name: "Nelson Onwusiri", apps: 2, goals: 1 },
+    { name: "Philip Milsom", apps: 6, goals: 3 },
     { name: "Ruben Adrio", apps: 2, goals: 0 },
     { name: "Ryan Hibbert", apps: 3, goals: 0 },
     { name: "Tkai Myers-Jones", apps: 1, goals: 0 },
