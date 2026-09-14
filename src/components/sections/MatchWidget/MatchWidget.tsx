@@ -41,14 +41,16 @@ function parseFANextFixture(container: HTMLElement): NextMatch | null {
       lastDate = dateCell.textContent?.replace(/\s+/g, " ").trim() || null;
       continue;
     }
-    // Fixture row: style is on the <tr> itself
-    const style = row.getAttribute("style") || "";
-    if (!style.includes("#b3f0ff") || !lastDate) continue;
+    // Fixture row. FA highlights the row with "#b3f0ff" only for home
+    // fixtures — away rows are unstyled — so identify fixture rows by shape
+    // (team name + date present) rather than by that colour, or away
+    // matches get silently skipped.
+    if (!lastDate) continue;
 
     const anchors = Array.from(row.querySelectorAll("a")).map(
       (a) => a.textContent?.replace(/\s+/g, " ").trim() || ""
     );
-    if (anchors.length < 7) continue;
+    if (anchors.length < 6 || !anchors.includes("Bollington Town")) continue;
 
     const [, home, homeScore, , awayScore, away, venue] = anchors;
     if (homeScore || awayScore) continue; // already played or postponed
