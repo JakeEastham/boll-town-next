@@ -41,27 +41,27 @@ function parseFANextFixture(container: HTMLElement): NextMatch | null {
       lastDate = dateCell.textContent?.replace(/\s+/g, " ").trim() || null;
       continue;
     }
-    // Fixture row. FA highlights the row with "#b3f0ff" only for home
-    // fixtures — away rows are unstyled — so identify fixture rows by shape
-    // (team name + date present) rather than by that colour, or away
-    // matches get silently skipped.
-    if (!lastDate) continue;
+    // Fixture row: style is on the <tr> itself. This widget only surfaces
+    // the next HOME fixture, and "#b3f0ff" is FA's home-fixture highlight,
+    // so this doubles as the home/away filter.
+    const style = row.getAttribute("style") || "";
+    if (!style.includes("#b3f0ff") || !lastDate) continue;
 
     const anchors = Array.from(row.querySelectorAll("a")).map(
       (a) => a.textContent?.replace(/\s+/g, " ").trim() || ""
     );
-    if (anchors.length < 6 || !anchors.includes("Bollington Town")) continue;
+    if (anchors.length < 7) continue;
 
     const [, home, homeScore, , awayScore, away, venue] = anchors;
     if (homeScore || awayScore) continue; // already played or postponed
+    if (home !== "Bollington Town") continue; // away fixture, not wanted here
 
     const fixtureDate = parse(lastDate, "EEE dd MMM yyyy HH:mm", new Date());
     if (!isFuture(fixtureDate)) continue;
 
-    const isHome = home === "Bollington Town";
     return {
-      opponent: isHome ? away : home,
-      isHome,
+      opponent: away,
+      isHome: true,
       date: fixtureDate.toISOString(),
       venue: venue || undefined,
     };
@@ -265,7 +265,7 @@ export function NextMatchWidget({ match }: NextMatchWidgetProps) {
             {effectiveMatch.competition?.name || "League Match"}
           </p>
           <h2 className="font-display text-3xl md:text-4xl text-white uppercase tracking-wider mb-8">
-            Next Match
+            Next Home Fixture
           </h2>
 
           {/* Match Card */}

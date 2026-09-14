@@ -199,7 +199,7 @@ export const allMatchReportsQuery = groq`
 `;
 
 export const nextMatchQuery = groq`
-  *[_type == "match" && status == "scheduled" && date > now()] | order(date asc) [0] {
+  *[_type == "match" && status == "scheduled" && isHome == true && date > now()] | order(date asc) [0] {
     _id,
     date,
     competition-> {
