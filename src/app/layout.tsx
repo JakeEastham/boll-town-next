@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "https://bollingtontownfc.co.uk"
   ),
   title: {
-    default: "Bollington Town FC | The leading Football club in Bollington",
+    default: "Bollington Town FC | Cheshire League Premier Division Football",
     template: "%s | Bollington Town FC",
   },
   description:
-    "Official website of Bollington Town Football Club. Fixtures, results, news, and squad information for the leading football club in Bollington, Cheshire.",
+    "Official website of Bollington Town FC, competing in the Cheshire Football League Premier Division. Fixtures, results, news and squad information.",
   keywords: [
     "Bollington",
     "football",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "https://bollingtontownfc.co.uk",
     siteName: "Bollington Town FC",
-    title: "Bollington Town FC | Community Football in Bollington",
+    title: "Bollington Town FC | Cheshire League Premier Division Football",
     description:
       "Official website of Bollington Town Football Club. Fixtures, results, news, and squad information.",
     images: [
