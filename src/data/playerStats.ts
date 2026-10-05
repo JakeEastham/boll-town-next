@@ -10,7 +10,7 @@
  *  25/26  https://fulltime.thefa.com/displayTeam.html?divisionseason=793240729&teamID=312011849
  *  26/27  https://fulltime.thefa.com/index.html?divisionseason=423334312
  *
- * Last updated: 19 September 2026 (26/27 season in progress)
+ * Last updated: 26 September 2026 (26/27 season in progress)
  * Names normalised to "Firstname Surname" format throughout.
  */
 
@@ -257,38 +257,38 @@ export const seasonPlayerStats: Record<string, PlayerSeasonStat[]> = {
     { name: "Daniel Williams", apps: 25, goals: 4 },
   ],
 
-  // In progress — last updated 19 September 2026 (v Vulcan FC (A), lost 1-2, 22/08/26; v St Michaels DH (H), won 4-1, 25/08/26; v St Helens Reserves (H), league GW8, 05/09/26; v Moreton FC (H), Cheshire Cup R1, won 4-1, 12/09/26; v Skelmersdale Town (A), league, won 3-2, 19/09/26)
+  // In progress — last updated 26 September 2026 (v Vulcan FC (A), lost 1-2, 22/08/26; v St Michaels DH (H), won 4-1, 25/08/26; v St Helens Reserves (H), league GW8, 05/09/26; v Moreton FC (H), Cheshire Cup R1, won 4-1, 12/09/26; v Skelmersdale Town (A), league, won 3-2, 19/09/26; v Whalley Range FC (A), league, lost 3-5, 26/09/26)
   "2026-27": [
-    { name: "Abdoul Seye", apps: 4, goals: 0 },
+    { name: "Abdoul Seye", apps: 5, goals: 0 },
     { name: "Alexander Howarth", apps: 2, goals: 1 },
-    { name: "Alfie Earith", apps: 10, goals: 4 },
+    { name: "Alfie Earith", apps: 11, goals: 4 },
     { name: "Ally Harrison-Virani", apps: 1, goals: 0 },
     { name: "Arjun Takiar", apps: 3, goals: 0 },
     { name: "Augustus Benne", apps: 1, goals: 0 },
-    { name: "Daniel Williams", apps: 8, goals: 1 },
-    { name: "Declan Hanks", apps: 7, goals: 1 },
-    { name: "Finn Manning", apps: 8, goals: 0 },
+    { name: "Daniel Williams", apps: 9, goals: 1 },
+    { name: "Declan Hanks", apps: 8, goals: 1 },
+    { name: "Finn Manning", apps: 9, goals: 0 },
     { name: "George Richardson", apps: 10, goals: 2 },
-    { name: "Georgie Kilroe", apps: 4, goals: 0 },
+    { name: "Georgie Kilroe", apps: 5, goals: 0 },
     { name: "Ivan Otono", apps: 4, goals: 1 },
     { name: "Jack Heppell", apps: 2, goals: 1 },
-    { name: "Jack Toft", apps: 3, goals: 0 },
+    { name: "Jack Toft", apps: 4, goals: 0 },
     { name: "Jacob Hodgson", apps: 5, goals: 0 },
-    { name: "Jake Bowers", apps: 8, goals: 1 },
-    { name: "Jake Eastham", apps: 9, goals: 0 },
+    { name: "Jake Bowers", apps: 9, goals: 3 },
+    { name: "Jake Eastham", apps: 10, goals: 0 },
     { name: "Joshua Connolly", apps: 8, goals: 0 },
     { name: "Leon Bergin", apps: 1, goals: 0 },
-    { name: "Matthew Joyce", apps: 10, goals: 0 },
+    { name: "Matthew Joyce", apps: 11, goals: 0 },
     { name: "Maxwell Berkeley", apps: 6, goals: 0 },
-    { name: "Mouhamadou Bamba Seye", apps: 5, goals: 1 },
+    { name: "Mouhamadou Bamba Seye", apps: 6, goals: 2 },
     { name: "Muhammad Abdullah Butt", apps: 8, goals: 2 },
-    { name: "Nelson Onwusiri", apps: 3, goals: 1 },
+    { name: "Nelson Onwusiri", apps: 4, goals: 1 },
     { name: "Osvaldo Costa", apps: 3, goals: 0 },
-    { name: "Philip Milsom", apps: 8, goals: 3 },
+    { name: "Philip Milsom", apps: 9, goals: 3 },
     { name: "Ruben Adrio", apps: 2, goals: 0 },
-    { name: "Ryan Hibbert", apps: 5, goals: 0 },
+    { name: "Ryan Hibbert", apps: 6, goals: 0 },
     { name: "Tkai Myers-Jones", apps: 1, goals: 0 },
-    { name: "Xavi Llorente", apps: 3, goals: 2 },
+    { name: "Xavi Llorente", apps: 4, goals: 2 },
   ],
 };
 
