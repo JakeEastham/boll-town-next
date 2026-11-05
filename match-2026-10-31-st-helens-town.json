@@ -1,0 +1,69 @@
+{
+  "_id": "match-2026-10-31-st-helens-town",
+  "_type": "match",
+  "date": "2026-10-31T15:00:00.000Z",
+  "kickoff": "15:00",
+  "competition": {
+    "_type": "reference",
+    "_ref": "7fb0b970-d719-4e6f-a382-41786b8fe5d9"
+  },
+  "team": {
+    "_type": "reference",
+    "_ref": "0d997d69-27d3-4cd5-9c77-a9d496bebd26"
+  },
+  "opponent": "St Helens Town",
+  "isHome": false,
+  "venue": "Ruskin Sports Village",
+  "status": "fulltime",
+  "homeScore": 2,
+  "awayScore": 1,
+  "homeScorers": [
+    { "_key": "hs1", "name": "Charlie Dyer", "minutes": [] },
+    { "_key": "hs2", "name": "Alfie Simmons", "minutes": [] }
+  ],
+  "awayScorers": [
+    { "_key": "as1", "name": "Mouhamadou Bamba Seye", "minutes": ["Early"] }
+  ],
+  "homeLineup": [],
+  "homeSubs": [],
+  "awayLineup": [
+    { "_key": "al1", "badgeType": "none", "customName": "Osvaldo Costa" },
+    { "_key": "al2", "badgeType": "none", "customName": "Alfie Earith" },
+    { "_key": "al3", "badgeType": "none", "customName": "Jake Eastham" },
+    { "_key": "al4", "badgeType": "none", "customName": "Ryan Hibbert" },
+    { "_key": "al5", "badgeType": "none", "customName": "Matthew Joyce" },
+    { "_key": "al6", "badgeType": "none", "customName": "Xavi Llorente" },
+    { "_key": "al7", "badgeType": "none", "customName": "Finn Manning" },
+    { "_key": "al8", "badgeType": "none", "customName": "Philip Milsom" },
+    { "_key": "al9", "badgeType": "none", "customName": "Ivan Otono" },
+    { "_key": "al10", "badgeType": "none", "customName": "George Richardson" },
+    { "_key": "al11", "badgeType": "goal", "badgeText": "⚽", "customName": "Mouhamadou Bamba Seye" }
+  ],
+  "awaySubs": [
+    { "_key": "asu1", "badgeType": "none", "customName": "Joshua Connolly" },
+    { "_key": "asu2", "badgeType": "none", "customName": "Abdoul Seye" },
+    { "_key": "asu3", "badgeType": "none", "customName": "Daniel Williams" }
+  ],
+  "reportHeadline": "Bright start not enough as Town",
+  "reportHeadlineEmphasis": "fall 2-1 at St Helens Town",
+  "reportIntro": "Bollington Town took an early lead at Ruskin Sports Village through Mouhamadou Bamba Seye and were good value for it in a strong first half, but St Helens Town levelled shortly after the break, controlled much of the second half and struck again in the closing minutes to take the points.",
+  "firstHalfEvents": [
+    { "_key": "fh1", "minute": "Early", "type": "goal", "title": "Goal — Mouhamadou Bamba Seye", "description": "Town made a flying start. A slick passing move ended with **Xavi Llorente** picking out **Mouhamadou Bamba Seye**, who finished to put Bollington ahead. 0-1." },
+    { "_key": "fh2", "minute": "1st half", "type": "chance", "title": "Town Push for a Second", "description": "Bollington carried the momentum through the half and created several good openings to extend the lead." },
+    { "_key": "fh3", "minute": "1st half", "type": "save", "title": "Solid at the Back", "description": "When St Helens did come forward, Town's back line and **Matthew Joyce** stood firm to take a deserved lead into the break." }
+  ],
+  "secondHalfEvents": [
+    { "_key": "sh1", "minute": "Early 2nd half", "type": "opponent-goal", "title": "St Helens Level", "description": "The hosts came out strongly after the restart and drew level shortly after half time. 1-1." },
+    { "_key": "sh2", "minute": "2nd half", "type": "chance", "title": "St Helens Take Control", "description": "St Helens dominated possession for long spells as Town worked hard to hold their shape." },
+    { "_key": "sh3", "minute": "Late", "type": "opponent-goal", "title": "Late Winner for the Hosts", "description": "St Helens found the decisive goal in the final minutes to edge the game. 2-1." }
+  ],
+  "matchStats": [
+    { "_key": "stat1", "label": "Goals Scored", "value": "1" }
+  ],
+  "pullQuote": "A strong first-half display deserved more, but St Helens' second-half pressure told in the closing minutes.",
+  "matchVerdict": [
+    "Bollington Town started brightly at Ruskin Sports Village and took an early lead after a good team move, **Xavi Llorente** setting up **Mouhamadou Bamba Seye** to finish. Town were the stronger side in the first half, creating a few good chances and defending well to go in ahead.",
+    "St Helens Town came out strongly after the break and equalised shortly after half time. The hosts enjoyed most of the ball from there and found a late winner in the final minutes.",
+    "A frustrating end to the afternoon after an excellent first-half performance, but plenty of positives to build on."
+  ]
+}
